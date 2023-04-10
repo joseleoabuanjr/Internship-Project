@@ -1,0 +1,4 @@
+Inside of Core Folder
+- Navigation bar
+- Services
+- Models
