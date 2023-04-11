@@ -1,2 +1,0 @@
-Inside of Shared Folder
-- Reusable Components or objects or class
