@@ -1,0 +1,27 @@
+<div class="signup">
+  <form>
+    <div class="input">
+      <label>Frist Name</label>
+      <input type="text" name="firstName" [(ngModel)]="signUpObj.firstName">
+      <label>Last Name</label>
+      <input type="text" name="lastName" [(ngModel)]="signUpObj.lastName">
+      <label>Email</label>
+      <!-- <label>Username</label>
+      <input type="text" name="username" [(ngModel)]="signUpObj.userName">
+      <label>Email</label> -->
+      <input type="text" name="email" [(ngModel)]="signUpObj.email">
+      <label>Faculty ID Number</label>
+      <input type="text" name="id" [(ngModel)]="signUpObj.idNum">
+      <label>Phone</label>
+      <input type="text" name="phone" [(ngModel)]="signUpObj.phone">
+
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="signUpObj.password>
+      <label>Confirm Password</label>
+      <input type="password" name="password" [(ngModel)]="signUpObj.confirmpassword>
+
+      <input type="submit" value="Login" (click) = "onSignUp()">
+
+    </div>
+  </form>
+</div>
