@@ -8,3 +8,7 @@
 form{
   width: 500px;
 }
+.row-1{
+  display: flex;
+  justify-content: center;
+}
