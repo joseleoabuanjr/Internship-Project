@@ -1,14 +1,17 @@
 <form>
-  <div class="input">
-    <label>Username</label>
-    <input type="text" name="username">
-  </div>
-  <div class="input">
-    <label>Password</label>
-    <input type="password" name="password">
-  </div>
-  <div class="input">
-    <input type="submit" value="Login" (click) = "Loginuser()">
-  </div>
-</form>
+<div class="container">
+  <label>Username</label>
+  <input type="text" placeholder="Enter Username" name="username" required>
 
+  <label>Password</label>
+  <input type="password" placeholder="Enter Password" name="password" required>
+
+  <button type="submit">Login</button>
+  <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+</div>
+<div class="container">
+  <span class="psw">Forgot <a href="#">password?</a></span>
+</div>
+</form>
