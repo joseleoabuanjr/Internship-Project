@@ -6,7 +6,7 @@ import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   {
-    path: 'eoms',
+    path: 'landing',
     component: LandingComponent,
     children: [
       { path: 'login', component: LoginComponent },
