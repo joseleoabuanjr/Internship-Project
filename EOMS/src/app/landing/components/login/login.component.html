@@ -1,17 +1,39 @@
+<div class="close-button">
+  <a class="close-button-hyperlink" href="#">
+  <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+  </button>
+</a>
+</div>
+
+<div class="login-header">Log In</div>
+
+<div class="sign-up">
+  <span>New to this site? <a href="#">Sign Up</a></span>
+</div>
+
 <form>
-<div class="container">
-  <label>Username</label>
-  <input type="text" placeholder="Enter Username" name="username" required>
+  <div class="container">
 
-  <label>Password</label>
-  <input type="password" placeholder="Enter Password" name="password" required>
+    <mat-form-field class="input-full-width">
+      <mat-label>Username or Email</mat-label>
+      <input matInput placeholder="Username or Email" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" required>
+    </mat-form-field>
 
-  <button type="submit">Login</button>
-  <label>
-    <input type="checkbox" checked="checked" name="remember"> Remember me
-  </label>
-</div>
-<div class="container">
-  <span class="psw">Forgot <a href="#">password?</a></span>
-</div>
+    <div class="forgot-password">
+      <span>Forgot <a href="#">password?</a></span>
+    </div>
+
+    <button class="submit-button" type="submit">Log In</button>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    
+  </div>
+
 </form>
