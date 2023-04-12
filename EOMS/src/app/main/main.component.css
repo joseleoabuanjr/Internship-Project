@@ -1,0 +1,5 @@
+.mainc-container{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #fbc168, #fdc776, #ffc68b, #ffc8a0, #ffcbb3, #ffd0cf, #f7d9e3, #ede3ec, #ebebeb);
+}
