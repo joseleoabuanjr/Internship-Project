@@ -1,14 +1,15 @@
 .container
 {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  background-color: #fafafa;
 }
 form{
   width: 500px;
 }
-.row-1{
-  display: flex;
-  justify-content: center;
+.mat-field {
+  width: 100%;
 }

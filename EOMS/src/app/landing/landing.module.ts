@@ -12,7 +12,6 @@ import { MaterialModule } from '../shared/material/material.module';
     LandingComponent,
     LoginComponent,
     SignupComponent,
-
   ],
   imports: [
     CommonModule,
