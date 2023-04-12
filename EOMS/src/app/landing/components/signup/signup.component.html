@@ -1,8 +1,52 @@
 <div class="container">
-  <form formGroup="registerForm" (ngSubmit)="registerSubmitted()" class="border">
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
-  </form>
+  <div class="form-title">
+    <div>
+      <a href=""><mat-icon></mat-icon></a>
+    </div>
+    <h1>Signup</h1>
+  </div>
+  <div class="form-container">
+    <form formGroup="registerForm" (ngSubmit)="registerSubmitted()">
+      <mat-form-field class="mat-field">
+        <mat-label>First Name</mat-label>
+        <input matInput name="firstname">
+      </mat-form-field>
+
+      <mat-form-field class="mat-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput name="lastname">
+      </mat-form-field>
+
+      <mat-form-field class="mat-field">
+        <mat-label>Faculty ID</mat-label>
+        <input matInput name="faculty_id">
+      </mat-form-field>
+
+      <mat-form-field class="mat-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="mat-field">
+        <mat-label>Username</mat-label>
+        <input matInput name="username">
+      </mat-form-field>
+
+      <mat-form-field class="mat-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password">
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="btn">Submit</button>
+    </form>
+    <div class="d-flex justify-content-center w-100 mt-2">
+      <p>Already a member? <a [routerLink]="['../login']">Log In</a></p>
+    </div>
+  </div>
 </div>

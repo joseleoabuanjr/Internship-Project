@@ -1,15 +1,25 @@
-.container
-{
+.container{
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fafafa;
 }
 form{
-  width: 500px;
+  width: 100%;
+}
+.form-container{
+  width: 90%;
 }
 .mat-field {
+  width: 100%;
+}
+.form-title{
+  padding: 20px;
+}
+.btn{
+  padding: 25px;
+  font-size: 1.2rem;
+  background-color: #f2f2a3 !important;
   width: 100%;
 }

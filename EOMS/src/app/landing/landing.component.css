@@ -8,6 +8,7 @@
 }
 .forms-container{
   width: 500px;
-  height: 600px;
-  background-color: white;
+  height: auto;
+  background-color: #fafafa;
+  padding: 20px 20px 40px 20px;
 }
