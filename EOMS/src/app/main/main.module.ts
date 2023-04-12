@@ -4,7 +4,6 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
-import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { MaterialModule } from '../shared/material/material.module';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule,
-    MaterialModule
+    MainRoutingModule
   ]
 })
 export class MainModule { }
