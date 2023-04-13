@@ -52,7 +52,10 @@
         <mat-label>Username</mat-label>
         <input  matInput
                 formControlName="username">
-        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+        <mat-error *ngIf="signupForm.get('username')?.hasError('userv') && !signupForm.get('username')?.hasError('required')">
+          Username must be atleast 3 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
           Username is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -63,7 +66,10 @@
                 [type]="hide ? 'password' : 'text'"
                 formControlName="password">
                 <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+        <mat-error *ngIf="signupForm.get('password')?.hasError('passv') && !signupForm.get('password')?.hasError('required') && !signupForm.get('password')?.hasError('pattern')">
+          Password must be atleast 5 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
