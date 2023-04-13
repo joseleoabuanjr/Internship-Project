@@ -6,7 +6,7 @@
     <h1>Signup</h1>
   </div>
   <div class="form-container">
-    <form formGroup="registerForm" (ngSubmit)="registerSubmitted()">
+    <form [formGroup]="signupForm" (ngSubmit)="submit()">
       <mat-form-field class="mat-field">
         <mat-label>First Name</mat-label>
         <input matInput name="firstname">
@@ -25,12 +25,6 @@
       <mat-form-field class="mat-field">
         <mat-label>Email</mat-label>
         <input matInput type="email" name="email">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-field">
@@ -43,10 +37,17 @@
         <input matInput type="password" name="password">
       </mat-form-field>
 
-      <button mat-raised-button type="submit" class="btn">Submit</button>
+      <button mat-raised-button
+              type="submit"
+              class="btn"
+              [title]="signupForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!signupForm.valid">
+        Submit
+      </button>
     </form>
     <div class="d-flex justify-content-center w-100 mt-2">
       <p>Already a member? <a [routerLink]="['../login']">Log In</a></p>
     </div>
   </div>
 </div>
+{{signupForm.value | json}}
