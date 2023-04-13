@@ -7,6 +7,7 @@ import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { ProgramComponent } from './components/program/program.component';
 import { PartnersComponent } from './components/partners/partners.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
   declarations: [

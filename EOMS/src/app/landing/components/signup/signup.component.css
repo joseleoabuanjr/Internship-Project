@@ -1,5 +1,6 @@
 .container{
   height: 100%;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,10 +10,12 @@ form{
   width: 100%;
 }
 .form-container{
-  width: 90%;
+  width: 500px;
 }
 .mat-field {
   width: 100%;
+  font-size: 0.9rem !important;
+  margin-bottom: 5px;
 }
 .form-title{
   padding: 20px;
@@ -22,4 +25,7 @@ form{
   font-size: 1.2rem;
   background-color: #f2f2a3 !important;
   width: 100%;
+}
+.mat-error{
+  font-size: 12px !important;
 }

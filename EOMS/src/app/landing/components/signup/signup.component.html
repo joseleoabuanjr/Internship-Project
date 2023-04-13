@@ -12,16 +12,17 @@
         <input  matInput
                 formControlName="firstname">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          <p class="errormsg">First Name is <strong>required</strong></p>
+          First Name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+      <div class="space" *ngIf="signupForm.get('firstname')?.hasError('required')"></div>
 
       <mat-form-field class="mat-field">
         <mat-label>Last Name</mat-label>
         <input  matInput
                 formControlName="lastname">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          <p class="errormsg">Last Name is <strong>required</strong></p>
+          Last Name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -30,7 +31,7 @@
         <input  matInput
                 formControlName="faculty_id">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          <p class="errormsg">Faculty ID is <strong>required</strong></p>
+          Faculty ID is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -43,7 +44,7 @@
           Please enter a valid email address
         </mat-error>
         <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-          <p class="errormsg">Email is <strong>required</strong></p>
+          Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -52,7 +53,7 @@
         <input  matInput
                 formControlName="username">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          <p class="errormsg">Username is <strong>required</strong></p>
+          Username is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -63,7 +64,7 @@
                 formControlName="password">
                 <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          <p class="errormsg">Password is <strong>required</strong></p>
+          Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -82,6 +83,3 @@
 
   </div>
 </div>
-
-valid: {{signupForm.valid | json}}
-value: {{signupForm.value | json}}
