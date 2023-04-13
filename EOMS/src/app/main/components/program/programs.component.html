@@ -1,9 +1,62 @@
 <main>
-  <div class="container d-flex flex-column justify-content-center">
-    <div class="pro-title"><h1>PROGRAMS</h1></div>
+
+  <div class="form-title">
+    <p>Extension Programs</p>
   </div>
 
-  EOMS\src\assets\images\cict.png
+  <div class="container">
+    <button mat-raised-button color="primary">Create Extension Program</button>
+  </div>
 
+  <div class="header">
+    <p>Current and Upcoming Extension Programs</p>
+  </div>
+
+  <div class="cards-container">
+  <mat-card class="program-card">
+    <div class="text-block">
+      <p>Date and Time (Start/End)</p>
+    </div>
+    <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+    <mat-card-header class="description">
+      <mat-card-title>Program Title</mat-card-title>
+      <mat-card-subtitle>₱50.00</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button class="details-button"mat-button>See Details</button>
+    </mat-card-actions>
+    <mat-card-actions class="actions">
+      <button class="upload-button"mat-button>Upload Files</button>
+    </mat-card-actions>
+    <mat-card-actions class="actions">
+      <button class="assign-button"mat-button>Assign Members</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+
+  <div class="services">
+    <p>Our Services</p>
+  </div>
+
+  <div class="cards-container">
+    <mat-card class="program-card">
+      <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+      <mat-card-header class="description">
+        <mat-card-title>Service Title</mat-card-title>
+        <mat-card-subtitle>₱50.00</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <button class="book-button"mat-button>Book Now</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+<footer>
+    <p>© Extensions Office Management Sytstem, 2023</p>
+</footer>
 
 </main>
