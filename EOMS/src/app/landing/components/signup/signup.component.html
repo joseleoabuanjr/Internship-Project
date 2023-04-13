@@ -30,13 +30,13 @@
         <input  matInput
                 type="email"
                 formControlName="email">
+        <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
-      <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
 
       <mat-form-field class="mat-field">
         <mat-label>Username</mat-label>
