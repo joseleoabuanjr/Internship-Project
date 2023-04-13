@@ -9,32 +9,46 @@
     <form [formGroup]="signupForm" (ngSubmit)="submit()">
       <mat-form-field class="mat-field">
         <mat-label>First Name</mat-label>
-        <input matInput name="firstname">
+        <input  matInput
+                formControlName="firstname">
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Last Name</mat-label>
-        <input matInput name="lastname">
+        <input  matInput
+                formControlName="lastname">
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Faculty ID</mat-label>
-        <input matInput name="faculty_id">
+        <input  matInput
+                formControlName="faculty_id">
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Email</mat-label>
-        <input matInput type="email" name="email">
+        <input  matInput
+                type="email"
+                formControlName="email">
       </mat-form-field>
+      <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
 
       <mat-form-field class="mat-field">
         <mat-label>Username</mat-label>
-        <input matInput name="username">
+        <input  matInput
+                formControlName="username">
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Password</mat-label>
-        <input matInput type="password" name="password">
+        <input  matInput
+                type="password"
+                formControlName="password">
       </mat-form-field>
 
       <button mat-raised-button
@@ -50,4 +64,5 @@
     </div>
   </div>
 </div>
-{{signupForm.value | json}}
+valid: {{signupForm.valid | json}}
+value: {{signupForm.value | json}}
