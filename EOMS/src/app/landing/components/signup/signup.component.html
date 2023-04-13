@@ -12,7 +12,7 @@
         <input  matInput
                 formControlName="firstname">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
+          <p class="errormsg">First Name is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 
@@ -21,7 +21,7 @@
         <input  matInput
                 formControlName="lastname">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
+          <p class="errormsg">Last Name is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 
@@ -30,7 +30,7 @@
         <input  matInput
                 formControlName="faculty_id">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
+          <p class="errormsg">Faculty ID is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 
@@ -43,7 +43,7 @@
           Please enter a valid email address
         </mat-error>
         <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-          Email is <strong>required</strong>
+          <p class="errormsg">Email is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 
@@ -52,7 +52,7 @@
         <input  matInput
                 formControlName="username">
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
+          <p class="errormsg">Username is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 
@@ -63,7 +63,7 @@
                 formControlName="password">
                 <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
+          <p class="errormsg">Password is <strong>required</strong></p>
         </mat-error>
       </mat-form-field>
 

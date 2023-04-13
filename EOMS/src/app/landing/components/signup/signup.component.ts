@@ -15,14 +15,13 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      faculty_id: new FormControl(''),
+      firstname: new FormControl('',[Validators.required]),
+      lastname: new FormControl('',[Validators.required]),
+      faculty_id: new FormControl('',[Validators.required]),
       email:  new FormControl('', [Validators.required, Validators.email]),
-      username: new FormControl(''),
-      password: new FormControl('')
+      username: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     });
-    console.log(this.hide);
   }
 
   togglePasswordVisibility(): void {
@@ -32,7 +31,6 @@ export class SignupComponent implements OnInit {
   submit(): void {
     console.log('Saved: ' + JSON.stringify(this.signupForm.value));
   }
-
 }
 
 
