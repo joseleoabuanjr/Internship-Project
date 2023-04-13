@@ -1,59 +1,26 @@
-.close-button{
-  position: absolute;
-  padding-top: 3%;
-  padding-left: 3%;
-  color: black;
-  cursor: pointer;
-}
-
-.close-button-hyperlink{
-  color: inherit;
-  text-decoration: none;
-}
-
-.login-header{
-  text-align: center;
-  padding-top: 12%;
-  color: black;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.sign-up{
-  text-align: center;
-  padding-top: 30px;
-}
-
 .container{
-  padding-top: 30px;
-  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-input[type=text], input[type=password] {
+.form-title{
+  padding: 20px;
+}
+.form-container{
+  width: 300px;
+  padding: 20px;
+}
+form{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
 }
-
-.input-full-width {
+.mat-field {
   width: 100%;
 }
-
-.forgot-password{
-  text-align: left;
-  padding-top: 5px;
-  padding-bottom: 30px;
-}
-
-.submit-button{
-  background-color: #f2f2a3;
-  color: black;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+.btn{
+  padding: 25px;
+  font-size: 1.2rem;
+  background-color: #f2f2a3 !important;
   width: 100%;
 }

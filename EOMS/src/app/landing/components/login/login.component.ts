@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
-  username: string | undefined;
-  password: string | undefined;
+  loginForm!: FormGroup;
+
   constructor() {}
 
-  ngOnInit(){
-
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email:  new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('')
+    });
   }
-  Loginuser (){
-    if (this.username == "Admin" && this.password == "Admin123")
-    {
-      console.log("Welcome");
-    }
+
+  submit() {
+    console.log('Saved: ' + JSON.stringify(this.loginForm.value));
   }
 
 }

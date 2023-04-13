@@ -1,39 +1,38 @@
-<div class="close-button">
-  <a class="close-button-hyperlink" href="#">
-  <button mat-icon-button>
-      <mat-icon>close</mat-icon>
-  </button>
-</a>
-</div>
-
-<div class="login-header">Log In</div>
-
-<div class="sign-up">
-  <span>New to this site? <a href="#">Sign Up</a></span>
-</div>
-
-<form>
-  <div class="container">
-
-    <mat-form-field class="input-full-width">
-      <mat-label>Username or Email</mat-label>
-      <input matInput placeholder="Username or Email" required>
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-      <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" required>
-    </mat-form-field>
-
-    <div class="forgot-password">
-      <span>Forgot <a href="#">password?</a></span>
+<div class="container">
+  <div class="form-title">
+    <div>
+      <a href=""><mat-icon></mat-icon></a>
     </div>
-
-    <button class="submit-button" type="submit">Log In</button>
-
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-    
+    <h1>Log In</h1>
   </div>
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+ 
+    <mat-form-field class="mat-field">
+      <mat-label>Username or Email</mat-label>
+      <input  matInput
+              type="email"
+              formControlName="email">
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        Username or Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
+    <mat-form-field class="mat-field">
+      <mat-label>Password</mat-label>
+      <input  matInput
+              type="password"
+              formControlName="password">
+    </mat-form-field>
+
+    <button mat-raised-button
+    type="submit"
+    class="btn"
+    [title]="loginForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+    [disabled]="!loginForm.valid">
+Login
+</button>
 </form>
+
+  </div>
+</div>
