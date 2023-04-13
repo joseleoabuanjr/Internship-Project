@@ -26,6 +26,6 @@ form{
   background-color: #f2f2a3 !important;
   width: 100%;
 }
-.mat-error{
+mat-error{
   font-size: 12px !important;
 }

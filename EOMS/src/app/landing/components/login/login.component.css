@@ -17,10 +17,15 @@ form{
 }
 .mat-field {
   width: 100%;
+  font-size: 0.9rem !important;
+  margin-bottom: 5px;
 }
 .btn{
   padding: 25px;
   font-size: 1.2rem;
   background-color: #f2f2a3 !important;
   width: 100%;
+}
+mat-error{
+  font-size: 12px !important;
 }
