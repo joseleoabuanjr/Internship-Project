@@ -11,18 +11,27 @@
         <mat-label>First Name</mat-label>
         <input  matInput
                 formControlName="firstname">
+        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Last Name</mat-label>
         <input  matInput
                 formControlName="lastname">
+        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Faculty ID</mat-label>
         <input  matInput
                 formControlName="faculty_id">
+        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-field">
@@ -42,13 +51,20 @@
         <mat-label>Username</mat-label>
         <input  matInput
                 formControlName="username">
+        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-field">
         <mat-label>Password</mat-label>
         <input  matInput
-                type="password"
+                [type]="hide ? 'password' : 'text'"
                 formControlName="password">
+                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <button mat-raised-button
@@ -59,10 +75,13 @@
         Submit
       </button>
     </form>
+
     <div class="d-flex justify-content-center w-100 mt-2">
       <p>Already a member? <a [routerLink]="['../login']">Log In</a></p>
     </div>
+
   </div>
 </div>
+
 valid: {{signupForm.valid | json}}
 value: {{signupForm.value | json}}

@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
 export class SignupComponent implements OnInit {
+  hide:boolean = true;
   signupForm!: FormGroup;
 
   constructor(){}
@@ -21,9 +22,14 @@ export class SignupComponent implements OnInit {
       username: new FormControl(''),
       password: new FormControl('')
     });
+    console.log(this.hide);
   }
 
-  submit() {
+  togglePasswordVisibility(): void {
+    this.hide = !this.hide;
+  }
+
+  submit(): void {
     console.log('Saved: ' + JSON.stringify(this.signupForm.value));
   }
 
