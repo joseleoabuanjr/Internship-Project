@@ -22,6 +22,13 @@
           <div class="nav-item">
             <a href="">Accounts</a>
           </div>
+          <div>
+            <button mat-button [matMenuTriggerFor]="menu">User</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>Account</button>
+                <button mat-menu-item>Logout</button>
+              </mat-menu>
+          </div>
         </div>
       </div>
     </div>
