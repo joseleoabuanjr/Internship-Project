@@ -6,7 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { PartnersComponent } from './components/partners/partners.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
-import { ProgramsComponent } from './components/program/programs.component';
+import { ProgramsComponent } from './components/programs/programs.component';
 import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({

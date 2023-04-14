@@ -4,7 +4,7 @@ import { MainComponent } from './main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { PartnersComponent } from './components/partners/partners.component';
-import { ProgramsComponent } from './components/program/programs.component';
+import { ProgramsComponent } from './components/programs/programs.component';
 
 
 const routes: Routes = [
