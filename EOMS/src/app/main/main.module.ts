@@ -9,6 +9,7 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { ProgramsComponent } from './components/programs/programs.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReportsComponent } from './components/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     ProgramsComponent,
     PartnersComponent,
-    AccountsComponent
+    AccountsComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,
