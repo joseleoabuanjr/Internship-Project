@@ -29,6 +29,36 @@
     </mat-form-field>
   </form>
 
+  <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
+    <mat-form-field class="mat-field">
+      <mat-label>Name</mat-label>
+      <input  matInput
+              formControlName="name">
+      <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Position</mat-label>
+      <input  matInput
+              formControlName="position">
+      <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        Position is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+
+    <button mat-raised-button
+              type="submit"
+              class="btn"
+              [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!addPartner.valid">
+        Submit
+      </button>
+  </form>
+
   <mat-card class="program-card">
     <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
     <mat-card-header>
@@ -40,6 +70,4 @@
   <div class="header">
     <p>Our Clients</p>
   </div>
-
-
 </main>

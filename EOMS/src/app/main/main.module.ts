@@ -8,6 +8,7 @@ import { PartnersComponent } from './components/partners/partners.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { ProgramsComponent } from './components/programs/programs.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MaterialModule } from '../shared/material/material.module';
     CommonModule,
     MainRoutingModule,
     MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }
