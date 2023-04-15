@@ -1,16 +1,27 @@
-.container{
+.grid-container{
   height: 100%;
   padding: 40px;
-  display: flex;
+  display: inline-grid;
   justify-content: center;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
   flex-direction: column;
 }
+
+#logo{
+  margin-right: 10rem;
+  width: 350px;
+  height: 350px;
+}
+
 form{
   width: 100%;
 }
 .form-container{
   width: 500px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rem;
 }
 .mat-field {
   width: 100%;
@@ -23,7 +34,7 @@ form{
 .btn{
   padding: 25px;
   font-size: 1.2rem;
-  background-color: #f2f2a3 !important;
+  background-color: #816E7C !important;
   width: 100%;
 }
 mat-error{
