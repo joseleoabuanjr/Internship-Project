@@ -1,5 +1,45 @@
 <main>
-  <div class="container d-flex flex-column justify-content-center">
-    <div class="p-title"><h1>PARTNERS</h1></div>
+
+  <div class="form-title">
+    <p>Manage Partners</p>
   </div>
+
+  <div class="container">
+    <button mat-raised-button color="primary">Add Extension Partners +</button>
+  </div>
+
+  <div class="header">
+    <p>Partners</p>
+  </div>
+
+  <div class="dropdown">
+    <button mat-button [matMenuTriggerFor]="menu">Filter<span class="material-icons">arrow_drop_down</span></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>New Partners</button>
+        <button mat-menu-item>By Date</button>
+      </mat-menu>
+    </div>
+
+  <p class="search">Search</p>
+  <form class="searchbar">
+    <mat-form-field class="searchfield">
+      <mat-label>Extension Program Titles</mat-label>
+      <mat-icon matSuffix>search</mat-icon>
+      <input type="text" matInput placeholder="Ex: Accenture ATA">
+    </mat-form-field>
+  </form>
+
+  <mat-card class="program-card">
+    <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+    <mat-card-header>
+      <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
+      <mat-card-subtitle class="position">Founder & CEO</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="header">
+    <p>Our Clients</p>
+  </div>
+
+
 </main>
