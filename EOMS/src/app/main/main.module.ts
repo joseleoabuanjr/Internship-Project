@@ -10,6 +10,7 @@ import { ProgramsComponent } from './components/programs/programs.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReportsComponent } from './components/reports/reports.component';
+import { UserlistComponent } from './components/userlist/userlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReportsComponent } from './components/reports/reports.component';
     ProgramsComponent,
     PartnersComponent,
     AccountsComponent,
-    ReportsComponent
+    ReportsComponent,
+    UserlistComponent
   ],
   imports: [
     CommonModule,
