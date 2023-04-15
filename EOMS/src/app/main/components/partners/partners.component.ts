@@ -15,10 +15,23 @@ export class PartnersComponent implements OnInit {
     this.addPartner = new FormGroup({
       name: new FormControl('',[Validators.required]),
       position: new FormControl('',[Validators.required]),
-      faculty_id: new FormControl('',[Validators.required])
+      logo: new FormControl('',[Validators.required])
+
     });
 }
 submit(): void {
   console.log('Saved: ' + JSON.stringify(this.addPartner.value));
 }
+url="./assets/images/cict.png"
+
+onselectFile(logo: any){
+  if(logo.target.files){
+    var reader = new FileReader();
+    reader.readAsDataURL(logo.target.files[0]);
+    reader.onload=(event:any)=>{
+      this.url=event.target.result;
+    }
+  }
+}
+
 }

@@ -30,6 +30,27 @@
   </form>
 
   <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
+
+    <!-- <mat-form-field class="mat-field">
+      <mat-label>Logo</mat-label>
+      <img [src]="url" height="200"><br>
+      <input  type="file"
+               (change)="onselectFile($event)">
+      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('logo')?.hasError('required')"></div> -->
+
+    <mat-label>Logo</mat-label>
+    <img [src]="url" height="200"><br>
+      <input  type="file"
+              formControlName="logo" (change)="onselectFile($event)">
+      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        Image is <strong>required</strong>
+        </mat-error>
+    <div class="space" *ngIf="addPartner.get('logo')?.hasError('required')"></div>
+
     <mat-form-field class="mat-field">
       <mat-label>Name</mat-label>
       <input  matInput
