@@ -1,5 +1,63 @@
 <main>
-  <div class="container d-flex flex-column justify-content-center">
-    <div class="acc-title"><h1>ACCOUNTS</h1></div>
+
+  <div class="form-title">
+    <p>Manage Accounts</p>
   </div>
+  
+  <div class="dropdown">
+    <button mat-button [matMenuTriggerFor]="menu">All Members<span class="material-icons">arrow_drop_down</span></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Male Faculty</button>
+        <button mat-menu-item>Female Faculty</button>
+      </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">Sort By<span class="material-icons">arrow_drop_down</span></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Default</button>
+      <button mat-menu-item>Position</button>
+      <button mat-menu-item>Specialization</button>
+    </mat-menu>
+  </div>
+  
+  <div class="organizer1">
+    <button mat-button><mat-icon>apps</mat-icon></button>
+  </div>
+  <div class="organizer2">
+    <button mat-button><mat-icon>format_list_bulleted</mat-icon></button>
+  </div>
+
+  <form class="searchbar">
+    <mat-form-field class="searchfield">
+      <mat-label>Find a member</mat-label>
+      <mat-icon matSuffix>search</mat-icon>
+      <input type="text" matInput placeholder="Ex: Juan Dela Cruz">
+    </mat-form-field>
+  </form>
+
+  <div class="menu1">
+    <button class="manage" mat-raised-button>Manage Accounts</button>
+  </div>
+  <div class="menu2">
+  <button class="approvals" mat-raised-button>Registration Approvals</button>
+  </div>
+
+    <mat-card class="program-card">
+      <button class="menu3" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Manage Account</button>
+        <button mat-menu-item>See Details</button>
+      </mat-menu>
+      <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+      <mat-card-header>
+        <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
+        <mat-card-subtitle class="usertype"><mat-icon class="stars">stars</mat-icon>Admin</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <button class="details-button"mat-button>See Details</button>
+      </mat-card-actions>
+    </mat-card>
+
 </main>

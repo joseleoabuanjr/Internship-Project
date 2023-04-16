@@ -1,0 +1,52 @@
+<main>
+
+    <div class="form-title">
+      <p>Program Reports</p>
+    </div>
+  
+    <div class="container">
+      <button mat-raised-button color="primary">Generate Report</button>
+    </div>
+  
+    <div class="header">
+      <p>Extension Partners Status List</p>
+    </div>
+
+    <div class="export">
+        <button mat-raised-button><mat-icon>save_alt</mat-icon>Generate Report</button>
+    </div>
+
+    <p class="report">Report List</p>
+    <div class="dropdown">
+        <button mat-button [matMenuTriggerFor]="menu">Extension Partners Status List<span class="material-icons">arrow_drop_down</span></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Option1</button>
+            <button mat-menu-item>Option2</button>
+          </mat-menu>
+    </div>
+
+    <div class="dropdown2">
+        <button mat-button [matMenuTriggerFor]="menu">Filter Reports<span class="material-icons">arrow_drop_down</span></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Option1</button>
+            <button mat-menu-item>Option2</button>
+          </mat-menu>
+    </div>
+
+    <p class="search">Search</p>
+    <form class="searchbar">
+      <mat-form-field class="searchfield">
+        <mat-label>Extension Program Titles</mat-label>
+        <mat-icon matSuffix>search</mat-icon>
+        <input type="text" matInput placeholder="Ex: Accenture ATA">
+      </mat-form-field>
+    </form>
+  
+        <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+        <mat-card-header>
+          <mat-card-title class="name">ACCENTURE</mat-card-title>
+          <mat-card-subtitle class="date">2023-03-26</mat-card-subtitle>
+            <button class="details-button"mat-button>See Details</button>
+        </mat-card-header>
+
+</main>

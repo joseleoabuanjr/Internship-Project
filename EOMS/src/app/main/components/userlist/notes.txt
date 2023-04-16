@@ -1,0 +1,1 @@
+This component is just an example to show the user in database

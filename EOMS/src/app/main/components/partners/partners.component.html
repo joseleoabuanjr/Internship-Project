@@ -1,5 +1,83 @@
 <main>
-  <div class="container d-flex flex-column justify-content-center">
-    <div class="p-title"><h1>PARTNERS</h1></div>
+
+  <div class="form-title">
+    <p>Manage Partners</p>
+  </div>
+
+  <div class="container">
+    <button mat-raised-button color="primary">Add Extension Partners +</button>
+  </div>
+
+  <div class="header">
+    <p>Partners</p>
+  </div>
+
+  <div class="dropdown">
+    <button mat-button [matMenuTriggerFor]="menu">Filter<span class="material-icons">arrow_drop_down</span></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>New Partners</button>
+        <button mat-menu-item>By Date</button>
+      </mat-menu>
+    </div>
+
+  <p class="search">Search</p>
+  <form class="searchbar">
+    <mat-form-field class="searchfield">
+      <mat-label>Extension Program Titles</mat-label>
+      <mat-icon matSuffix>search</mat-icon>
+      <input type="text" matInput placeholder="Ex: Accenture ATA">
+    </mat-form-field>
+  </form>
+
+  <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
+    <mat-label>Logo</mat-label>
+    <img [src]="url" height="200"><br>
+      <input  type="file"
+              formControlName="logo" (change)="onselectFile($event)">
+      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        Image is <strong>required</strong>
+        </mat-error>
+    <div class="space" *ngIf="addPartner.get('logo')?.hasError('required')"></div>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Name</mat-label>
+      <input  matInput
+              formControlName="name">
+      <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Position</mat-label>
+      <input  matInput
+              formControlName="position">
+      <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        Position is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+
+    <button mat-raised-button
+              type="submit"
+              class="btn"
+              [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!addPartner.valid">
+        Submit
+      </button>
+  </form>
+<div class="partners">
+  <mat-card class="program-card" *ngFor="let obj of partners">
+    <img  [src]="obj.url" alt="CICT Logo">
+    <mat-card-header>
+      <mat-card-title class="name">{{obj.name}}</mat-card-title>
+      <mat-card-subtitle class="position">{{obj.position}} </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+</div>
+  <div class="header">
+    <p>Our Clients</p>
   </div>
 </main>
