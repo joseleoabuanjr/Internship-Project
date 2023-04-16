@@ -26,7 +26,6 @@ submit(): void {
 
   this.partners.push(this.addPartner.value)
 
-
 }
 url="./assets/images/cict.png"
 
@@ -39,5 +38,11 @@ onselectFile(logo: any){
     }
   }
 }
+
+dis: any
+show(){
+  this.dis ="inline"
+}
+
 
 }

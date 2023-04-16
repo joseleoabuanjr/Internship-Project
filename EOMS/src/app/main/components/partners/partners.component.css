@@ -68,4 +68,7 @@ img{
 .partners{
   display: flex;
 }
+.partner-form{
+  display: none;
+}
 
