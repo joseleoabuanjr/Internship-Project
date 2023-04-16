@@ -30,18 +30,6 @@
   </form>
 
   <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
-
-    <!-- <mat-form-field class="mat-field">
-      <mat-label>Logo</mat-label>
-      <img [src]="url" height="200"><br>
-      <input  type="file"
-               (change)="onselectFile($event)">
-      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-        Image is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <div class="space" *ngIf="addPartner.get('logo')?.hasError('required')"></div> -->
-
     <mat-label>Logo</mat-label>
     <img [src]="url" height="200"><br>
       <input  type="file"
@@ -79,15 +67,16 @@
         Submit
       </button>
   </form>
-
-  <mat-card class="program-card">
-    <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+<div class="partners">
+  <mat-card class="program-card" *ngFor="let obj of partners">
+    <img  [src]="obj.url" alt="CICT Logo">
     <mat-card-header>
-      <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
-      <mat-card-subtitle class="position">Founder & CEO</mat-card-subtitle>
+      <mat-card-title class="name">{{obj.name}}</mat-card-title>
+      <mat-card-subtitle class="position">{{obj.position}} </mat-card-subtitle>
     </mat-card-header>
   </mat-card>
 
+</div>
   <div class="header">
     <p>Our Clients</p>
   </div>

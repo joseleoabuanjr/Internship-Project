@@ -38,9 +38,6 @@
   font-size: 12px;
 }
 .program-card{
-  position: absolute;
-  margin-top: 50px;
-  margin-left: 25%;
   width: 200px
 }
 img{
@@ -67,5 +64,8 @@ img{
 }
 .form-container{
   width: 500px;
+}
+.partners{
+  display: flex;
 }
 
