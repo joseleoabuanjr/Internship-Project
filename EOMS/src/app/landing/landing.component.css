@@ -1,7 +1,7 @@
 .land-container{
   width: 100%;
   height: 100vh;
-  background-color: bisque;
+  background-image: linear-gradient(to right, #FBBB62 , #FFFFF6, #FFFFF6, #816E7C);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +52,5 @@
 .forms-item{
   width: auto;
   height: auto;
-  background-color: #fafafa;
 }
 

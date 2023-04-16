@@ -1,11 +1,12 @@
-<div class="container">
+<div class="grid-container">
   <div class="form-title">
     <div>
-      <a href=""><mat-icon></mat-icon></a>
+      <img id="logo" src="../../../assets/images/cict.png">
     </div>
-    <h1>Signup</h1>
+
   </div>
   <div class="form-container">
+    <h1 align="center">Signup</h1>
     <form [formGroup]="signupForm" (ngSubmit)="submit()">
       <mat-form-field class="mat-field">
         <mat-label>First Name</mat-label>
