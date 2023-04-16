@@ -1,89 +1,87 @@
-<div class="grid-container">
-  <div class="form-title">
+<div class="form-title">
 
+</div>
+<div class="form-container">
+  <h1 class="titles">Signup</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="submit()">
+    <mat-form-field class="mat-field">
+      <mat-label>First Name</mat-label>
+      <input  matInput
+              formControlName="firstname">
+      <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+        First Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="signupForm.get('firstname')?.hasError('required')"></div>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Last Name</mat-label>
+      <input  matInput
+              formControlName="lastname">
+      <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+        Last Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Faculty ID</mat-label>
+      <input  matInput
+              formControlName="faculty_id">
+      <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
+        Faculty ID is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Email</mat-label>
+      <input  matInput
+              type="email"
+              formControlName="email">
+      <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Username</mat-label>
+      <input  matInput
+              formControlName="username">
+      <mat-error *ngIf="signupForm.get('username')?.hasError('userv') && !signupForm.get('username')?.hasError('required')">
+        Username must be atleast 3 characters
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-field">
+      <mat-label>Password</mat-label>
+      <input  matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password">
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('passv') && !signupForm.get('password')?.hasError('required') && !signupForm.get('password')?.hasError('pattern')">
+        Password must be atleast 5 characters
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button
+            type="submit"
+            class="btn"
+            [title]="signupForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+            [disabled]="!signupForm.valid">
+      Submit
+    </button>
+  </form>
+
+  <div class="d-flex justify-content-center w-100 mt-2">
+    <p>Already a member? <a [routerLink]="['../login']">Log In</a></p>
   </div>
-  <div class="form-container">
-    <h1 class="titles">Signup</h1>
-    <form [formGroup]="signupForm" (ngSubmit)="submit()">
-      <mat-form-field class="mat-field">
-        <mat-label>First Name</mat-label>
-        <input  matInput
-                formControlName="firstname">
-        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          First Name is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <div class="space" *ngIf="signupForm.get('firstname')?.hasError('required')"></div>
 
-      <mat-form-field class="mat-field">
-        <mat-label>Last Name</mat-label>
-        <input  matInput
-                formControlName="lastname">
-        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          Last Name is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Faculty ID</mat-label>
-        <input  matInput
-                formControlName="faculty_id">
-        <mat-error *ngIf="signupForm.get('firstname')?.hasError('required')">
-          Faculty ID is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Email</mat-label>
-        <input  matInput
-                type="email"
-                formControlName="email">
-        <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Username</mat-label>
-        <input  matInput
-                formControlName="username">
-        <mat-error *ngIf="signupForm.get('username')?.hasError('userv') && !signupForm.get('username')?.hasError('required')">
-          Username must be atleast 3 characters
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
-          Username is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Password</mat-label>
-        <input  matInput
-                [type]="hide ? 'password' : 'text'"
-                formControlName="password">
-                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        <mat-error *ngIf="signupForm.get('password')?.hasError('passv') && !signupForm.get('password')?.hasError('required') && !signupForm.get('password')?.hasError('pattern')">
-          Password must be atleast 5 characters
-        </mat-error>
-        <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <button mat-raised-button
-              type="submit"
-              class="btn"
-              [title]="signupForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-              [disabled]="!signupForm.valid">
-        Submit
-      </button>
-    </form>
-
-    <div class="d-flex justify-content-center w-100 mt-2">
-      <p>Already a member? <a [routerLink]="['../login']">Log In</a></p>
-    </div>
-
-  </div>
 </div>

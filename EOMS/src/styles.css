@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&display=swap');
+
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 1rem; }
+body { margin: 0; font-family: 'futura light bt', 'Jost', 'HelveticaLt', 'Inter', 'Avenir Regular', 'Avenir Light', 'Montserrat', sans-serif; font-size: 1rem; }
+
+@font-face {
+  font-family: 'futura light bt';
+  src: local('futura light bt');
+}
+@font-face {
+  font-family: 'HelveticaLt';
+  src: local('HelveticaLt');
+}
+@font-face {
+  font-family: 'Avenir Regular';
+  src: local('Avenir Regular');
+}
+@font-face {
+  font-family: 'Avenir Light';
+  src: local('Avenir Light');
+}
