@@ -7,6 +7,12 @@
   flex-direction: column;
 }
 
+.titles{
+  font-family: 'futura light bt', 'Jost', sans-serif;
+  font-size: 3.7em;
+  text-align: center;
+}
+
 #logo{
   margin-right: 10rem;
   width: 350px;
