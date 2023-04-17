@@ -4,11 +4,14 @@ import { MainComponent } from './main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { PartnersComponent } from './components/partners/partners.component';
-import { ProgramsComponent } from './components/programs/programs.component';
+import { ProgramsComponent } from './components/subpages/programs/programs.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
-import { ApprovalsComponent } from './components/approvals/approvals.component';
+import { ApprovalsComponent } from './components/subpages/approvals/approvals.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CreateComponent } from './components/create/create.component';
+import { AddComponent } from './components/add/add.component';
+import { GenerateComponent } from './components/generate/generate.component';
 
 const routes: Routes = [
   {
@@ -22,7 +25,10 @@ const routes: Routes = [
       { path: 'reports', component: ReportsComponent },
       { path: 'userslist', component: UserlistComponent},
       { path: 'approvals', component: ApprovalsComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: 'profile', component: ProfileComponent},
+      { path: 'create', component: CreateComponent},
+      { path: 'add', component: AddComponent},
+      { path: 'generate', component: GenerateComponent}
     ],
   }
 ]
