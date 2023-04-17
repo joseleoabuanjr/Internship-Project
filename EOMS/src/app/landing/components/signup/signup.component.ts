@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Users } from 'src/app/core/models/users';
+import { UserDataService } from 'src/app/core/services/user-data.service';
 
 function validUser(c:AbstractControl): { [key: string]:boolean } | null {
   if (!(c.value.length >= 3)){
@@ -23,8 +26,13 @@ function validPass(c:AbstractControl): { [key: string]:boolean } | null {
 export class SignupComponent implements OnInit {
   hide:boolean = true;
   signupForm!: FormGroup;
+  vals = ''
+  data= this.vals.split(',');
 
-  constructor(){}
+  constructor(
+    private router: Router,
+    private userService: UserDataService
+  ){}
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
@@ -42,7 +50,14 @@ export class SignupComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('Saved: ' + JSON.stringify(this.signupForm.value));
+    this.userService.createUser(this.signupForm.value).subscribe({
+      next: (data)=>{
+        console.log('response: '+ JSON.stringify(data));
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 }
 

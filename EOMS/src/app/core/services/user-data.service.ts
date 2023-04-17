@@ -13,4 +13,9 @@ export class UserDataService {
   getUsers() {
     return this.http.get<Users[]>(this.baseUrl+'view.php');
   }
+
+  createUser(user: Users){
+    return this.http.post<Users[]>(this.baseUrl+'insert.php', user);
+  }
+
 }
