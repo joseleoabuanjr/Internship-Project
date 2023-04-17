@@ -18,18 +18,20 @@
 
     <p class="report">Report List</p>
     <div class="dropdown">
-        <button mat-button [matMenuTriggerFor]="menu">Extension Partners Status List<span class="material-icons">arrow_drop_down</span></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Option1</button>
-            <button mat-menu-item>Option2</button>
+        <button mat-button [matMenuTriggerFor]="statuslist">Extension Partners Status List<span class="material-icons">arrow_drop_down</span></button>
+          <mat-menu #statuslist="matMenu">
+            <button mat-menu-item>Accomplished</button>
+            <button mat-menu-item>Ongoing</button>
+            <button mat-menu-item>Not Started</button>
+            <button mat-menu-item>Cancelled</button>
           </mat-menu>
     </div>
 
     <div class="dropdown2">
-        <button mat-button [matMenuTriggerFor]="menu">Filter Reports<span class="material-icons">arrow_drop_down</span></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Option1</button>
-            <button mat-menu-item>Option2</button>
+        <button mat-button [matMenuTriggerFor]="filter">Filter Reports<span class="material-icons">arrow_drop_down</span></button>
+          <mat-menu #filter="matMenu">
+            <button mat-menu-item>By Date</button>
+            <button mat-menu-item>By Progress</button>
           </mat-menu>
     </div>
 
