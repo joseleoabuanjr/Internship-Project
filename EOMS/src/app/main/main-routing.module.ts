@@ -8,6 +8,7 @@ import { ProgramsComponent } from './components/programs/programs.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { ApprovalsComponent } from './components/approvals/approvals.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'programs', component: ProgramsComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'userslist', component: UserlistComponent},
-      { path: 'approvals', component: ApprovalsComponent}
+      { path: 'approvals', component: ApprovalsComponent},
+      { path: 'profile', component: ProfileComponent}
     ],
   }
 ]

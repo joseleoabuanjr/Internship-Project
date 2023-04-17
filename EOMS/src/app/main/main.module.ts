@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { ApprovalsComponent } from './components/approvals/approvals.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ApprovalsComponent } from './components/approvals/approvals.component';
     ReportsComponent,
     UserlistComponent,
     ApprovalsComponent,
+    ProfileComponent,
   ],
 
   imports: [
