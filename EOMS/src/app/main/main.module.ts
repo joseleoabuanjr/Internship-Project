@@ -13,9 +13,9 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { ApprovalsComponent } from './components/subpages/approvals/approvals.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CreateComponent } from './components/create/create.component';
-import { AddComponent } from './components/add/add.component';
-import { GenerateComponent } from './components/generate/generate.component';
+import { CreateComponent } from './components/subpages/create/create.component';
+import { AddComponent } from './components/subpages/add/add.component';
+import { GenerateComponent } from './components/subpages/generate/generate.component';
 
 @NgModule({
   declarations: [
