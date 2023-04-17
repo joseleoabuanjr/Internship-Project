@@ -11,6 +11,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
+import { ApprovalsComponent } from './components/approvals/approvals.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,10 @@ import { UserlistComponent } from './components/userlist/userlist.component';
     PartnersComponent,
     AccountsComponent,
     ReportsComponent,
-    UserlistComponent
+    UserlistComponent,
+    ApprovalsComponent,
   ],
+
   imports: [
     CommonModule,
     MainRoutingModule,
