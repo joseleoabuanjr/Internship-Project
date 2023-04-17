@@ -1,8 +1,7 @@
 <div class="form-title">
-    </div>
-    <div class="form-container">
-      <h1 class="titles">Log In</h1>
-      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <div class="form-container">
+    <h1 class="titles">Log In</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
       <mat-form-field class="mat-field">
         <mat-label>Username or Email</mat-label>
@@ -26,21 +25,18 @@
       </mat-form-field>
 
       <button mat-raised-button
-      type="submit"
-      class="btn"
-      [title]="loginForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-      [disabled]="!loginForm.valid">
-  Login
-  </button>
-    
-  <div class="d-flex  w-100 mt-2">
-    <p><a [routerLink]="['../forgotpassword']">Forgot Password? </a></p>
-  </div>
-  
-  </form>
+              type="submit"
+              class="btn"
+              [title]="loginForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </form>
 
-      <div class="d-flex justify-content-center w-100 mt-2">
-        <p>Don't have an Account? <a [routerLink]="['../signup']">Create</a></p>
-      </div>
+    <div class="d-flex justify-content-center w-100 mt-2">
+      <p>Don't have an Account? <a [routerLink]="['../signup']">Create</a></p>
+    </div>
+
+  </div>
 
 </div>

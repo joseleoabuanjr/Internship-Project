@@ -4,25 +4,15 @@
   text-align: center;
 }
 
-#logo{
-  margin-right: 10rem;
-  width: 350px;
-  height: 350px;
-}
-
-form{
-  width: 100%;
-}
 .form-container{
   width: 500px;
   justify-content: center;
   align-items: center;
-  margin-left: 10rem;
 }
 .mat-field {
-  width: 100%;
+  width: 70%;
   font-size: 0.9rem !important;
-  margin-bottom: 5px;
+  margin-left: 4.5rem;
 }
 .form-title{
   padding: 20px;
@@ -31,8 +21,10 @@ form{
   padding: 25px;
   font-size: 1.2rem;
   background-color: #816E7C !important;
-  width: 100%;
+  width: 70%;
+  margin-left: 4.5rem;
 }
 mat-error{
   font-size: 12px !important;
+  color: #D26466 !important;
 }

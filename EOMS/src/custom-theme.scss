@@ -9,6 +9,17 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+mat-form-field > input,
+.forms-item,
+.btn {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(8);
+  }
+}
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
