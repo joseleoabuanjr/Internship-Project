@@ -15,33 +15,49 @@
   <div class="partner-form" [style.Display]="dis">
     <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
 
-      <mat-form-field class="mat-field">
+      <!-- <mat-form-field class="mat-field">
         <mat-label>Start</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker"
+        formControlName="start">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          Image is <strong>required</strong>
+          Start Date is <strong>required</strong>
           </mat-error>
       </mat-form-field>
       <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
 
       <mat-form-field class="mat-field">
         <mat-label>End</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker"
+        formControlName="end">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          Image is <strong>required</strong>
+          End Date <strong>required</strong>
           </mat-error>
+      </mat-form-field>
+      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div> -->
+
+      <mat-form-field class="mat-field">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date"
+          formControlName="start">
+          <input matEndDate placeholder="End date"
+          formControlName="end">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
       <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
 
       <mat-label>Logo</mat-label>
       <img [src]="url" height="200"><br>
-        <input  type="file"
+        <input type="file" placeholder="Choose File"
                 formControlName="logo" (change)="onselectFile($event)">
         <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
           Image is <strong>required</strong>
@@ -51,7 +67,7 @@
       <mat-form-field class="mat-field">
         <mat-label>Program Title</mat-label>
         <input  matInput
-                formControlName="name">
+                formControlName="title">
         <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
           Program Title is <strong>required</strong>
         </mat-error>
@@ -61,7 +77,7 @@
       <mat-form-field class="mat-field">
         <mat-label>Fare</mat-label>
         <input  matInput
-                formControlName="position">
+                formControlName="fare">
         <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
           Fare is <strong>required</strong>
         </mat-error>

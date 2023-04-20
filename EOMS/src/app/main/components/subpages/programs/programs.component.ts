@@ -13,8 +13,10 @@ export class ProgramsComponent implements OnInit {
 
   ngOnInit(): void {
     this.addPartner = new FormGroup({
-      name: new FormControl('',[Validators.required]),
-      position: new FormControl('',[Validators.required]),
+      start: new FormControl('',[Validators.required]),
+      end: new FormControl('',[Validators.required]),
+      title: new FormControl('',[Validators.required]),
+      fare: new FormControl('',[Validators.required]),
       logo: new FormControl('',[Validators.required])
 
     });
