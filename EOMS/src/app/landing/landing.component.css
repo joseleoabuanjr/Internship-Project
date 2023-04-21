@@ -1,6 +1,6 @@
 .land-container{
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-image: linear-gradient(to right, #fbbb62, #f7ca7c, #f5d897, #f5e5b3, #f7f1d0, #f3e8cf, #ecdfcf, #e2d8cf, #cdbcb5, #b6a09f, #9d868d, #816e7c);
   display: flex;
   justify-content: center;
@@ -22,58 +22,30 @@
 .rectangle-container{
   margin-top: -7rem;
 }
-.rectangle1{
-  position: relative;
-  background-color: #816E7C;
-  width: 450px;
-  height: 130px;
-  margin: -10px 0px 0px 20px;
-}
-.rectangle2{
-  position: absolute;
-  background-color: #363535;
-  width: 130px;
-  height: 350px;
-  margin: 60px 0px 0px 30px;
-}
-.stick1{
-  position: absolute;
-  background-color: #363535;
-  width: 300px;
-  height: 3px;
-  margin: 0px 0px 350px 800px;
-}
-.stick2{
-  position: absolute;
-  background-color: #FFFFF6;
-  width: 300px;
-  height: 3px;
-  margin: 370px 230px 0px 0px;
-}
 .stick3{
   position: absolute;
   background-color: #363535;
-  width: 3px;
-  height: 350px;
-  margin: -70px 0px 0px 30px;
+  width: 0.188rem;
+  height: 18.75rem;
+  margin: -3rem 0rem 0rem 1.875rem;
 }
 .stick4{
   position: absolute;
   background-color: #FFFFF6;
-  width: 300px;
-  height: 3px;
-  margin: 900px 0px 0px 500px;
+  width: 18.75rem;
+  height: 0.188rem;
+  margin: 50rem 0rem 0rem 25rem;
 }
 .logo-items > img{
-  height: 23rem;
-  margin: .5rem 0rem 0rem 12rem;
+  height: 40rem;
+  margin: -5rem 0rem 0rem 9rem;
 }
 .logo-items > h2 {
   font-family: 'futura light bt', 'Jost', sans-serif;
-  font-size: 4rem !important;
+  font-size: 3.5rem !important;
   width: max-content;
   text-align: center;
-  margin: -15.5rem 7.5rem 0rem 19.5rem;
+  margin: 10rem 12.5rem -1rem 19.5rem;
 }
 .forms-container {
   width: 100%;
@@ -84,10 +56,9 @@
 }
 .forms-item{
   background-color: #FFFFF6;
-  display: flex;
-  position: absolute;
-  width: auto;
-  height: auto;
+  width: 30rem;
+  height: 42.656rem;
+  margin-right: 1rem;
 }
 .rectangol-form-container{
   width: 100%;
@@ -95,13 +66,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 7%;
 }
 .rectangol{
-  position: absolute;
   background-color: #816E7C;
   display: flex;
-  width: 500px;
-  height: 670px;
-  margin: 0px 250px 350px 0px;
+  width: 31.25rem;
+  height: 41.875rem;
+  margin: 12rem 9rem 21.875rem 0rem;
+}
+
+@media (max-width: 992px) or (orientation: portrait) {
+  .land-container{
+    flex-wrap: wrap;
+    background-image: linear-gradient(to bottom, #fbbb62, #f7ca7c, #f5d897, #f5e5b3, #f7f1d0, #f3e8cf, #ecdfcf, #e2d8cf, #cdbcb5, #b6a09f, #9d868d, #816e7c);
+  }
+  .forms-item{
+    width: 30rem;
+    height: auto;
+  }
+  .logo-items > img{
+    height: 30rem;
+    margin: 0rem 0rem 0rem 0rem;
+
+  }
+  .logo-items > h2{
+    font-size: 1rem;
+    margin: 10rem 0rem -3rem 0rem;
+  }
+}
+@media only screen and (max-width: 1395px) and (min-width: 992.01px) and (orientation: landscape){
+  .land-container{
+    flex-wrap: wrap;
+    background-image: linear-gradient(to bottom, #fbbb62, #f7ca7c, #f5d897, #f5e5b3, #f7f1d0, #f3e8cf, #ecdfcf, #e2d8cf, #cdbcb5, #b6a09f, #9d868d, #816e7c);
+  }
+  .forms-item{
+    margin-right: 1rem;
+  }
+  .logo-items > img{
+    height: 40rem;
+    margin: -5rem 0rem 0rem 1rem;
+  }
+  .logo-items > h2 {
+    margin: 10rem 12.5rem -1rem 19.5rem;
+  }
 }
