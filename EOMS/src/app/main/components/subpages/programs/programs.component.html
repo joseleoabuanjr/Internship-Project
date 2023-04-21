@@ -13,7 +13,7 @@
   </div>
 
   <div class="partner-form" [style.Display]="dis">
-    <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
+    <form [formGroup]="addProgram" (ngSubmit)="submit()" class="form-container">
 
       <!-- <mat-form-field class="mat-field">
         <mat-label>Start</mat-label>
@@ -53,56 +53,57 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
       <mat-label>Logo</mat-label>
       <img [src]="url" height="200"><br>
         <input type="file" placeholder="Choose File"
                 formControlName="logo" (change)="onselectFile($event)">
-        <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        <mat-error *ngIf="addProgram.get('logo')?.hasError('required')">
           Image is <strong>required</strong>
           </mat-error>
-      <div class="space" *ngIf="addPartner.get('logo')?.hasError('required')"></div>
+      <div class="space" *ngIf="addProgram.get('logo')?.hasError('required')"></div>
 
       <mat-form-field class="mat-field">
         <mat-label>Program Title</mat-label>
         <input  matInput
                 formControlName="title">
-        <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
           Program Title is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
       <mat-form-field class="mat-field">
         <mat-label>Fare</mat-label>
         <input  matInput
                 formControlName="fare">
-        <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
           Fare is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
       <button mat-raised-button
                 type="submit"
                 class="btn"
-                [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                [disabled]="!addPartner.valid">
+                [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                [disabled]="!addProgram.valid">
           Submit
         </button>
     </form>
   </div>
 
-  <div class="cards-container">
-  <mat-card class="program-card">
+  <div class="programs">
+  <mat-card class="program-card" *ngFor="let obj of programs">
     <div class="text-block">
-      <p>Date and Time (Start/End)</p>
+      <p>Start: {{obj.start}}</p>
+      <p>End: {{obj.end}}</p>
     </div>
-    <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+    <img mat-card-image [src]="url" alt="CICT Logo">
     <mat-card-header class="description">
-      <mat-card-title>Program Title</mat-card-title>
-      <mat-card-subtitle>₱50.00</mat-card-subtitle>
+      <mat-card-title>{{obj.title}}</mat-card-title>
+      <mat-card-subtitle>{{obj.fare}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
     </mat-card-content>
@@ -117,6 +118,7 @@
     </mat-card-actions>
   </mat-card>
   </div>
+
 
   <div class="services">
     <p>Our Services</p>

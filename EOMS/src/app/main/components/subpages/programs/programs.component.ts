@@ -7,12 +7,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./programs.component.css']
 })
 export class ProgramsComponent implements OnInit {
-  addPartner!: FormGroup;
+  addProgram!: FormGroup;
 
   constructor(){}
 
   ngOnInit(): void {
-    this.addPartner = new FormGroup({
+    this.addProgram = new FormGroup({
       start: new FormControl('',[Validators.required]),
       end: new FormControl('',[Validators.required]),
       title: new FormControl('',[Validators.required]),
@@ -37,11 +37,15 @@ show(){
   this.dis ="inline"
 }
 
-partners: any[]= []
+programs: any[]= []
 submit(): void {
-  console.log('Saved: ' + JSON.stringify(this.addPartner.value));
+  console.log('Saved: ' + JSON.stringify(this.addProgram.value));
 
-  this.partners.push(this.addPartner.value)
+  this.programs.push(this.addProgram.value)
+
+  if(this.addProgram.value.start <= this.addProgram.value.end){
+
+  }
 
 }
 }
