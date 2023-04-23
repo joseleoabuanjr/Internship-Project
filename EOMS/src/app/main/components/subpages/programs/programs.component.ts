@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProgramsComponent implements OnInit {
   addProgram!: FormGroup;
 
-  constructor(){ /* TODO document why this constructor is empty */ }
+  Date1 : Date = new Date();
 
   ngOnInit(): void {
     this.addProgram = new FormGroup({
