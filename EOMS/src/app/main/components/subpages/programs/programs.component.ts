@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProgramsComponent implements OnInit {
   addProgram!: FormGroup;
 
+  Date1 : Date = new Date();
+
   constructor(){}
 
   ngOnInit(): void {
@@ -43,8 +45,10 @@ submit(): void {
 
   this.programs.push(this.addProgram.value)
 
-  if(this.addProgram.value.start <= this.addProgram.value.end){
+  if(this.Date1 >= this.addProgram.value.end){
 
+    let deleteIn = this.programs.findIndex(s => s.end == this.Date1)
+    this.programs.splice(deleteIn)
   }
 
 }
