@@ -9,43 +9,46 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProgramsComponent implements OnInit {
   addProgram!: FormGroup;
 
-  constructor(){}
+  constructor(){ /* TODO document why this constructor is empty */ }
 
   ngOnInit(): void {
     this.addProgram = new FormGroup({
       start: new FormControl('',[Validators.required]),
       end: new FormControl('',[Validators.required]),
       title: new FormControl('',[Validators.required]),
-      fare: new FormControl('',[Validators.required]),
-      logo: new FormControl('',[Validators.required])
-
+      place: new FormControl('',[Validators.required]),
+      banner: new FormControl('',[Validators.required]),
+      uploadFiles: new FormControl('',[Validators.required]),
+      details: new FormControl('',[Validators.required]),
+      leadAndMembers: new FormControl('',[Validators.required]),
+      participants: new FormControl('',[Validators.required]),
     });
-}
-url="./assets/images/cict.png"
+  }
+  url="./assets/images/cict.png"
 
-onselectFile(logo: any){
-  if(logo.target.files){
-    var reader = new FileReader();
-    reader.readAsDataURL(logo.target.files[0]);
-    reader.onload=(event:any)=>{
-      this.url=event.target.result;
+  onselectFile(banner: any){
+    if(banner.target.files){
+      let reader = new FileReader();
+      reader.readAsDataURL(banner.target.files[0]);
+      reader.onload=(event:any)=>{
+        this.url=event.target.result;
+      }
     }
   }
-}
-dis: any
-show(){
-  this.dis ="inline"
-}
-
-programs: any[]= []
-submit(): void {
-  console.log('Saved: ' + JSON.stringify(this.addProgram.value));
-
-  this.programs.push(this.addProgram.value)
-
-  if(this.addProgram.value.start <= this.addProgram.value.end){
-
+  dis: any
+  show(){
+    this.dis ="inline"
   }
 
-}
+  programs: any[]= []
+  submit(): void {
+    console.log('Saved: ' + JSON.stringify(this.addProgram.value));
+
+    this.programs.push(this.addProgram.value)
+
+    if(this.addProgram.value.start <= this.addProgram.value.end){
+      // Placeholder
+    }
+
+  }
 }

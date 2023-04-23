@@ -1,97 +1,16 @@
 <main>
+  <div class="title-gradient-container">
+    <div class="form-title">
+      <p>Extension Programs</p>
+    </div>
 
-  <div class="form-title">
-    <p>Extension Programs</p>
-  </div>
-
-  <div class="container">
-    <button mat-raised-button color="primary"><a [routerLink]="['../create']">Create Extension Program</a></button>
+    <div class="container">
+      <button id="create-button" mat-raised-button color="primary"><a [routerLink]="['../create']">Create Extension Program</a></button>
+    </div>
   </div>
 
   <div class="header">
     <p>Current and Upcoming Extension Programs</p>
-  </div>
-
-  <div class="partner-form" [style.Display]="dis">
-    <form [formGroup]="addProgram" (ngSubmit)="submit()" class="form-container">
-
-      <!-- <mat-form-field class="mat-field">
-        <mat-label>Start</mat-label>
-        <input matInput [matDatepicker]="picker"
-        formControlName="start">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          Start Date is <strong>required</strong>
-          </mat-error>
-      </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-      <mat-form-field class="mat-field">
-        <mat-label>End</mat-label>
-        <input matInput [matDatepicker]="picker"
-        formControlName="end">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          End Date <strong>required</strong>
-          </mat-error>
-      </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div> -->
-
-      <mat-form-field class="mat-field">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date"
-          formControlName="start">
-          <input matEndDate placeholder="End date"
-          formControlName="end">
-        </mat-date-range-input>
-        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
-      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
-
-      <mat-label>Logo</mat-label>
-      <img [src]="url" height="200"><br>
-        <input type="file" placeholder="Choose File"
-                formControlName="logo" (change)="onselectFile($event)">
-        <mat-error *ngIf="addProgram.get('logo')?.hasError('required')">
-          Image is <strong>required</strong>
-          </mat-error>
-      <div class="space" *ngIf="addProgram.get('logo')?.hasError('required')"></div>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Program Title</mat-label>
-        <input  matInput
-                formControlName="title">
-        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-          Program Title is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
-
-      <mat-form-field class="mat-field">
-        <mat-label>Fare</mat-label>
-        <input  matInput
-                formControlName="fare">
-        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-          Fare is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
-
-      <button mat-raised-button
-                type="submit"
-                class="btn"
-                [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                [disabled]="!addProgram.valid">
-          Submit
-        </button>
-    </form>
   </div>
 
   <div class="programs">
@@ -129,7 +48,6 @@
       <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
       <mat-card-header class="description">
         <mat-card-title>Service Title</mat-card-title>
-        <mat-card-subtitle>₱50.00</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
       </mat-card-content>
@@ -139,8 +57,8 @@
     </mat-card>
   </div>
 
-<footer>
-    <p>© Extensions Office Management Sytstem, 2023</p>
-</footer>
+  <footer>
+      <p>© Extensions Office Management Sytstem, 2023</p>
+  </footer>
 
 </main>

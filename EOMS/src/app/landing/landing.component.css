@@ -1,6 +1,6 @@
 .land-container{
   width: 100%;
-  height: auto;
+  height: 100;
   background-image: linear-gradient(to right, #fbbb62, #f7ca7c, #f5d897, #f5e5b3, #f7f1d0, #f3e8cf, #ecdfcf, #e2d8cf, #cdbcb5, #b6a09f, #9d868d, #816e7c);
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@
 .rectangle-container{
   margin-top: -7rem;
 }
-.stick3{
+/* .stick3{
   position: absolute;
   background-color: #363535;
   width: 0.188rem;
@@ -35,10 +35,10 @@
   width: 18.75rem;
   height: 0.188rem;
   margin: 50rem 0rem 0rem 25rem;
-}
+} */
 .logo-items > img{
-  height: 40rem;
-  margin: -5rem 0rem 0rem 9rem;
+  height: 35rem;
+  margin: -5rem 0rem 0rem 15%;
 }
 .logo-items > h2 {
   font-family: 'futura light bt', 'Jost', sans-serif;
@@ -67,13 +67,13 @@
   justify-content: center;
   align-items: center;
 }
-.rectangol{
+/* .rectangol{
   background-color: #816E7C;
   display: flex;
   width: 31.25rem;
   height: 41.875rem;
   margin: 12rem 9rem 21.875rem 0rem;
-}
+} */
 
 @media (max-width: 992px) or (orientation: portrait) {
   .land-container{
@@ -83,6 +83,9 @@
   .forms-item{
     width: 30rem;
     height: auto;
+  }
+  .logo-container{
+    height: 50vh;
   }
   .logo-items > img{
     height: 30rem;
@@ -102,11 +105,19 @@
   .forms-item{
     margin-right: 1rem;
   }
+  .logo-container{
+    height: 55vh;
+  }
   .logo-items > img{
-    height: 40rem;
+    height: 33rem;
     margin: -5rem 0rem 0rem 1rem;
   }
   .logo-items > h2 {
-    margin: 10rem 12.5rem -1rem 19.5rem;
+    margin: 10rem 12.5rem -1rem 13.5rem;
+  }
+}
+@media only screen and (max-width: 1635px) and (min-width: 1395.01px) and (orientation: landscape){
+  .logo-container{
+    margin-left: -5%;
   }
 }

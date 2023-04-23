@@ -9,7 +9,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 export class PartnersComponent implements OnInit {
   addPartner!: FormGroup;
 
-  constructor(){}
+  constructor(){ /* TODO document why this constructor is empty */ }
 
   ngOnInit(): void {
     this.addPartner = new FormGroup({
@@ -31,7 +31,7 @@ url="./assets/images/cict.png"
 
 onselectFile(logo: any){
   if(logo.target.files){
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.readAsDataURL(logo.target.files[0]);
     reader.onload=(event:any)=>{
       this.url=event.target.result;

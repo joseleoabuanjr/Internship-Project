@@ -1,13 +1,36 @@
+.title-gradient-container {
+  background-image: linear-gradient(to bottom, #fbbb62, #f7cf84, #f5e1a9, #f7f1d0, #fffff6);
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2 / 1;
+  margin-right: 5%;
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 / 2;
+  margin-left: 5%;
+}
 .form-title{
   display: flex;
   justify-content: center;
-  margin-top: 40px;
   font-size: 30px;
 }
 .container{
   display: flex;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 9.375rem;
 }
 .header{
   margin-top: 300px;
@@ -34,11 +57,14 @@
   /* margin-top: 50px; */
 }
 img{
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
 }
 .description{
   justify-content: center;
+}
+#create-button {
+  margin-bottom: 9.375rem;
 }
 .details-button{
   width: 150px;

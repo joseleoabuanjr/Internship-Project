@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateComponent } from './components/subpages/create/create.component';
 import { AddComponent } from './components/subpages/add/add.component';
 import { GenerateComponent } from './components/subpages/generate/generate.component';
+import { SidenavComponent } from './sidenav/sidenav-component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { GenerateComponent } from './components/subpages/generate/generate.compo
     CreateComponent,
     AddComponent,
     GenerateComponent,
+    SidenavComponent
   ],
 
   imports: [

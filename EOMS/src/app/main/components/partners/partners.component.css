@@ -1,7 +1,9 @@
+.title-gradient-container {
+  background-image: linear-gradient(to bottom, #fbbb62, #f7cf84, #f5e1a9, #f7f1d0, #fffff6);
+}
 .form-title{
   display: flex;
   justify-content: center;
-  margin-top: 40px;
   font-size: 30px;
 }
 .container{
@@ -70,5 +72,9 @@ img{
 }
 .partner-form{
   display: none;
+}
+button {
+  margin-bottom: 10%;
+  margin-top: -5%;
 }
 
