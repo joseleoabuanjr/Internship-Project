@@ -6,10 +6,6 @@ import { AuthService } from '../core/services/auth.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-<<<<<<< Updated upstream
-
-export class MainComponent { }
-=======
 export class MainComponent {
   // get isLoggedIn(): boolean {
   //   console.log("isLoggedIn");
@@ -24,4 +20,3 @@ export class MainComponent {
   // }
   constructor(private authService: AuthService) { }
 }
->>>>>>> Stashed changes

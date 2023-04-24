@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'userslist', component: UserlistComponent},
       { path: 'approvals', component: ApprovalsComponent},
       { path: 'profile', component: ProfileComponent},
-      { path: 'create', component: CreateComponent},
+      { path: 'programs/create', component: CreateComponent},
       { path: 'add', component: AddComponent},
       { path: 'generate', component: GenerateComponent}
     ],
