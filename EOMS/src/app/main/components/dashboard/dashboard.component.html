@@ -2,37 +2,37 @@
 <section id="sidebar" [ngClass]="status ? 'hide' : ''">
   <a href="#" class="brand">
     <i class='bx bxs-smile'></i>
-    <span class="text">AdminHub</span>
+    <span class="text">Extension Head</span>
   </a>
   <ul class="side-menu top">
     <li class="active">
-      <a href="#">
+      <a [routerLink]="['../dashboard']">
         <i class='bx bxs-dashboard' ></i>
         <span class="text">Dashboard</span>
       </a>
     </li>
     <li>
-      <a href="#">
-        <i class='bx bxs-shopping-bag-alt' ></i>
-        <span class="text">My Store</span>
+      <a [routerLink]="['../calendar']">
+        <i class='bx bxs-calendar' ></i>
+        <span class="text">Calendar</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['../analytics']">
         <i class='bx bxs-doughnut-chart' ></i>
         <span class="text">Analytics</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['../messages']">
         <i class='bx bxs-message-dots' ></i>
-        <span class="text">Message</span>
+        <span class="text">Messages</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['../partners']">
         <i class='bx bxs-group' ></i>
-        <span class="text">Team</span>
+        <span class="text">Partners</span>
       </a>
     </li>
   </ul>
@@ -100,24 +100,24 @@
 
     <ul class="box-info">
       <li>
-        <i class='bx bxs-calendar-check' ></i>
+        <i class='bx bxs-briefcase' ></i>
         <span class="text">
-          <h3>1020</h3>
-          <p>New Order</p>
+          <h3>283</h3>
+          <p>Active Extension Programs</p>
         </span>
       </li>
       <li>
         <i class='bx bxs-group' ></i>
         <span class="text">
-          <h3>2834</h3>
-          <p>Visitors</p>
+          <h3>185</h3>
+          <p>Active Faculty Members</p>
         </span>
       </li>
       <li>
-        <i class='bx bxs-dollar-circle' ></i>
+        <i class='bx bxs-calendar-check' ></i>
         <span class="text">
-          <h3>$2543</h3>
-          <p>Total Sales</p>
+          <h3>1020</h3>
+          <p>Completed Extension Programs</p>
         </span>
       </li>
     </ul>
@@ -126,55 +126,55 @@
     <div class="table-data">
       <div class="order">
         <div class="head">
-          <h3>Recent Orders</h3>
+          <h3>Extension Programs</h3>
           <i class='bx bx-search' ></i>
           <i class='bx bx-filter' ></i>
         </div>
         <table>
           <thead>
             <tr>
-              <th>User</th>
-              <th>Date Order</th>
+              <th>Extension Partner</th>
+              <th>Date Started</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-                <p>John Doe</p>
+                <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png">
+                <p>Accenture Philippines</p>
               </td>
-              <td>01-10-2023</td>
+              <td>01-10-2021</td>
               <td><span class="status completed">Completed</span></td>
             </tr>
             <tr>
               <td>
-                <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-                <p>John Doe</p>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAY1BMVEX/////uQB/ugAApO/yUCL/+/T/tAD5wbfxRADyShT2j3vO47R4twCpz3S02/gAoO50wPT4+/R0tQD0+f4Ane771M3xPQD1iXT/rgD95uLL4a5tsgD4s6ejzGj6/f+u2PgAmO3ics+kAAABEElEQVR4nO3biQ2CUBREUVfAXVEBd/qv0sRvBy8/MXhuAZOcAmY0kiRJkiRJkiRJkiRJkiRJv9qljHVOM9dVqGtGYdlUkZr2s3K4rUPdcgqrWaTFMgnrSaiakJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQ8J+EzSJS9fvftXO7jNTek/CxCfXIKJSk/D2PsZ5pZh4so/DVnyL1+wTsilBdRuF2N420+wqLcaiCkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkHBAwuG/8yRJkiRJkiRJkiRJkiRJUqw3TWrkMTMBDxwAAAAASUVORK5CYII=">
+                <p>Microsoft</p>
               </td>
-              <td>01-10-2023</td>
+              <td>11-24-2019</td>
               <td><span class="status pending">Pending</span></td>
             </tr>
             <tr>
               <td>
-                <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-                <p>John Doe</p>
+                <img src="data:image/png;base64,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">
+                <p>Tsukiden</p>
               </td>
-              <td>01-10-2023</td>
-              <td><span class="status process">Process</span></td>
+              <td>09-16-2022</td>
+              <td><span class="status process">Ongoing</span></td>
             </tr>
             <tr>
               <td>
-                <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-                <p>John Doe</p>
+                <img src="https://bulacan.gov.ph/wp-content/uploads/2021/05/Official-Logo-1.png">
+                <p>Bulacan LGU</p>
               </td>
-              <td>01-10-2023</td>
+              <td>04-01-2020</td>
               <td><span class="status pending">Pending</span></td>
             </tr>
             <tr>
               <td>
-                <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-                <p>John Doe</p>
+                <img src="data:image/jpeg;base64,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">
+                <p>Xentra Solutions</p>
               </td>
               <td>01-10-2023</td>
               <td><span class="status completed">Completed</span></td>
@@ -184,21 +184,21 @@
       </div>
       <div class="todo">
         <div class="head">
-          <h3>Todos</h3>
+          <h3>To-Do List</h3>
           <i class='bx bx-plus' ></i>
           <i class='bx bx-filter' ></i>
         </div>
         <ul class="todo-list">
-          <li class="completed">
-            <p>Todo List</p>
+          <li class="not-completed">
+            <p>Partnership Meeting - 01:00 PM</p>
             <i class='bx bx-dots-vertical-rounded' ></i>
           </li>
           <li class="completed">
-            <p>Todo List</p>
+            <p>Set Up Faculty Accounts</p>
             <i class='bx bx-dots-vertical-rounded' ></i>
           </li>
           <li class="not-completed">
-            <p>Todo List</p>
+            <p>View Email Notifications</p>
             <i class='bx bx-dots-vertical-rounded' ></i>
           </li>
           <li class="completed">

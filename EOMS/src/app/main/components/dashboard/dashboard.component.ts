@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
   //Sidebar toggle show hide function
   status = false;
-  addToggle()
-  {
-    this.status = !this.status;       
-  }
+    addToggle()
+    {
+      this.status = !this.status;       
+    }
+
 }
