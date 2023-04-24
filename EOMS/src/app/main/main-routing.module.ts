@@ -12,11 +12,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateComponent } from './components/subpages/create/create.component';
 import { AddComponent } from './components/subpages/add/add.component';
 import { GenerateComponent } from './components/subpages/generate/generate.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'accounts', component: AccountsComponent },

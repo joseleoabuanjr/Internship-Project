@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from 'src/app/core/models/users';
-import { UserDataService } from 'src/app/core/services/user-data.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { DataService } from 'src/app/core/services/data.service';
 
 function validUser(c:AbstractControl): { [key: string]:boolean } | null {
   if (!(c.value.length >= 3)){
@@ -30,8 +30,9 @@ export class SignupComponent implements OnInit {
   data= this.vals.split(',');
 
   constructor(
-    private router: Router,
-    private userService: UserDataService
+    private route: Router,
+    private dataService: DataService,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
@@ -43,6 +44,11 @@ export class SignupComponent implements OnInit {
       username: new FormControl('',[Validators.required, validUser]),
       password: new FormControl('',[Validators.required, validPass])
     });
+
+    //Check if someone already Logged in
+    if(this.authService.isLoggedIn){
+      this.route.navigate(['main/dashboard']);
+    }
   }
 
   togglePasswordVisibility(): void {
@@ -50,9 +56,10 @@ export class SignupComponent implements OnInit {
   }
 
   submit(): void {
-    this.userService.createUser(this.signupForm.value).subscribe({
+    this.dataService.createUser(this.signupForm.value).subscribe({
       next: (data)=>{
-        console.log('response: '+ JSON.stringify(data));
+        this.route.navigate(['landing/login']);
+        // console.log('response: '+ JSON.stringify(data));
       },
       error: (err) => {
         console.log(err);

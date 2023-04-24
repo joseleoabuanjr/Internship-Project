@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDataService } from 'src/app/core/services/user-data.service';
+import { map } from 'rxjs/operators';
+import { DataService } from 'src/app/core/services/data.service';
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
@@ -10,13 +11,13 @@ export class UserlistComponent implements OnInit {
   dataSource: any;
   displayedColumns: string[] = ['account_id', 'username', 'password', 'first_name', 'last_name', 'faculty_id'];
 
-  constructor( private userservice: UserDataService ) { }
+  constructor( private dataService: DataService ) { }
 
   ngOnInit(): void {
-    this.userservice.getUsers().subscribe(
-      (result:any)=>{
-        console.log(result)
-        this.users  =  result.data;
+    this.dataService.getUsers().subscribe(
+      result =>{
+        console.log(result);
+        this.users  =  result;
         this.dataSource = this.users;
       }
     )

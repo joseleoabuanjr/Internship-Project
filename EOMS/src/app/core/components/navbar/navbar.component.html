@@ -29,7 +29,7 @@
             <button mat-button [matMenuTriggerFor]="menu">User</button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item><a [routerLink]="['../main/profile']">Profile</a></button>
-                <button mat-menu-item><a [routerLink]="['../landing/login']">Logout</a></button>
+                <button mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
           </div>
         </div>
