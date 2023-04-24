@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
+  //Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;       
+  }
 }
