@@ -3,15 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { ProgramsComponent } from './components/programs/programs.component';
 import { PartnersComponent } from './components/partners/partners.component';
-import { ProgramsComponent } from './components/subpages/programs/programs.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
-import { ApprovalsComponent } from './components/subpages/approvals/approvals.component';
+import { ApprovalsComponent } from './components/accounts/approvals/approvals.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CreateComponent } from './components/subpages/create/create.component';
-import { AddComponent } from './components/subpages/add/add.component';
-import { GenerateComponent } from './components/subpages/generate/generate.component';
+import { CreateComponent } from './components/programs/create/create.component';
+import { AddComponent } from './components/partners/add/add.component';
+import { GenerateComponent } from './components/reports/generate/generate.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [

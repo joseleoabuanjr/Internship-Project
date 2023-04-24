@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ForgotpasswordComponent } from './components/login/forgotpassword/forgotpassword.component';
 
 const routes: Routes = [
   {
