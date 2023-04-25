@@ -4,6 +4,14 @@
       <p>Manage Partners</p>
     </div>
 
+    <mat-nav-list class="nav-lists">
+      <a class="lists" matListItemTitle [routerLink]="['../partners']">Partners</a>
+  </mat-nav-list>
+  <mat-divider></mat-divider>
+  <mat-nav-list class="nav-lists">
+    <a class="lists" matListItemTitle [routerLink]="['../partnerships']">Partnerships</a>
+  </mat-nav-list>
+
     <div class="container" >
       <button mat-raised-button color="primary" (click)="show()"><a [routerLink]="['../add']">Add Extension Partners +</a></button>
     </div>

@@ -13,6 +13,7 @@ import { CreateComponent } from './components/programs/create/create.component';
 import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent},
       { path: 'programs/create', component: CreateComponent},
       { path: 'add', component: AddComponent},
-      { path: 'generate', component: GenerateComponent}
+      { path: 'generate', component: GenerateComponent},
+      { path: 'partnerships', component: PartnershipsComponent}
     ],
   }
 ]
