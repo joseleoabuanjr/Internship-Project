@@ -13,7 +13,10 @@ import { Users } from 'src/app/core/models/users';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit{
-  SMALL_WIDTH_BREAKPOINT = 740;
+  value = "";
+  hidden = false;
+  panelOpenState = false;
+
   products: Product[] = [
     {
       id: 1,
@@ -84,22 +87,11 @@ export class AccountsComponent implements OnInit{
     private router: Router
     ) { }
 
-    @Output() toggleSidenav = new EventEmitter<void>();
-    @ViewChild(MatDrawer) drawer!: MatDrawer;
-
   ngOnInit(): void {
-      this.breakpointObserver
-      .observe([`(max-width: ${this.SMALL_WIDTH_BREAKPOINT}px)`])
-      .subscribe(
-        (state:BreakpointState) => {
-          this.isScreenSmall = state.matches
-        }
-      );
 
-      this.router.events.subscribe(() => {
-        if (this.isScreenSmall){
-          this.drawer.close();
-        }
-      })
+    }
+
+    toggleBadgeVisibility() {
+      this.hidden = !this.hidden;
     }
 }

@@ -1,7 +1,34 @@
-<div class="form-title">
-  <p>Accounts Management</p>
+<div class="page-title">
+  <h1>Accounts Management</h1>
+  <button class="aa-btn" mat-flat-button matBadge="7" matBadgePosition="after" matBadgeSize="small" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">Accounts Approval</button>
 </div>
-<mat-drawer-container class="app-sidenav-container" autosize>
+<mat-toolbar class="tb-container">
+  <div class="dropdown">
+    <button mat-button [matMenuTriggerFor]="faculty">Sort By<span class="material-icons">arrow_drop_down</span></button>
+        <mat-menu #faculty="matMenu">
+          <button mat-menu-item>Default</button>
+          <button mat-menu-item>All Members</button>
+          <button mat-menu-item>Male Faculty</button>
+          <button mat-menu-item>Female Faculty</button>
+          <button mat-menu-item>Position</button>
+          <button mat-menu-item>Specialization</button>
+        </mat-menu>
+  </div>
+  <form action="#">
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <input type="tel" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-toolbar>
+
+
+
+
+
+
+<!-- <mat-drawer-container class="app-sidenav-container" autosize>
   <mat-drawer #drawer class="app-sidenav" [opened]="!isScreenSmall" [mode]="isScreenSmall ? 'over' : 'side'">
     <mat-nav-list class="nav-lists">
         <a class="lists" matListItemTitle [routerLink]="['../accounts']">Accounts Management</a>
@@ -45,29 +72,6 @@
     </mat-toolbar>
     <div class="wrapper">
       <div class="container">
-
-        <!-- <div *ngFor="let product of products">
-          <mat-card class="program-card">
-            <div class="dropdown2">
-              <button mat-icon-button [matMenuTriggerFor]="options"><mat-icon>more_vert</mat-icon></button>
-                  <mat-menu #options="matMenu">
-                    <button mat-menu-item>Manage Account</button>
-                    <button mat-menu-item>See Details</button>
-                  </mat-menu>
-            </div>
-            <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
-            <mat-card-header>
-              <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
-              <mat-card-subtitle class="usertype"><mat-icon class="stars">stars</mat-icon>Admin</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-            </mat-card-content>
-            <mat-card-actions class="actions">
-              <button class="details-button"mat-button>See Details</button>
-            </mat-card-actions>
-          </mat-card>
-        </div> -->
-
         <mat-grid-list cols="3" rowHeight="1:1">
           <mat-grid-tile *ngFor="let product of products">
             <mat-card class="program-card">
@@ -95,4 +99,4 @@
 
     </div>
   </div>
-</mat-drawer-container>
+</mat-drawer-container> -->

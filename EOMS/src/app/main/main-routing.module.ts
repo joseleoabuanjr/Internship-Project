@@ -22,14 +22,14 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'accounts', component: AccountsComponent },
+      { path: 'accounts/management', component: AccountsComponent },
+      { path: 'accounts/approvals', component: ApprovalsComponent},
       { path: 'partners', component: PartnersComponent },
       { path: 'programs', component: ProgramsComponent },
+      { path: 'programs/create', component: CreateComponent},
       { path: 'reports', component: ReportsComponent },
       { path: 'userslist', component: UserlistComponent},
-      { path: 'approvals', component: ApprovalsComponent},
       { path: 'profile', component: ProfileComponent},
-      { path: 'programs/create', component: CreateComponent},
       { path: 'add', component: AddComponent},
       { path: 'generate', component: GenerateComponent},
       { path: 'partnerships', component: PartnershipsComponent}

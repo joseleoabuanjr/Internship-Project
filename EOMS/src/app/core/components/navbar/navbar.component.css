@@ -70,7 +70,6 @@
 #sidebar .side-menu li.active {
   background: var(--light);
   position: relative;
-  transition: background .5s ease;
 }
 #sidebar .side-menu li.active::before {
   content: '';
