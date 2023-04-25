@@ -6,9 +6,11 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   redirectUrl!: string;
   dataSource: any;
+  fireauth: any;
 
   get isLoggedIn(): boolean {
     const useToken = this.dataService.getToken();
@@ -21,6 +23,7 @@ export class AuthService {
 
   constructor(private dataService: DataService, private route: Router ) { }
 
+  //Login
   login(username: string, password: string): void {
     this.dataService.userLogin(username, password).pipe(first()).subscribe({
       next: (User)=>{
@@ -38,8 +41,39 @@ export class AuthService {
     })
   }
 
+// Sign Up
+signup(email : string, password : string) {
+  this.fireauth.createUserWithEmailAndPassword(email, password).then( (res: { user: any; }) => {
+    alert('Sign Up Successful');
+    this.sendEmailForVarification(res.user);
+    this.route.navigate(['/login']);
+  }, (err: any) => {
+    alert(err.message);
+    this.route.navigate(['/signup']);
+  })
+}
+
+//Logout
   logout(): void {
     this.dataService.deleteToken();
   }
 
+//Forgot Password
+  forgotPassword(email : string) {
+    this.fireauth.sendPasswordResetEmail(email).then(() => {
+      this.route.navigate(['/verify-email']);
+    }, (err: any) => {
+      alert('Something went wrong');
+    })
+  }
+
+  //Email Verification
+  sendEmailForVarification(user : any) {
+    console.log(user);
+    user.sendEmailVerification().then((res : any) => {
+      this.route.navigate(['/verify-email']);
+    }, (err : any) => {
+      alert('Something went wrong. Not able to send mail to your email.')
+    })
+  }
 }

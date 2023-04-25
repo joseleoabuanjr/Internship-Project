@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ForgotpasswordComponent } from './components/login/forgotpassword/forgotpassword.component';
+import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/login/verify-email/verify-email.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
-      { path: 'forgotpassword', component: ForgotpasswordComponent }
+      { path: 'forgot-password', component: ForgotPasswordComponent },
+      { path: 'verify-email', component: VerifyEmailComponent}
     ]
   },
 ];
