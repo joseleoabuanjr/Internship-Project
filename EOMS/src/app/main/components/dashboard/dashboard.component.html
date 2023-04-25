@@ -184,7 +184,7 @@
       </div>
       <div class="todo">
         <div class="head">
-          <h3>To-Do List</h3>
+          <h3>ADMIN TO-DO LIST:</h3>
           <i class='bx bx-plus' ></i>
           <i class='bx bx-filter' ></i>
         </div>
@@ -217,17 +217,16 @@
 
     
     <div class="main">
-      <h1>My To Do List</h1>
+      <h1>ADMIN TO-DO LIST:</h1>
       <label for="addItemInput">What would you like to do today?</label>
-
       <input
         #newItem
-        placeholder="add an item"
+        placeholder="Add a new task"
         (keyup.enter)="addItem(newItem.value); newItem.value = ''"
         class="lg-text-input"
         id="addItemInput" />
       
-      <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+      <button class="btn-primary" (click)="addItem(newItem.value)">+ Add Task</button>
     
       <ul>
         <li *ngFor="let item of items">{{item.description}}</li>

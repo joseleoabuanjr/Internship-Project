@@ -19,10 +19,10 @@ export class DashboardComponent {
   filter: 'all' | 'active' | 'done' = 'all';
 
   allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'play', done: false },
-    { description: 'laugh', done: false },
+    { description: 'Partnership Meeting - 09:00 AM', done: true },
+    { description: 'Set Up Faculty Accounts', done: false },
+    { description: 'View Email Notifications', done: false },
+    { description: 'CICT Technical Seminar - 01:00 PM', done: false },
   ];
 
   get items() {
