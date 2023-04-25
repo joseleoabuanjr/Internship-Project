@@ -1,80 +1,93 @@
-.title-gradient-container {
-  background-image: linear-gradient(to bottom, #fbbb62, #f7cf84, #f5e1a9, #f7f1d0, #fffff6);
-}
 .form-title{
   display: flex;
   justify-content: center;
   font-size: 30px;
+  margin-top: 218px;
+  padding: 50px 0 30px 0;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #ffffff);
 }
+
 .container{
+  height: 80px;
+  background: none !important;
+  border-top: 1px solid rgba(160, 160, 160, 0.452);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
   display: flex;
   justify-content: center;
-  margin-top: 150px;
+  align-items: center;
 }
-.header{
-  margin-top: 300px;
-  font-size: 20px;
+
+.header{ 
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
+
 .dropdown{
-  position: absolute;
-  font-size: 12px;
-  color: black;
-  margin-top: 15px;
-  margin-left: 400px;
+  margin-left: 10%;
+  margin-top: 40px;
 }
-.searchbar{
-  position: absolute;
-  width: 300px;
-  margin-top: 15px;
-  margin-left: 75%;
-  font-size: 12px;
-}
-.searchfield{
-  width: 100%;
-}
+
 .search{
-  position: absolute;
   margin-left: 75%;
-  font-size: 12px;
-}
-.program-card{
-  width: 200px
-}
-img{
-  position: absolute;
-  margin-top: 20px;
-  margin-left: 50px;
-  height: 100px;
-  width: 100px;
-}
-.name{
-  margin-top: 110px;
-  padding-left: 25px;
-  padding-right: 5px;
-  font-size: 18px;
-  color: black;
-  font-weight: bold;
-}
-.position{
-  display: flex;
-  justify-content: center;
-  font-size: 10px;
-  color: black;
-  font-weight: bold;
-}
-.form-container{
-  width: 500px;
-}
-.partners{
-  display: flex;
-}
-.partner-form{
-  display: none;
-}
-button {
-  margin-bottom: 10%;
   margin-top: -5%;
 }
 
+.searchbar{
+  margin-left: 75%;
+}
+
+.app-sidenav-container {
+  flex: 1;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: none !important;
+}
+
+.card-container{
+  background: none !important;
+  border-top: 1px solid rgba(160, 160, 160, 0.452);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  border: 2px solid rgba(160, 160, 160, 0.452);
+  background-color: whitesmoke;
+}
+
+.photo{
+  height: 250px;
+  width: 250px;
+}
+
+.name-title{
+  height: 50px;
+  width: 250px;
+  background-color: #f6ad3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.footer{ 
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.logo-container{
+  margin-left: 25px;
+  margin-right: 25px;
+
+}
+
+.logo{
+  height: 75px;
+  width: 75px;
+}
