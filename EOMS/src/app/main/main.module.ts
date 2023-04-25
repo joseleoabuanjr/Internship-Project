@@ -16,7 +16,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateComponent } from './components/programs/create/create.component';
 import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
-import { SidenavComponent } from './sidenav/sidenav-component';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { PartnershipsComponent } from './components/partners/partnerships/partne
     CreateComponent,
     AddComponent,
     GenerateComponent,
-    SidenavComponent,
     PartnershipsComponent
   ],
 
