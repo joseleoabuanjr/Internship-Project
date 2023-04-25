@@ -8,7 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  status = false;
   constructor(private dataService: DataService, private route: Router) { }
+
+  //Sidebar toggle show hide function
+  addToggle()
+  {
+    this.status = !this.status;
+  }
+
   logout(){
     this.dataService.deleteToken();
     this.route.navigate(['../landing/login']);

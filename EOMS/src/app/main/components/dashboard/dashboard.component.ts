@@ -7,13 +7,7 @@ import { Item } from "./item";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  //Sidebar toggle show hide function
-  status = false;
-    addToggle()
-    {
-      this.status = !this.status;       
-    }
-  
+
   title = 'todo';
 
   filter: 'all' | 'active' | 'done' = 'all';

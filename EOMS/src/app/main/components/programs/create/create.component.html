@@ -1,139 +1,137 @@
-<main>
-  <div class="title-gradient-container">
-    <div class="form-title">
-      <p>Extension Programs</p>
+<div class="title-gradient-container">
+  <div class="form-title">
+    <p>Extension Programs</p>
+  </div>
+
+  <div class="container"></div>
+</div>
+
+<div class="partner-form" [style.Display]="dis">
+  <form [formGroup]="addProgram" (ngSubmit)="submit()" class="form-container">
+
+    <!-- <mat-form-field class="mat-field">
+      <mat-label>Start</mat-label>
+      <input matInput [matDatepicker]="picker"
+      formControlName="start">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        Start Date is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+
+    <mat-form-field class="mat-field">
+      <mat-label>End</mat-label>
+      <input matInput [matDatepicker]="picker"
+      formControlName="end">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
+        End Date <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div> -->
+
+    <div class="upload-container">
+      <mat-label>Program Banner</mat-label>
+      <img [src]="url" height="500"><br>
+        <input type="file" placeholder="Upload Program Banner"
+                formControlName="banner" (change)="onselectFile($event)">
+        <mat-error *ngIf="addProgram.get('banner')?.hasError('required')">
+          Image is <strong>required</strong>
+          </mat-error>
+      <div class="space" *ngIf="addProgram.get('banner')?.hasError('required')"></div>
+
+      <mat-label>Uploaded Files</mat-label>
+      <input type="file" placeholder="Upload Files"
+              formControlName="uploadFiles" (change)="onselectFile($event)">
+      <mat-error *ngIf="addProgram.get('uploadFiles')?.hasError('required')">
+        File is <strong>required</strong>
+        </mat-error>
+      <div class="space" *ngIf="addProgram.get('uploadFiles')?.hasError('required')"></div>
     </div>
 
-    <div class="container"></div>
-  </div>
-
-  <div class="partner-form" [style.Display]="dis">
-    <form [formGroup]="addProgram" (ngSubmit)="submit()" class="form-container">
-
-      <!-- <mat-form-field class="mat-field">
-        <mat-label>Start</mat-label>
-        <input matInput [matDatepicker]="picker"
-        formControlName="start">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          Start Date is <strong>required</strong>
-          </mat-error>
+    <div class="info-container">
+      <mat-form-field class="mat-field">
+        <mat-label>Program Title</mat-label>
+        <input  matInput
+                formControlName="title">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
+          Program Title is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
       <mat-form-field class="mat-field">
-        <mat-label>End</mat-label>
-        <input matInput [matDatepicker]="picker"
-        formControlName="end">
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date"
+          formControlName="start">
+          <input matEndDate placeholder="End date"
+          formControlName="end">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="addPartner.get('logo')?.hasError('required')">
-          End Date <strong>required</strong>
-          </mat-error>
+        <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
-      <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div> -->
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
-      <div class="upload-container">
-        <mat-label>Program Banner</mat-label>
-        <img [src]="url" height="500"><br>
-          <input type="file" placeholder="Upload Program Banner"
-                  formControlName="banner" (change)="onselectFile($event)">
-          <mat-error *ngIf="addProgram.get('banner')?.hasError('required')">
-            Image is <strong>required</strong>
-            </mat-error>
-        <div class="space" *ngIf="addProgram.get('banner')?.hasError('required')"></div>
+      <mat-form-field class="mat-field">
+        <mat-label>Place</mat-label>
+        <input  matInput
+                formControlName="place">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
+          Place is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
-        <mat-label>Uploaded Files</mat-label>
-        <input type="file" placeholder="Upload Files"
-                formControlName="uploadFiles" (change)="onselectFile($event)">
-        <mat-error *ngIf="addProgram.get('uploadFiles')?.hasError('required')">
-          File is <strong>required</strong>
-          </mat-error>
-        <div class="space" *ngIf="addProgram.get('uploadFiles')?.hasError('required')"></div>
-      </div>
+      <mat-form-field class="mat-field">
+        <mat-label>Program Details</mat-label>
+        <input  matInput
+                formControlName="details">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
+          Program Details is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
-      <div class="info-container">
-        <mat-form-field class="mat-field">
-          <mat-label>Program Title</mat-label>
-          <input  matInput
-                  formControlName="title">
-          <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-            Program Title is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
+      <mat-form-field class="mat-field">
+        <mat-label>Program Lead and Members</mat-label>
+        <input  matInput
+                formControlName="leadAndMembers">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
+          Program Lead and Members is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
-        <mat-form-field class="mat-field">
-          <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date"
-            formControlName="start">
-            <input matEndDate placeholder="End date"
-            formControlName="end">
-          </mat-date-range-input>
-          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
+      <mat-form-field class="mat-field">
+        <mat-label>Participants</mat-label>
+        <input  matInput
+                formControlName="participants">
+        <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
+          Participants is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
 
-        <mat-form-field class="mat-field">
-          <mat-label>Place</mat-label>
-          <input  matInput
-                  formControlName="place">
-          <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-            Place is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
+      <button mat-raised-button
+                type="submit"
+                class="btn"
+                [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                [disabled]="!addProgram.valid">
+          <a [routerLink]="['../programs']">Submit</a>
+          <!-- Submit -->
+      </button>
+    </div>
+  </form>
+</div>
 
-        <mat-form-field class="mat-field">
-          <mat-label>Program Details</mat-label>
-          <input  matInput
-                  formControlName="details">
-          <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-            Program Details is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
+<footer>
+    <p>© Extensions Office Management Sytstem, 2023</p>
+</footer>
 
-        <mat-form-field class="mat-field">
-          <mat-label>Program Lead and Members</mat-label>
-          <input  matInput
-                  formControlName="leadAndMembers">
-          <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-            Program Lead and Members is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
-
-        <mat-form-field class="mat-field">
-          <mat-label>Participants</mat-label>
-          <input  matInput
-                  formControlName="participants">
-          <mat-error *ngIf="addProgram.get('name')?.hasError('required')">
-            Participants is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-        <div class="space" *ngIf="addProgram.get('name')?.hasError('required')"></div>
-
-        <button mat-raised-button
-                  type="submit"
-                  class="btn"
-                  [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                  [disabled]="!addProgram.valid">
-            <a [routerLink]="['../programs']">Submit</a>
-            <!-- Submit -->
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <footer>
-      <p>© Extensions Office Management Sytstem, 2023</p>
-  </footer>
-
-</main>

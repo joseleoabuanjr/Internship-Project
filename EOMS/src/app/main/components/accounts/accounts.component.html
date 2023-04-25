@@ -1,54 +1,75 @@
-<main>
+<div class="form-title">
+  <p>Accounts Management</p>
+</div>
+<mat-drawer-container class="app-sidenav-container" autosize>
+  <mat-drawer #drawer class="app-sidenav" [opened]="!isScreenSmall" [mode]="isScreenSmall ? 'over' : 'side'">
+    <mat-nav-list class="nav-lists">
+        <a class="lists" matListItemTitle [routerLink]="['../accounts']">Accounts Management</a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-nav-list class="nav-lists">
+      <a class="lists" matListItemTitle [routerLink]="['../approvals']">Registration Approvals</a>
+    </mat-nav-list>
+  </mat-drawer>
 
-  <div class="form-title">
-    <p>Accounts Management</p>
-  </div>
-  <mat-drawer-container class="app-sidenav-container" autosize>
-    <mat-drawer #drawer class="app-sidenav" [opened]="!isScreenSmall" [mode]="isScreenSmall ? 'over' : 'side'">
-      <mat-nav-list class="nav-lists">
-          <a class="lists" matListItemTitle [routerLink]="['../accounts']">Accounts Management</a>
-      </mat-nav-list>
-      <mat-divider></mat-divider>
-      <mat-nav-list class="nav-lists">
-        <a class="lists" matListItemTitle [routerLink]="['../approvals']">Registration Approvals</a>
-      </mat-nav-list>
-    </mat-drawer>
+  <div class="app-sidenav-content">
+    <mat-toolbar class="tb-container">
+      <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="dropdown">
+        <button mat-button [matMenuTriggerFor]="faculty">Sort By<span class="material-icons">arrow_drop_down</span></button>
+            <mat-menu #faculty="matMenu">
+              <button mat-menu-item>Default</button>
+              <button mat-menu-item>All Members</button>
+              <button mat-menu-item>Male Faculty</button>
+              <button mat-menu-item>Female Faculty</button>
+              <button mat-menu-item>Position</button>
+              <button mat-menu-item>Specialization</button>
+            </mat-menu>
+      </div>
+      <div class="organizer1">
+        <button mat-button><mat-icon>apps</mat-icon></button>
+      </div>
+      <div class="organizer2">
+        <button mat-button><mat-icon>format_list_bulleted</mat-icon></button>
+      </div>
 
-    <div class="app-sidenav-content">
-      <mat-toolbar class="tb-container">
-        <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <div class="dropdown">
-          <button mat-button [matMenuTriggerFor]="faculty">Sort By<span class="material-icons">arrow_drop_down</span></button>
-              <mat-menu #faculty="matMenu">
-                <button mat-menu-item>Default</button>
-                <button mat-menu-item>All Members</button>
-                <button mat-menu-item>Male Faculty</button>
-                <button mat-menu-item>Female Faculty</button>
-                <button mat-menu-item>Position</button>
-                <button mat-menu-item>Specialization</button>
-              </mat-menu>
-        </div>
-        <div class="organizer1">
-          <button mat-button><mat-icon>apps</mat-icon></button>
-        </div>
-        <div class="organizer2">
-          <button mat-button><mat-icon>format_list_bulleted</mat-icon></button>
-        </div>
+      <form class="searchbar">
+        <mat-form-field appearance="outline">
+          <mat-label>Find a member</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+          <input type="text" matInput placeholder="Ex: Juan Dela Cruz">
+        </mat-form-field>
+      </form>
+    </mat-toolbar>
+    <div class="wrapper">
+      <div class="container">
 
-        <form class="searchbar">
-          <mat-form-field appearance="outline">
-            <mat-label>Find a member</mat-label>
-            <mat-icon matSuffix>search</mat-icon>
-            <input type="text" matInput placeholder="Ex: Juan Dela Cruz">
-          </mat-form-field>
-        </form>
-      </mat-toolbar>
-      <div class="wrapper">
-        <div class="container">
+        <!-- <div *ngFor="let product of products">
+          <mat-card class="program-card">
+            <div class="dropdown2">
+              <button mat-icon-button [matMenuTriggerFor]="options"><mat-icon>more_vert</mat-icon></button>
+                  <mat-menu #options="matMenu">
+                    <button mat-menu-item>Manage Account</button>
+                    <button mat-menu-item>See Details</button>
+                  </mat-menu>
+            </div>
+            <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
+            <mat-card-header>
+              <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
+              <mat-card-subtitle class="usertype"><mat-icon class="stars">stars</mat-icon>Admin</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions class="actions">
+              <button class="details-button"mat-button>See Details</button>
+            </mat-card-actions>
+          </mat-card>
+        </div> -->
 
-          <!-- <div *ngFor="let product of products">
+        <mat-grid-list cols="3" rowHeight="1:1">
+          <mat-grid-tile *ngFor="let product of products">
             <mat-card class="program-card">
               <div class="dropdown2">
                 <button mat-icon-button [matMenuTriggerFor]="options"><mat-icon>more_vert</mat-icon></button>
@@ -68,34 +89,10 @@
                 <button class="details-button"mat-button>See Details</button>
               </mat-card-actions>
             </mat-card>
-          </div> -->
-
-          <mat-grid-list cols="3" rowHeight="1:1">
-            <mat-grid-tile *ngFor="let product of products">
-              <mat-card class="program-card">
-                <div class="dropdown2">
-                  <button mat-icon-button [matMenuTriggerFor]="options"><mat-icon>more_vert</mat-icon></button>
-                      <mat-menu #options="matMenu">
-                        <button mat-menu-item>Manage Account</button>
-                        <button mat-menu-item>See Details</button>
-                      </mat-menu>
-                </div>
-                <img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
-                <mat-card-header>
-                  <mat-card-title class="name">Juan Dela Cruz</mat-card-title>
-                  <mat-card-subtitle class="usertype"><mat-icon class="stars">stars</mat-icon>Admin</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                </mat-card-content>
-                <mat-card-actions class="actions">
-                  <button class="details-button"mat-button>See Details</button>
-                </mat-card-actions>
-              </mat-card>
-            </mat-grid-tile>
-          </mat-grid-list>
-        </div>
-
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
+
     </div>
-  </mat-drawer-container>
-</main>
+  </div>
+</mat-drawer-container>

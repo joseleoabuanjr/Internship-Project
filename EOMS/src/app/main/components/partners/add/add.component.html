@@ -1,13 +1,12 @@
-<main>
-    <div class="title-gradient-container">
+<div class="title-gradient-container">
       <div class="form-title">
         <p>Add Extension Partner</p>
       </div>
     </div>
-      
+
     <div class="partner-form" [style.Display]="dis">
       <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
-  
+
         <div class="upload-container">
           <mat-label>Program Banner</mat-label>
           <img [src]="url" height="500"><br>
@@ -17,7 +16,7 @@
               Image is <strong>required</strong>
               </mat-error>
           <div class="space" *ngIf="addPartner.get('banner')?.hasError('required')"></div>
-  
+
           <mat-label>Uploaded Files</mat-label>
           <input type="file" placeholder="Upload Files"
                   formControlName="uploadFiles" (change)="onselectFile($event)">
@@ -26,7 +25,7 @@
             </mat-error>
           <div class="space" *ngIf="addPartner.get('uploadFiles')?.hasError('required')"></div>
         </div>
-  
+
         <div class="info-container">
           <mat-form-field class="mat-field">
             <mat-label>Program Title</mat-label>
@@ -37,7 +36,7 @@
             </mat-error>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <mat-form-field class="mat-field">
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [rangePicker]="picker">
@@ -51,7 +50,7 @@
             <mat-date-range-picker #picker></mat-date-range-picker>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <mat-form-field class="mat-field">
             <mat-label>Place</mat-label>
             <input  matInput
@@ -61,7 +60,7 @@
             </mat-error>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <mat-form-field class="mat-field">
             <mat-label>Program Details</mat-label>
             <input  matInput
@@ -71,7 +70,7 @@
             </mat-error>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <mat-form-field class="mat-field">
             <mat-label>Program Lead and Members</mat-label>
             <input  matInput
@@ -81,7 +80,7 @@
             </mat-error>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <mat-form-field class="mat-field">
             <mat-label>Participants</mat-label>
             <input  matInput
@@ -91,7 +90,7 @@
             </mat-error>
           </mat-form-field>
           <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-  
+
           <button mat-raised-button
                     type="submit"
                     class="btn"
@@ -103,10 +102,7 @@
         </div>
       </form>
     </div>
-  
+
     <footer>
         <p>© Extensions Office Management Sytstem, 2023</p>
     </footer>
-  
-  </main>
-  

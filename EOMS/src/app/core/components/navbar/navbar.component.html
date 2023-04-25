@@ -1,4 +1,84 @@
-<nav>
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <img id="cict-icon" src="../../../../assets/images/cict.png">
+  </a>
+  <ul class="side-menu top">
+    <li routerLinkActive="active">
+      <a [routerLink]="['dashboard']" >
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['programs']">
+        <i class='bx bxs-calendar' ></i>
+        <span class="text">Extension Programs</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['partners']">
+        <i class='bx bxs-group' ></i>
+        <span class="text">Partners</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['accounts']">
+        <i class='bx bxs-message-dots' ></i>
+        <span class="text">Accounts</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li routerLinkActive="active">
+      <a [routerLink]="['profile']">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout" (click)="logout()">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
+
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i (click)="addToggle()" class='bx bx-menu' ></i>
+    <div class="webtitle">CICT Extension Office Management System</div>
+    <!-- <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Search...">
+        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+      </div>
+    </form> -->
+    <!-- <a href="#" class="notification">
+      <i class='bx bxs-bell' ></i>
+      <span class="num">8</span>
+    </a> -->
+    <a [routerLink]="['profile']" class="profile">
+      <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- MAIN -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+
+
+<!-- <nav>
   <div class="nav-container">
     <div class="row">
       <div class="title-container">
@@ -36,4 +116,4 @@
       </div>
     </div>
   </div>
-</nav>
+</nav> -->
