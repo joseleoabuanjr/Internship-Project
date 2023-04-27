@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-program',
   templateUrl: './programs.component.html',
-  styleUrls: ['./programs.component.css']
+  styleUrls: ['./programs.component.scss']
 })
 export class ProgramsComponent implements OnInit {
   addProgram!: FormGroup;
 
   Date1 : Date = new Date();
+  programs: any[]= []
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.addProgram = new FormGroup({
@@ -22,6 +26,10 @@ export class ProgramsComponent implements OnInit {
       details: new FormControl('',[Validators.required]),
       leadAndMembers: new FormControl('',[Validators.required]),
       participants: new FormControl('',[Validators.required]),
+
+      // this.route.paramMap.subscribe(params => {
+      //   this.programs = params.get('programs').split(',');
+      // }),
     });
   }
   url="./assets/images/cict.png"
@@ -40,7 +48,6 @@ export class ProgramsComponent implements OnInit {
     this.dis ="inline"
   }
 
-  programs: any[]= []
   submit(): void {
     console.log('Saved: ' + JSON.stringify(this.addProgram.value));
 

@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  styleUrls: ['./create.component.scss']
 })
 
 export class CreateComponent implements OnInit {
   addProgram!: FormGroup;
 
-  constructor( private router: Router){ /* TODO document why this constructor is empty */ }
+  @Output() childToParent = new EventEmitter<string>();
+  constructor(private router: Router) { }
+
+  Date1 : Date = new Date();
 
   ngOnInit(): void {
     this.addProgram = new FormGroup({
@@ -47,10 +50,11 @@ export class CreateComponent implements OnInit {
     console.log('Saved: ' + JSON.stringify(this.addProgram.value));
 
     this.programs.push(this.addProgram.value)
-
     if(this.addProgram.value.start <= this.addProgram.value.end){
-      // TODO document why this block is empty
+
+      this.router.navigate(['main/programs'])
     }
 
   }
 }
+

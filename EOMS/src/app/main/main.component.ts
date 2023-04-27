@@ -17,6 +17,6 @@ export class MainComponent {
   //   }
   //   return '';
   // }
-  constructor() { }
+  constructor() { /*placeholder*/ }
 
 }

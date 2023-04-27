@@ -124,12 +124,40 @@
                 class="btn"
                 [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
                 [disabled]="!addProgram.valid">
-          <a [routerLink]="['../programs']">Submit</a>
-          <!-- Submit -->
+                <a [routerLink]="['../programs']"></a>
+          Submit
       </button>
     </div>
   </form>
-</div>
+
+  <!-- <div class="programs">
+    <ul>
+      <li *ngFor="let item of programs"> {{ item }} </li>
+    </ul>
+    <mat-card class="program-card" *ngFor="let obj of programs">
+      <div class="text-block">
+        <p>Start: {{obj.start}}</p>
+        <p>End: {{obj.end}}</p>
+      </div>
+      <img mat-card-image [src]="url" alt="CICT Logo">
+      <mat-card-header class="description">
+        <mat-card-title>{{obj.title}}</mat-card-title>
+        <mat-card-subtitle>{{obj.fare}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <button class="details-button"mat-button>See Details</button>
+      </mat-card-actions>
+      <mat-card-actions class="actions">
+        <button class="upload-button"mat-button>Upload Files</button>
+      </mat-card-actions>
+      <mat-card-actions class="actions">
+        <button class="assign-button"mat-button>Assign Members</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div> -->
 
 <footer>
     <p>© Extensions Office Management Sytstem, 2023</p>
