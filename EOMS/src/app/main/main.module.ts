@@ -17,6 +17,11 @@ import { CreateComponent } from './components/programs/create/create.component';
 import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
+import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,20 @@ import { PartnershipsComponent } from './components/partners/partnerships/partne
     CommonModule,
     MainRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+  ],
+
+  exports: [
+    
+  ],
+
 })
-export class MainModule { }
+
+export class MainModule { 
+
+}
+
