@@ -1,97 +1,75 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { Product } from './product';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 import { Users } from 'src/app/core/models/users';
+import { first, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.css']
+  styleUrls: ['./accounts.component.scss']
 })
-export class AccountsComponent implements OnInit{
+export class AccountsComponent implements OnInit, AfterViewInit{
+  grid = true;
   value = "";
   hidden = false;
   panelOpenState = false;
+  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
+  dataSource: MatTableDataSource<Users> = new MatTableDataSource<Users>();
+  usersData: any;
 
-  products: Product[] = [
-    {
-      id: 1,
-      productName: 'Leaf Rake',
-      productCode: 'GDN-0011',
-      releaseDate: 'March 19, 2018',
-      description: 'Leaf rake with 48-inch wooden handle',
-      price: 19.95,
-      starRating: 3.2,
-      imageUrl: 'assets/images/leaf_rake.png',
-      category: 'Garden',
-      tags: ['rake', 'leaf', 'yard', 'home']
-    },
-    {
-      id: 2,
-      productName: 'Garden Cart',
-      productCode: 'GDN-0023',
-      releaseDate: 'March 18, 2018',
-      description: '15 gallon capacity rolling garden cart',
-      price: 32.99,
-      starRating: 4.2,
-      imageUrl: 'assets/images/garden_cart.png',
-      category: 'Garden'
-    },
-    {
-      id: 5,
-      productName: 'Hammer',
-      productCode: 'TBX-0048',
-      releaseDate: 'May 21, 2018',
-      description: 'Curved claw steel hammer',
-      price: 8.9,
-      starRating: 4.8,
-      imageUrl: 'assets/images/hammer.png',
-      category: 'Toolbox',
-      tags: ['tools', 'hammer', 'construction']
-    },
-    {
-      id: 8,
-      productName: 'Saw',
-      productCode: 'TBX-0022',
-      releaseDate: 'May 15, 2018',
-      description: '15-inch steel blade hand saw',
-      price: 11.55,
-      starRating: 3.7,
-      imageUrl: 'assets/images/saw.png',
-      category: 'Toolbox'
-    },
-    {
-      id: 10,
-      productName: 'Video Game Controller',
-      productCode: 'GMG-0042',
-      releaseDate: 'October 15, 2018',
-      description: 'Standard two-button video game controller',
-      price: 35.95,
-      starRating: 4.6,
-      imageUrl: 'assets/images/xbox-controller.png',
-      category: 'Gaming'
-    }
-  ];
 
-  public isScreenSmall: boolean | undefined;
-
-  users!: Observable<Users[]>;
 
   constructor(
-    private breakpointObserver : BreakpointObserver,
-    private userService: DataService,
-    private router: Router
-    ) { }
+    private dataService: DataService
+  ) { }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
+    this.dataService.getUsers()
+    .subscribe({
+      next: (User: any)=>{
+        this.usersData = User.data;
+        const ELEMENT_DATA = [...this.usersData];
+        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        console.log(this.dataSource);
+        // if(User.success === 1){
+        //   this.dataSource.data = User.data;
+        //   this.usersData = User.data;
+        // }
 
-    }
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+    // .subscribe(
+    //   (result) => {
+    //     console.log(result);
+    //     this.usersData = result.data;
+    //     this.dataSource = new MatTableDataSource<Users>(this.usersData);
+    //   }
+    // )
+  }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+    });
+    // this.dataSource.paginator = this.paginator;
 
-    toggleBadgeVisibility() {
-      this.hidden = !this.hidden;
-    }
+  }
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
+
+  //Sidebar toggle show hide function
+  changeView()
+  {
+    this.grid = !this.grid;
+  }
 }

@@ -219,6 +219,9 @@
   border-radius: 0 36px 36px 0;
   cursor: pointer;
 } */
+main{
+  background-color: var(--light);
+}
 #content nav .notification {
   font-size: 20px;
   position: relative;

@@ -17,6 +17,7 @@ import { CreateComponent } from './components/programs/create/create.component';
 import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -33,14 +34,15 @@ import { PartnershipsComponent } from './components/partners/partnerships/partne
     CreateComponent,
     AddComponent,
     GenerateComponent,
-    PartnershipsComponent
+    PartnershipsComponent,
   ],
 
   imports: [
     CommonModule,
     MainRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ]
 })
 export class MainModule { }

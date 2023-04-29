@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { Users } from '../models/users';
+import { DataUser } from 'src/app/main/components/accounts/data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  myArray: Users[] = [];
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
 
@@ -16,7 +17,7 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get<Users>(this.baseUrl+'view.php');
+    return this.http.get<Users[]>(this.baseUrl+'view.php');
   }
 
   userLogin(username:any, password:  any){

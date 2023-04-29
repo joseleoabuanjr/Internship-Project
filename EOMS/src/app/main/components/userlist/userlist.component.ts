@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Users } from 'src/app/core/models/users';
 import { DataService } from 'src/app/core/services/data.service';
 @Component({
   selector: 'app-userlist',
@@ -8,19 +9,22 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class UserlistComponent implements OnInit {
   users: any;
-  dataSource: any;
+  dataSource!: Users;
   displayedColumns: string[] = ['account_id', 'username', 'password', 'first_name', 'last_name', 'faculty_id'];
 
   constructor( private dataService: DataService ) { }
 
   ngOnInit(): void {
-    this.dataService.getUsers().subscribe(
-      result =>{
-        console.log(result);
-        this.users  =  result;
-        this.dataSource = this.users;
+    this.dataService.getUsers().subscribe({
+      next: (result: any)=>{
+        this.dataSource  =  result.data;
+        this.users = this.dataSource;
+
+      },
+      error: (err) => {
+        console.log(err);
       }
-    )
+  });
   }
 
 }

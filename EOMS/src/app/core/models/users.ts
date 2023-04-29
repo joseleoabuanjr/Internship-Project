@@ -5,13 +5,17 @@ export class Users{
   public firstName: string;
   public lastName: string;
   public facultyId: number;
+  public account_type: string;
+  public email: string;
 
-  constructor( account_id:number, username:string, password:string, firstName:string, lastName:string, facultyId:number) {
-    this.account_id = account_id;
-    this.username = username;
-    this.password = password;
+  constructor( accountId:number, userName:string, password:string, firstName:string, lastName:string, facultyId:number, account_type: string, email: string) {
+    this.account_id = accountId;
+    this.account_type = account_type;
+    this.email = email;
+    this.facultyId = facultyId;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.facultyId = facultyId;
+    this.password = password;
+    this.username = userName;
   }
 }
