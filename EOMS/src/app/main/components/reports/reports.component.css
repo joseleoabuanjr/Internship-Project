@@ -54,13 +54,13 @@
     margin-left: 75%;
     font-size: 12px;
   }
-img{
+/* img{
     position: absolute;
     margin-top: 80px;
     margin-left: 600px;
     height: 200px;
     width: 200px;
-}
+} */
 .name{
     position: absolute;
     margin-left: 800px;
@@ -92,3 +92,31 @@ img{
     padding-left: 5px;
     padding-right: 5px;
   }
+.heade, .foote{
+  height: 200px;
+  width: 800px;
+  visibility: hidden;
+}
+.foote{
+   width: 100%;
+}
+th{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #130202;
+}
+td{
+  border: 1px solid #0f0101;
+  padding: 10px;
+  text-align: left;
+  font-size: 12px;
+}
+.print{
+  height: 3508;
+  width: 2480;
+}
+
+
+

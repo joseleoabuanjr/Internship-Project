@@ -1,9 +1,52 @@
 <div class="form-title">
-  <p>Program Reports</p>
+  <div class="print" #print>
+    <p>Program Reports</p>
+      <div class="heade">
+        <img src="assets\images\header.png" alt="no image">
+      </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Program Flow</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Invocation</td>
+        <td>Audio Visual Presentaion</td>
+      </tr>
+      <tr>
+        <td>National Anthem</td>
+        <td>Audio Visual Presentaion</td>
+      </tr>
+      <tr>
+        <td>BulSU Hymn</td>
+        <td>Audio Visual Presentaion</td>
+      </tr>
+      <tr>
+        <td>Opening Remarks</td>
+        <td>Ms. Lourdes M. Tiongson</td>
+      </tr>
+      <tr>
+        <td>Recognition of Attendees</td>
+        <td>Moderator</td>
+      </tr>
+      <tr>
+        <td>Introduction Speaker</td>
+        <td>Desserie Rose Jingco</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="foote">
+    <img src="assets\images\footer.png" alt="no image">
+  </div>
+</div>
 </div>
 
 <div class="container">
-  <button mat-raised-button color="primary"><a [routerLink]="['../generate']">Generate Report</a></button>
+  <button (click)="makePdf()" mat-raised-button color="primary"><a [routerLink]="['../generate']">Generate Report</a></button>
 </div>
 
 <div class="header">
@@ -11,7 +54,7 @@
 </div>
 
 <div class="export">
-    <button mat-raised-button><mat-icon>save_alt</mat-icon>Generate Report</button>
+    <button (click)="makePdf()" mat-raised-button><mat-icon>save_alt</mat-icon>Generate Report</button>
 </div>
 
 <p class="report">Report List</p>
