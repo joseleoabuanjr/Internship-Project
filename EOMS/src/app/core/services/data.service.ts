@@ -8,7 +8,6 @@ import { DataUser } from 'src/app/main/components/accounts/data';
   providedIn: 'root'
 })
 export class DataService {
-  myArray: Users[] = [];
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
 
