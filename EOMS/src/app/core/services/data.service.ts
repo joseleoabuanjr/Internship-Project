@@ -17,7 +17,7 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get<DataUser>(this.baseUrl+'view.php');
+    return this.http.get<DataUser>(this.baseUrl+'getUsers.php');
   }
 
   userLogin(username:any, password:  any){
@@ -34,6 +34,10 @@ export class DataService {
 
   getPrograms() {
     return this.http.get<DataUser>(this.baseUrl+'view.php');
+  }
+
+  getApproval(){
+    return this.http.get<DataUser>(this.baseUrl+'getApprovals.php');
   }
 
   //Token-------------------------------
