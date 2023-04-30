@@ -1,10 +1,8 @@
-import { Users } from "src/app/core/models/users";
-
-export class DataUser{
-  public data: Users[];
+export class Data{
+  public data: any[];
   public success: number;
 
-  constructor( data: Users[], success: number ) {
+  constructor( data: any[], success: number ) {
     this.success = success;
     this.data = data;
   }

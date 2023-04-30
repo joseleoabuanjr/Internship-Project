@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { Users } from '../models/users';
-import { DataUser } from 'src/app/core/models/data';
+import { Data } from 'src/app/core/models/data';
 import { Programs } from '../models/programs';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get<DataUser>(this.baseUrl+'getUsers.php');
+    return this.http.get<Data>(this.baseUrl+'getUsers.php');
   }
 
   userLogin(username:any, password:  any){
@@ -33,11 +33,11 @@ export class DataService {
   }
 
   getPrograms() {
-    return this.http.get<DataUser>(this.baseUrl+'view.php');
+    return this.http.get<Data>(this.baseUrl+'view.php');
   }
 
   getApproval(){
-    return this.http.get<DataUser>(this.baseUrl+'getApprovals.php');
+    return this.http.get<Data>(this.baseUrl+'getApprovals.php');
   }
 
   //Token-------------------------------
