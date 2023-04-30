@@ -65,13 +65,10 @@ button.aa-btn{
 }
 .user-content > mat-card {
   width: 200px;
+  height: 300px;
 }
 .user-card {
   max-width: 400px;
-}
-.user-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
 }
 table {
   width: 100%;

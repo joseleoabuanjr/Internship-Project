@@ -7,8 +7,9 @@ export class Users{
   public facultyId: number;
   public account_type: string;
   public email: string;
+  public position: string;
 
-  constructor( accountId:number, userName:string, password:string, firstName:string, lastName:string, facultyId:number, account_type: string, email: string) {
+  constructor( accountId:number, userName:string, password:string, firstName:string, lastName:string, facultyId:number, account_type: string, email: string, position: string) {
     this.account_id = accountId;
     this.account_type = account_type;
     this.email = email;
@@ -17,5 +18,6 @@ export class Users{
     this.lastName = lastName;
     this.password = password;
     this.username = userName;
+    this.position = position;
   }
 }

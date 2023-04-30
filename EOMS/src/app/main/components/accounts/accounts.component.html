@@ -39,11 +39,14 @@
       *ngFor="let user of obs | async"
     >
       <mat-card class="user-card mat-elevation-z4">
-        <mat-card-header>
-          <mat-card-title style="padding-bottom: 10px;"> {{ user.first_name + " " + user.last_name }} </mat-card-title>
-          <mat-card-subtitle> {{  user.position == null || "" ? '' : user.position }} </mat-card-subtitle>
+        <mat-card-header style="padding-bottom: 10px;">
+          <mat-card-title > {{ user.first_name + " " + user.last_name }} </mat-card-title>
+          <mat-card-subtitle> {{  user.position == null || "" ? 'none' : user.position }} </mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="../../../../assets/images/cict.png">
+        <img mat-card-image src="../../../../assets/images/cict.png" style="background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;">
         <mat-card-content>
         </mat-card-content>
         <mat-card-actions>
