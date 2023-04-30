@@ -40,9 +40,10 @@ li {
 @import url(./app/shared/color.css);
 html {
   overflow-x: hidden;
+  background-color: var(--light)
 }
 body {
-  background: var(--light);
+  background-color: var(--light);
   overflow-x: hidden;
 }
 body.dark {

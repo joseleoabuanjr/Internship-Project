@@ -28,8 +28,8 @@
         <span class="text">E-Program Reports</span>
       </a>
     </li>
-    <li routerLinkActive="active">
-      <a [routerLink]="['accounts/management']">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+      <a [routerLink]="['accounts']">
         <i class='bx bxs-key'></i>
         <span class="text">Accounts</span>
       </a>

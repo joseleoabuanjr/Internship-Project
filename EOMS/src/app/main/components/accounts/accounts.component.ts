@@ -1,66 +1,63 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, MatSortable, Sort } from '@angular/material/sort';
 import { Users } from 'src/app/core/models/users';
-import { first, map, tap } from 'rxjs';
+import { Observable, first, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.scss']
 })
-export class AccountsComponent implements OnInit, AfterViewInit{
+export class AccountsComponent implements OnInit, OnDestroy{
   grid = true;
-  value = "";
+  list = false;
   hidden = false;
   panelOpenState = false;
-  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
-  dataSource: MatTableDataSource<Users> = new MatTableDataSource<Users>();
+  filterValue="";
+  displayedColumns: string[] = ['faculty_id', 'first_name', 'last_name', 'position', 'action']
   usersData: any;
-
-
-
-  constructor(
-    private dataService: DataService
-  ) { }
+  dataSource: any = [];
+  render = false;
+  obs!: Observable<any>;
+  defaultSortOption = 'name';
+  sortedData:any = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  constructor(
+    private dataService: DataService,
+    private ref: ChangeDetectorRef
+  ) { }
+
   ngOnInit(): void {
-    this.dataService.getUsers()
-    .subscribe({
-      next: (User: any)=>{
-        this.usersData = User.data;
-        const ELEMENT_DATA = [...this.usersData];
-        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-        console.log(this.dataSource);
-        // if(User.success === 1){
-        //   this.dataSource.data = User.data;
-        //   this.usersData = User.data;
-        // }
-
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
-    // .subscribe(
-    //   (result) => {
-    //     console.log(result);
-    //     this.usersData = result.data;
-    //     this.dataSource = new MatTableDataSource<Users>(this.usersData);
-    //   }
-    // )
+    this.getdata();
   }
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.dataSource.paginator = this.paginator;
-    });
-    // this.dataSource.paginator = this.paginator;
 
+  getdata(): void {
+    this.dataService.getUsers().subscribe(users =>{
+      this.dataSource = new MatTableDataSource(users.data);
+      this.ref.detectChanges();
+      setTimeout(()=>{
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.obs = this.dataSource.connect();
+      });
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.dataSource) {
+      this.dataSource.disconnect();
+    }
+  }
+
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
   toggleBadgeVisibility() {
@@ -71,5 +68,6 @@ export class AccountsComponent implements OnInit, AfterViewInit{
   changeView()
   {
     this.grid = !this.grid;
+    this.getdata();
   }
 }

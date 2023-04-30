@@ -16,7 +16,7 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get<Users[]>(this.baseUrl+'view.php');
+    return this.http.get<DataUser>(this.baseUrl+'view.php');
   }
 
   userLogin(username:any, password:  any){
