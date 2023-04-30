@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { Users } from '../models/users';
-import { DataUser } from 'src/app/main/components/accounts/data';
+import { DataUser } from 'src/app/core/models/data';
 
 @Injectable({
   providedIn: 'root'
