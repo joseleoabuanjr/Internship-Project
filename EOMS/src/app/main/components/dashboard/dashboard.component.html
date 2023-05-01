@@ -28,6 +28,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
     </div>
@@ -59,76 +60,12 @@
   </div>
   <br />
 
-  
 
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-        </tr>
-        <tr>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-          <th>12</th>
-          <th>13</th>
-          <th>14</th>
-        </tr>
-        <tr>
-          <th>15</th>
-          <th>16</th>
-          <th>17</th>
-          <th>18</th>
-          <th>19</th>
-          <th>20</th>
-          <th>21</th>
-        </tr>
-        <tr>
-          <th>22</th>
-          <th>23</th>
-          <th>24</th>
-          <th>25</th>
-          <th>26</th>
-          <th>27</th>
-          <th>28</th>
-        </tr>
-      </thead>
-    <tbody>
-    <tr>
-    <th>
-    </th>
-    </tr>
-  </tbody>
-  </table>
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
 
     <div [ngSwitch]="view">
     <mwl-calendar-month-view
@@ -160,7 +97,13 @@
       (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-day-view>
-  </div>
+    </div>
+
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>
   <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
 
   <br /><br /><br />
