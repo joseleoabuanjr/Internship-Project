@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView, } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
-import { Item } from "./item";
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -42,35 +41,6 @@ const colors: Record<string, EventColor> = {
 
 export class DashboardComponent {
 
-  title = 'todo';
-
-  filter: 'all' | 'active' | 'done' = 'all';
-
-    allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'play', done: false },
-    { description: 'laugh', done: false },
-  ];
-
-  get items() {
-    if (this.filter === 'all') {
-      return this.allItems;
-    }
-    return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
-  }
-
-  addItem(description: string) {
-    this.allItems.unshift({
-      description,
-      done: false
-    });
-  }
-
-  remove(item: Item) {
-  this.allItems.splice(this.allItems.indexOf(item), 1);
-  
-}
   @ViewChild('modalContent', { static: true })
   modalContent!: TemplateRef<any>;
 
