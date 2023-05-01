@@ -1,0 +1,48 @@
+<div class="main">
+    <h1>TO-DO LIST:</h1>
+
+    <label for="addItemInput">What would you like to do today?</label>
+
+    <input
+      #newItem
+      placeholder="Add a new task"
+      (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+      class="lg-text-input"
+      id="addItemInput" />
+    
+    <button class="btn-primary" (click)="addItem(newItem.value)">Add Task</button>
+
+  <div class="btn-wrapper">
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'All'"
+      (click)="filter = 'All'">
+      All
+    </button>
+
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'active'"
+      (click)="filter = 'active'">
+      To Do
+    </button>
+
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'done'"
+      (click)="filter = 'done'">
+      Done
+    </button>
+  </div>
+
+    <h2>{{items.length}} <span *ngIf="items.length === 1; else elseBlock">item</span>
+      <ng-template #elseBlock>items</ng-template></h2>
+
+    <ul>
+      <li *ngFor="let item of items">{{item.description}}</li>
+      <app-item (remove)="remove" [id]="items"></app-item>
+<!--  <app-item (remove)="remove(i)" [item]="i"></app-item> -->
+    </ul>
+    
+  </div>
+  

@@ -1,31 +1,41 @@
-import { Component } from '@angular/core';
-import { Item } from "./item";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent {
+  editable = false;
 
-  title = 'todo';
+  @Input() item!: Item;
+  @Output() remove = new EventEmitter<Item>();
 
-  filter: 'all' | 'active' | 'done' = 'all';
+  saveItem(description: string) {
+    if (!description) return;
+    this.editable = false;
+    this.item.description = description;
+  }
+
+  title = 'Extension Head To-Do List';
+
+  filter: 'All' | 'active' | 'done' = 'All';
 
   allItems = [
-    { description: 'Partnership Meeting - 09:00 AM', done: true },
-    { description: 'Set Up Faculty Accounts', done: false },
-    { description: 'View Email Notifications', done: false },
-    { description: 'CICT Technical Seminar - 01:00 PM', done: false },
+    { description: 'Flag Ceremony - 08:00 A.M.', done: true },
+    { description: 'Media Briefing - 10:00 A.M.', done: false },
+    { description: 'CICT Executives Lunch Out - 01:00 P.M.', done: true },
+    { description: 'Partnership Meeting - 03:00 P.M.', done: false },
   ];
 
   get items() {
-    if (this.filter === 'all') {
+    if (this.filter === 'All') {
       return this.allItems;
     }
     return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
   }
-
+  
   addItem(description: string) {
     this.allItems.unshift({
       description,
@@ -33,8 +43,9 @@ export class DashboardComponent {
     });
   }
 
-  remove(item: Item) {
-  this.allItems.splice(this.allItems.indexOf(item), 1);
 }
 
+export interface Item {
+  description: string;
+  done: boolean;
 }
