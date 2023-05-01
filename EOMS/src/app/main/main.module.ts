@@ -18,6 +18,7 @@ import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AddComponent,
     GenerateComponent,
     PartnershipsComponent,
+    ItemComponent,
   ],
 
   imports: [
