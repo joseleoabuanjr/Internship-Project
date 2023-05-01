@@ -19,6 +19,7 @@ import { GenerateComponent } from './components/reports/generate/generate.compon
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ItemComponent } from './components/item/item.component';
+import { DialogComponent } from './components/accounts/approvals/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ItemComponent } from './components/item/item.component';
     GenerateComponent,
     PartnershipsComponent,
     ItemComponent,
+    DialogComponent,
   ],
 
   imports: [

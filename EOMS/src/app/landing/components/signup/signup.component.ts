@@ -59,6 +59,7 @@ export class SignupComponent implements OnInit {
     this.dataService.createUser(this.signupForm.value).subscribe({
       next: (data)=>{
         this.route.navigate(['landing/login']);
+
         // console.log('response: '+ JSON.stringify(data));
       },
       error: (err) => {

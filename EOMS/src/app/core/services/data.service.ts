@@ -12,8 +12,8 @@ export class DataService {
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
 
-  createUser(user: Users){
-    return this.http.post<Users[]>(this.baseUrl+'insert.php', user);
+  createUser(user: any){
+    return this.http.post<any>(this.baseUrl+'createToApproval.php', user);
   }
 
   getUsers() {
@@ -36,8 +36,20 @@ export class DataService {
   //   return this.http.get<Data>(this.baseUrl+'view.php');
   // }
 
-  getApproval(){
-    return this.http.get<Data>(this.baseUrl+'getApprovals.php');
+  getApprovals(){
+    return this.http.get<Data>(this.baseUrl+'getApprovals.php?');
+  }
+
+  getSingleApproval(id: number){
+    return this.http.get<Data>(this.baseUrl+'getApprovals.php?id='+id);
+  }
+
+  createToUsers(data: any){
+    return this.http.post<any>(this.baseUrl+'createToUsers.php', data);
+  }
+
+  deleteApproval(id: number){
+    return this.http.delete<any>(this.baseUrl+'deleteApproval.php?id='+id);
   }
 
   //Token-------------------------------
