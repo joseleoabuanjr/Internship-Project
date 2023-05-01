@@ -1,61 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
-  selector: 'app-program',
+  selector: 'app-programs',
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.scss']
 })
 export class ProgramsComponent implements OnInit {
-  addProgram!: FormGroup;
 
+  programId!: number;
   Date1 : Date = new Date();
   programs: any[]= []
+  grid = true;
+  value = "";
+  hidden = false;
+  panelOpenState = false;
+  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
+   //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
 
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  addProgram(newProgram: any) {
+    this.programs.push(newProgram);
+  }
 
   ngOnInit(): void {
-    this.addProgram = new FormGroup({
-      start: new FormControl('',[Validators.required]),
-      end: new FormControl('',[Validators.required]),
-      title: new FormControl('',[Validators.required]),
-      place: new FormControl('',[Validators.required]),
-      banner: new FormControl('',[Validators.required]),
-      uploadFiles: new FormControl('',[Validators.required]),
-      details: new FormControl('',[Validators.required]),
-      leadAndMembers: new FormControl('',[Validators.required]),
-      participants: new FormControl('',[Validators.required]),
 
-      // this.route.paramMap.subscribe(params => {
-      //   this.programs = params.get('programs').split(',');
-      // }),
-    });
+    // const id = +this.route.snapshot.paramMap.get('id');
+    // this.route.paramMap.subscribe(params => {
+    //   this.programId = +params.get('id');
+    // });
   }
+
   url="./assets/images/cict.png"
 
-  onselectFile(banner: any){
-    if(banner.target.files){
-      let reader = new FileReader();
-      reader.readAsDataURL(banner.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
-      }
-    }
-  }
-  dis: any
-  show(){
-    this.dis ="inline"
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
   }
 
-  submit(): void {
-    console.log('Saved: ' + JSON.stringify(this.addProgram.value));
-
-    this.programs.push(this.addProgram.value)
-
-    if(this.addProgram.value.start <= this.addProgram.value.end){
-      // Placeholder
-    }
-
+  //Sidebar toggle show hide function
+  changeView()
+  {
+    this.grid = !this.grid;
   }
 }

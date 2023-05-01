@@ -32,9 +32,9 @@ export class DataService {
     return this.http.post<Programs[]>(this.baseUrl+'programs.php', program);
   }
 
-  getPrograms() {
-    return this.http.get<Data>(this.baseUrl+'view.php');
-  }
+  // getPrograms() {
+  //   return this.http.get<Data>(this.baseUrl+'view.php');
+  // }
 
   getApproval(){
     return this.http.get<Data>(this.baseUrl+'getApprovals.php');

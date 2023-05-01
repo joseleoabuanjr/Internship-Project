@@ -15,6 +15,7 @@ import { GenerateComponent } from './components/reports/generate/generate.compon
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
 
+
 const routes: Routes = [
   {
     path: 'main',

@@ -1,5 +1,16 @@
-.title-gradient-container {
-  background-image: linear-gradient(to bottom, #fbbb62, #f7cf84, #f5e1a9, #f7f1d0, #fffff6);
+.page-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  font-family: var(--poppins);
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #f9f9f9);
+  border-radius: 20px 20px 0px 0px;
+}
+button.aa-btn{
+  height: 40px;
+  font-size: 14px;
 }
 .form-container {
   display: flex;
@@ -50,15 +61,8 @@
 .cards-container{
   display: flex;
 }
-img{
-  height: 350px;
-  width: 350px;
-}
 .description{
   justify-content: center;
-}
-#create-button {
-  margin-bottom: 9.375rem;
 }
 .details-button{
   width: 150px;
@@ -113,4 +117,67 @@ footer{
 .programs
 {
   display: flex;
+}
+::ng-deep .mat-badge-content {
+  background: red !important;
+  font-size: 10px;
+}
+
+/* Toolbar */
+.tb-container{
+  height: 60px;
+  background: none !important;
+  border-top: 1px solid rgba(160, 160, 160, 0.452);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.organizers button mat-icon{
+  font-size: 20px;
+  text-align: center;
+}
+/* /Toolbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Search */
+.searchbar {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.search-field {
+  width: 100%;
+  height: 60px;
+}
+.search-icon{
+  width: 100%;
+  height: 100%;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: white !important;
+}
+.mat-form-field {
+  background-color: yellow;
+}
+/* /Search */
+
+/* User Contents */
+.user-content {
+  padding-top: 16px;
+}
+.user-content > mat-card {
+  width: 200px;
+}
+.user-card {
+  max-width: 400px;
+}
+.user-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+table {
+  width: 100%;
 }

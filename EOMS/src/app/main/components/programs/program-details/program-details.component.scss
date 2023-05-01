@@ -1,0 +1,267 @@
+.page-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  font-family: var(--poppins);
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #ffffff);
+  border-radius: 20px 0px 0px 0px;
+}
+button.aa-btn{
+  height: 40px;
+  font-size: 14px;
+}
+::ng-deep .mat-badge-content {
+  background: red !important;
+  font-size: 10px;
+}
+
+/* Toolbar */
+.tb-container{
+  height: 60px;
+  background: none !important;
+  border-top: 1px solid rgba(160, 160, 160, 0.452);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.organizers button mat-icon{
+  font-size: 20px;
+  text-align: center;
+}
+/* /Toolbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Search */
+.searchbar {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.search-field {
+  width: 100%;
+  height: 60px;
+}
+.search-icon{
+  width: 100%;
+  height: 100%;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: white !important;
+}
+.mat-form-field {
+  background-color: yellow;
+}
+/* /Search */
+
+/* User Contents */
+.user-content {
+  padding-top: 16px;
+}
+.user-content > mat-card {
+  width: 200px;
+}
+.user-card {
+  max-width: 400px;
+}
+.user-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+table {
+  width: 100%;
+}
+/* /User Contents */
+
+
+
+
+
+
+
+
+
+/*
+.tb-container{
+  height: 80px;
+  background: none !important;
+  border-top: 1px solid rgba(160, 160, 160, 0.452);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.app-sidenav-container {
+  flex: 1;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: none !important;
+}
+
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: none !important;
+}
+
+.app-sidenav {
+  width: 240px;
+  background: none !important;
+}
+
+.wrapper{
+  margin: 50px;
+}
+.nav-lists{
+  display: flex;
+  justify-content: center;
+}
+.lists{
+  text-decoration: none;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.sidenav-toggle{
+  padding: 0;
+  margin: 8px;
+  min-width: 56px;
+}
+
+@media (max-width: 720px) {
+  .sidenav-toggle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  mat-icon{
+    font-size: 30px;
+    height: 56px;
+    width: 56px;
+    line-height: 56px;
+    color: white;
+  }
+} */
+/* .dropdown{
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  margin-top: 15px;
+  margin-left: 400px;
+}
+.organizer1{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 65%;
+}
+.organizer2{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 70%;
+}
+*/
+/* .searchbar{
+  width: 300px;
+  font-size: 12px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em !important;
+} */
+/*
+.menu1{
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.menu2{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+.manage{
+  width: 150px;
+  height: 20px;
+  font-size: 12px;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0%;
+}
+.approvals{
+  width: 150px;
+  height: 20px;
+  font-size: 12px;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0%;
+}
+.program-card{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 400px;
+  width: 200px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0%;
+}
+.dropdown2{
+  position: absolute;
+  margin-left: 80%;
+}
+img{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 50px;
+  height: 100px;
+  width: 100px;
+}
+.name{
+  margin-top: 110px;
+  padding-left: 25px;
+  padding-right: 5px;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
+.usertype{
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  color: black;
+  font-weight: bold;
+}
+.stars {
+  transform: scale(0.5);
+  margin-top: -5px;
+}
+.details-button{
+  width: 150px;
+  height: 20px;
+  font-size: 12px;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 15px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0%;
+} */

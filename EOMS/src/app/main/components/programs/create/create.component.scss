@@ -1,10 +1,40 @@
-.title-gradient-container {
-  background-image: linear-gradient(to bottom, #fbbb62, #f7cf84, #f5e1a9, #f7f1d0, #fffff6);
+@use '@angular/material' as mat;
+.page-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: column;
+  font-size: 30px;
+  font-family: var(--poppins);
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #f9f9f9);
+  border-radius: 20px 20px 0px 0px;
+}
+button.aa-btn{
+  height: 40px;
+  font-size: 14px;
+}
+.btn{
+  width: 20rem;
+  background-color: #816E7C;
+  border-radius: 10px 10px 10px 10px;
+  @include mat.elevation-transition();
+  @include mat.elevation(2, #816E7C, 0.8);
+
+  &:active {
+    @include mat.elevation(8);
+  }
+
+}
+::ng-deep .bx bxs-file-find{
+  image-rendering: 50px;
 }
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0% 10% 0% 10%;
+
 }
 .upload-container {
   display: flex;
@@ -12,7 +42,7 @@
   justify-content: center;
   align-items: center;
   flex: 2 / 1;
-  margin-right: 5%;
+  margin: 5% 10% 5% 5%;
 }
 .info-container {
   display: flex;
@@ -20,17 +50,19 @@
   justify-content: center;
   align-items: center;
   flex: 1 / 2;
-  margin-left: 5%;
-}
-.form-title{
-  display: flex;
-  justify-content: center;
-  font-size: 30px;
+  padding: 8% 5% 5% 5%;
+  margin: 5% 5% 5% 10%;
+  border-radius: 50px 50px 50px 50px;
+  @include mat.elevation(2, #816E7C, 0.2);
 }
 .container{
   display: flex;
   justify-content: center;
-  margin-top: 9.375rem;
+  align-items: center;
+  border-radius: 0px 0px 30px 30px;
+  margin-top: 1rem;
+  background-color: #FFFFFE;
+  @include mat.elevation(1, #816E7C, 0.5);
 }
 .header{
   margin-top: 300px;
@@ -38,7 +70,7 @@
   margin-left: 5%;
 }
 .program-card{
-  width: 200px
+  width: 200px;
 }
 .text-block {
   font-size: 12px;
@@ -103,6 +135,13 @@ img{
   padding-left: 5px;
   padding-right: 5px;
 }
+.mat-field{
+  width: 20rem;
+}
+.programs
+{
+  display: flex;
+}
 footer{
   display: flex;
   justify-content: center;
@@ -110,7 +149,9 @@ footer{
   color: black;
   margin-top: 450px;
 }
-.programs
-{
-  display: flex;
+@media (max-width: 1300px) or (orientation: portrait) {
+  .container{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }
