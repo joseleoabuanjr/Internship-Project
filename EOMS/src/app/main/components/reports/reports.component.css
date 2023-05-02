@@ -94,11 +94,11 @@
   }
 .heade, .foote{
   height: 200px;
-  width: 800px;
-  visibility: hidden;
+  width: 100%;
+  margin-left: 0px;
 }
 .foote{
-   width: 100%;
+   margin-top: 240px;
 }
 th{
   font-family: Arial, Helvetica, sans-serif;
@@ -114,8 +114,14 @@ td{
   font-size: 12px;
 }
 .print{
-  height: 3508;
-  width: 2480;
+  height: 1200px;
+  width: 1000px;
+}
+table{
+  height: 500px;
+  width: 400px;
+  margin-bottom: 200px;
+  margin-left: 50px;
 }
 
 

@@ -1,9 +1,9 @@
 <div class="form-title">
   <div class="print" #print>
-    <p>Program Reports</p>
       <div class="heade">
         <img src="assets\images\header.png" alt="no image">
       </div>
+      <p>Program Reports</p>
   <table>
     <thead>
       <tr>
@@ -12,29 +12,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Invocation</td>
-        <td>Audio Visual Presentaion</td>
-      </tr>
-      <tr>
-        <td>National Anthem</td>
-        <td>Audio Visual Presentaion</td>
-      </tr>
-      <tr>
-        <td>BulSU Hymn</td>
-        <td>Audio Visual Presentaion</td>
-      </tr>
-      <tr>
-        <td>Opening Remarks</td>
-        <td>Ms. Lourdes M. Tiongson</td>
-      </tr>
-      <tr>
-        <td>Recognition of Attendees</td>
-        <td>Moderator</td>
-      </tr>
-      <tr>
-        <td>Introduction Speaker</td>
-        <td>Desserie Rose Jingco</td>
+      <tr *ngFor="let obj of report">
+        <td>{{obj.title}}</td>
+        <td>{{obj.name}}</td>
       </tr>
     </tbody>
   </table>
@@ -47,6 +27,7 @@
 
 <div class="container">
   <button (click)="makePdf()" mat-raised-button color="primary"><a [routerLink]="['../generate']">Generate Report</a></button>
+  <!--<button onclick="window.print()">Print this page</button>-->
 </div>
 
 <div class="header">
