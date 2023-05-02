@@ -60,7 +60,9 @@
         <input  matInput
                 [type]="hide ? 'password' : 'text'"
                 formControlName="password">
-                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-icon matSuffix class="eye-icon" (click)="togglePasswordVisibility()">
+                  {{hide ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
         <mat-error *ngIf="signupForm.get('password')?.hasError('passv') && !signupForm.get('password')?.hasError('required') && !signupForm.get('password')?.hasError('pattern')">
           Password must be atleast 5 characters
         </mat-error>
