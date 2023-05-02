@@ -61,7 +61,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <div class="nodata" *ngIf="!hasData">
+  <div class="nodata d-flex justify-content-center my-5" *ngIf="!hasData">
     No data to display.
   </div>
   <div *ngIf="dataSource">

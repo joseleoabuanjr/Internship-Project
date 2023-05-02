@@ -31,6 +31,7 @@ const routes: Routes = [
       { path: 'reports', component: ReportsComponent },
       { path: 'userslist', component: UserlistComponent},
       { path: 'profile', component: ProfileComponent},
+      { path: 'accounts/management/profile', component: ProfileComponent},
       { path: 'add', component: AddComponent},
       { path: 'generate', component: GenerateComponent},
       { path: 'partnerships', component: PartnershipsComponent}

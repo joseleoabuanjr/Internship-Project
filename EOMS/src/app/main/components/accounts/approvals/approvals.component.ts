@@ -48,8 +48,6 @@ export class ApprovalsComponent {
 
   getdata(): void {
     this.dataService.getApprovals().subscribe(users =>{
-      console.log(users)
-
       this.dataSource = new MatTableDataSource(users.data);
       this.ref.detectChanges();
       setTimeout(()=>{
