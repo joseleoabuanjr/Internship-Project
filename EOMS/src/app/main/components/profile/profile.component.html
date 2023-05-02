@@ -5,94 +5,83 @@
   <div class="sub-info">
     <p class="text">Manage your info, privacy and security to make the experience better for you.</p>
   </div>
+  <form [formGroup]="infoForm" (ngSubmit)="submit()">
   <section class="section-container">
     <h3>Profile Picture</h3>
-    <div class="avatar-container">
-      <div class="image-container"></div>
-      <div class="label-container">
-        <p>Update your profile picture</p>
-        <div class="icon-wrapper">
-            <input type="file" id="avatar-input-file" accept="image/*"/>
-            Upload Image
-            <mat-icon class="icon" fontIcon="edit"></mat-icon>
-        </div>
-      </div>
-    </div>
+    <app-avatar></app-avatar>
   </section>
 
   <section class="section-container">
     <h3>Account Information</h3>
     <div class="form-container">
-      <form [formGroup]="infoForm" (ngSubmit)="submit()">
-        <div fxLayout="row wrap" fxLayoutGap="16px grid">
-          <div fxFlex="50%">
-            <mat-form-field class="mat-field">
-              <mat-label>First Name</mat-label>
-              <input  matInput
-                      formControlName="firstname">
-              <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
-                First Name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <div class="space" *ngIf="infoForm.get('firstname')?.hasError('required')"></div>
-          </div>
-          <div fxFlex="50%">
-            <mat-form-field class="mat-field">
-              <mat-label>Last Name</mat-label>
-              <input  matInput
-                      formControlName="lastname">
-              <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
-                Last Name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%">
-            <mat-form-field class="mat-field">
-              <mat-label>Faculty ID</mat-label>
-              <input  matInput
-                      formControlName="faculty_id">
-              <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
-                Faculty ID is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%">
-            <mat-form-field class="mat-field">
-              <mat-label>Email</mat-label>
-              <input  matInput
-                      type="email"
-                      formControlName="email">
-              <mat-error *ngIf="infoForm.get('email')?.hasError('email') && !infoForm.get('email')?.hasError('required')">
-                Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="infoForm.get('email')?.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div fxFlex="50%">
-            <mat-form-field class="mat-field">
-              <mat-label>Position</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let position of positions" [value]="position.value">
-                  {{position.viewValue}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="d-flex justify-content-end w-100 p-0">
-            <button mat-raised-button
-                    type="submit"
-                    class="btn"
-                    [title]="infoForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                    [disabled]="!infoForm.valid">
-              Submit
-            </button>
-          </div>
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="50%">
+          <mat-form-field class="mat-field">
+            <mat-label>First Name</mat-label>
+            <input  matInput
+                    formControlName="firstname">
+            <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <div class="space" *ngIf="infoForm.get('firstname')?.hasError('required')"></div>
         </div>
-      </form>
+        <div fxFlex="50%">
+          <mat-form-field class="mat-field">
+            <mat-label>Last Name</mat-label>
+            <input  matInput
+                    formControlName="lastname">
+            <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
+              Last Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%">
+          <mat-form-field class="mat-field">
+            <mat-label>Faculty ID</mat-label>
+            <input  matInput
+                    formControlName="faculty_id">
+            <mat-error *ngIf="infoForm.get('firstname')?.hasError('required')">
+              Faculty ID is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%">
+          <mat-form-field class="mat-field">
+            <mat-label>Email</mat-label>
+            <input  matInput
+                    type="email"
+                    formControlName="email">
+            <mat-error *ngIf="infoForm.get('email')?.hasError('email') && !infoForm.get('email')?.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="infoForm.get('email')?.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field class="mat-field">
+            <mat-label>Position</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let position of positions" [value]="position.value">
+                {{position.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-end w-100 p-0">
+          <button mat-raised-button
+                  type="submit"
+                  class="btn"
+                  [title]="infoForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                  [disabled]="!infoForm.valid">
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -130,9 +119,8 @@
       </div>
     </div>
   </section>
+</form>
 </div>
-
-
 
 <footer>
 <p>© Extensions Office Management Sytstem, 2023</p>

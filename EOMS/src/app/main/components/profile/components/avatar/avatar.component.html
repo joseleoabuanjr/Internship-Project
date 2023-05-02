@@ -1,0 +1,12 @@
+<div class="avatar-container">
+  <div class="image-container"
+  [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
+  </div>
+
+  <label class="label-container" for="avatar-input-file">
+      <div class="icon-wrapper">
+          <input type="file" id="avatar-input-file" accept="image/*" (change)="onFileChange($event)" />
+          <mat-icon class="icon" fontIcon="edit"></mat-icon>
+      </div>
+  </label>
+</div>

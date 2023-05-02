@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   imageURL!: string;
   uploadForm!: FormGroup;
   infoForm!: FormGroup;
+  accountForm!: FormGroup;
   positions: any[] = [
     {value: 'faculty', viewValue: 'faculty'},
   ];
@@ -32,9 +33,6 @@ export class ProfileComponent implements OnInit {
       private dataService: DataService
     ) {  }
   ngOnInit(): void {
-    this.uploadForm = new FormGroup({
-
-    });
 
     this.infoForm = new FormGroup({
       firstname: new FormControl('',[Validators.required]),
@@ -42,8 +40,10 @@ export class ProfileComponent implements OnInit {
       faculty_id: new FormControl('',[Validators.required]),
       email:  new FormControl('', [Validators.required, Validators.email]),
       username: new FormControl('',[Validators.required, validUser]),
-      password: new FormControl('',[Validators.required, validPass])
+      password: new FormControl('',[Validators.required, validPass]),
+      file: new FormGroup({})
     });
+
   }
 
   showPreview($event: any){
