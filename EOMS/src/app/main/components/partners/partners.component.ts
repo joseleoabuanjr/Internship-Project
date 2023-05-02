@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-partners',
@@ -7,7 +11,9 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
   styleUrls: ['./partners.component.css']
 })
 export class PartnersComponent implements OnInit {
+  
   addPartner!: FormGroup;
+  grid = true;
 
   constructor(){ /* TODO document why this constructor is empty */ }
 
@@ -43,6 +49,10 @@ dis: any
 show(){
   this.dis ="inline"
 }
-
+  //Sidebar toggle show hide function
+  changeView()
+  {
+    this.grid = !this.grid;
+  }
 
 }
