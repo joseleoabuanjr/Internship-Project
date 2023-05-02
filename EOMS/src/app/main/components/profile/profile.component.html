@@ -8,7 +8,8 @@
   <form [formGroup]="infoForm" (ngSubmit)="submit()">
   <section class="section-container">
     <h3>Profile Picture</h3>
-    <app-avatar></app-avatar>
+    <app-avatar formControlName="file"></app-avatar>
+    {{ infoForm.value.file | json }}
   </section>
 
   <section class="section-container">

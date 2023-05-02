@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 function validUser(c:AbstractControl): { [key: string]:boolean } | null {
@@ -20,19 +22,22 @@ function validPass(c:AbstractControl): { [key: string]:boolean } | null {
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  id!:number;
   hide:boolean = true;
   imageURL!: string;
-  uploadForm!: FormGroup;
   infoForm!: FormGroup;
-  accountForm!: FormGroup;
   positions: any[] = [
     {value: 'faculty', viewValue: 'faculty'},
   ];
+  userdata: any;
 
   constructor(
-      private dataService: DataService
+      private dataService: DataService,
+      private route: ActivatedRoute
     ) {  }
   ngOnInit(): void {
+    const urlid = this.route.snapshot.paramMap.get('id');
+    this.id = parseInt(urlid!);
 
     this.infoForm = new FormGroup({
       firstname: new FormControl('',[Validators.required]),
@@ -41,8 +46,13 @@ export class ProfileComponent implements OnInit {
       email:  new FormControl('', [Validators.required, Validators.email]),
       username: new FormControl('',[Validators.required, validUser]),
       password: new FormControl('',[Validators.required, validPass]),
-      file: new FormGroup({})
+      file: new FormControl('')
     });
+    this.dataService.getSingleUser(this.id).subscribe( users =>{
+      // for(const user of users){
+
+      // }
+    })
 
   }
 

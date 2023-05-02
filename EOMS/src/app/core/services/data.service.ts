@@ -21,6 +21,10 @@ export class DataService {
     return this.http.get<Data>(this.baseUrl+'getUsers.php');
   }
 
+  getSingleUser(id:number) {
+    return this.http.get<any>(this.baseUrl+'getUsers.php?id='+id);
+  }
+
   userLogin(username:any, password:  any){
     return this.http.post<any>(this.baseUrl+'login.php', { username, password })
     .pipe(map(Users =>{

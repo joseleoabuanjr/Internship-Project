@@ -37,6 +37,7 @@ export class AccountsComponent implements OnInit, OnDestroy{
     this.getdata();
   }
 
+
   getdata(): void {
     this.dataService.getUsers().subscribe(users =>{
       this.dataSource = new MatTableDataSource(users.data);
@@ -54,6 +55,7 @@ export class AccountsComponent implements OnInit, OnDestroy{
     if (this.dataSource) {
       this.dataSource.disconnect();
     }
+    this.dataSource.disconnect();
   }
 
   applyFilter(event: KeyboardEvent) {
