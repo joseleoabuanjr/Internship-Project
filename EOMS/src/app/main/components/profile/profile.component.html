@@ -15,7 +15,9 @@
     <h3>Profile Information</h3>
     <div class="form-container">
       <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="50%">
+        <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
           <mat-form-field class="mat-field">
             <mat-label>First Name</mat-label>
             <input  matInput
@@ -26,7 +28,9 @@
           </mat-form-field>
           <div class="space" *ngIf="infoForm.get('firstname')?.hasError('required')"></div>
         </div>
-        <div fxFlex="50%">
+        <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
           <mat-form-field class="mat-field">
             <mat-label>Last Name</mat-label>
             <input  matInput
@@ -36,7 +40,9 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div fxFlex="50%">
+        <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
           <mat-form-field class="mat-field">
             <mat-label>Faculty ID</mat-label>
             <input  matInput
@@ -46,7 +52,9 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div fxFlex="50%">
+        <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
           <mat-form-field class="mat-field">
             <mat-label>Email</mat-label>
             <input  matInput
@@ -61,7 +69,9 @@
           </mat-form-field>
         </div>
 
-        <div fxFlex="50%">
+        <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
           <mat-form-field class="mat-field">
             <mat-label>Position</mat-label>
             <mat-select>
@@ -88,7 +98,9 @@
   <section class="section-container">
     <h3>Account Information</h3>
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div fxFlex="50%">
+      <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
         <mat-form-field class="mat-field">
           <mat-label>Username</mat-label>
           <input  matInput
@@ -101,7 +113,9 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div fxFlex="50%">
+      <div fxFlex="50%"
+              fxFlex.xs="100%"
+              fxFlex.sm="75%">
         <mat-form-field class="mat-field">
           <mat-label>Password</mat-label>
           <input  matInput

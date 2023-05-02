@@ -1,7 +1,13 @@
 <div class="avatar-container">
-  <div class="image-container"
+  <div class="image-container" *ngIf="file; else placeholder"
+  [ngClass]="{'box-shadow-avatar': !!file}"
   [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
   </div>
+
+  <ng-template #placeholder>
+    <div class="image-container avatar-placeholder">
+    </div>
+  </ng-template>
 
   <label class="label-container" for="avatar-input-file">
     <p>Update your profile picture</p>
