@@ -9,6 +9,7 @@ import { Programs } from '../models/programs';
   providedIn: 'root'
 })
 export class DataService {
+  createPartners: any;
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
 

@@ -1,108 +1,169 @@
-<div class="title-gradient-container">
-      <div class="form-title">
-        <p>Add Extension Partner</p>
+<div class="page-container">
+  <div class="page-title">
+    <div class="form-title">
+      <h1>Create a Program</h1>
+    </div>
+    <button mat-raised-button
+                  type="submit"
+                  class="aa-btn"
+                  [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                  [disabled]="!addPartner.valid"
+                  (click)="submit()">
+      Submit
+    </button>
+  </div>
+
+  <div class="container" [style.Display]="dis">
+    <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container" #newPartner>
+
+      <div class="content">
+        <div fxLayout="column wrap">
+
+          <div  fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="100%"
+                fxFlex.md="100%">
+            <div class="upload-container">
+              <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                  <mat-card-title><h2>Uploads</h2></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <img [src]="url" height="500">
+                </mat-card-content>
+                <mat-card-actions>
+                  <div class="d-flex justify-content-center">
+                    <div class="btn btn-rounded">
+                        <label class="form-label text-white m-2" for="customFile2">
+                          <i class='bx bxs-file-png'></i>
+                          Upload Banner
+                          </label>
+                        <input type="file"
+                                class="form-control d-none"
+                                id="customFile2"
+                                placeholder="Upload Program Banner"
+                                formControlName="banner"
+                                (change)="onselectFile($event)"
+                                #newPartner/>
+                    </div>
+                  </div>
+                    <mat-error *ngIf="addPartner.get('banner')?.hasError('required')">
+                    Banner is <strong>required</strong>
+                    </mat-error>
+                    <div class="space" *ngIf="addPartner.get('banner')?.hasError('required')"></div>
+
+                  <br>
+
+                  <div class="d-flex justify-content-center">
+                      <div class="btn btn-rounded">
+                          <label class="form-label text-white m-2" for="customFile2">
+                            <i class='bx bxs-file-png'></i>
+                            Upload Memorandum of Agreement (MOA)
+                            </label>
+                            <div class="input-group">
+                              <input type="file"
+                                      class="form-control"
+                                      id="inputGroupFile04"
+                                      aria-describedby="inputGroupFileAddon04"
+                                      aria-label="Upload"
+                                      placeholder="Upload Files"
+                                      formControlName="upload_files"
+                                      (change)="onselectFile($event)"
+                                      #newPartner>
+                            </div>
+                      </div>
+                  </div>
+                  <mat-error *ngIf="addPartner.get('upload_files')?.hasError('required')">
+                  File is <strong>required</strong>
+                  </mat-error>
+                  <div class="space" *ngIf="addPartner.get('upload_files')?.hasError('required')"></div>
+
+                  <br>
+                </mat-card-actions>
+              </mat-card>
+
+            </div>
+          </div>
+
+
+          <div fxFlex="50%">
+            <div class="info-container">
+              <h2>Details</h2>
+              <mat-form-field class="mat-field">
+                <mat-label>Partner Name</mat-label>
+                <input  matInput
+                        formControlName="partner_name" #newPartner>
+                <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
+                  Partner Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
+
+              <mat-form-field class="mat-field">
+                <mat-label>Enter Partnership Date Validity</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date"
+                  formControlName="partnership_start_date" #newPartner>
+                  <input matEndDate placeholder="End date"
+                  formControlName="partnership_end_date" #newPartner>
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('partnership_start_date')?.hasError('required')"></div>
+              <div class="space" *ngIf="addPartner.get('partnership_end_date')?.hasError('required')"></div>
+
+              <mat-form-field class="mat-field">
+                <mat-label>Partner Name</mat-label>
+                <input  matInput
+                        formControlName="partner_name" #newPartner>
+                <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
+                  Partner Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
+
+              <mat-form-field class="mat-field">
+                <mat-label>Partner Address</mat-label>
+                <input  matInput
+                        formControlName="partner_address" #newPartner>
+                <mat-error *ngIf="addPartner.get('partner_address')?.hasError('required')">
+                  Partner Address is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('partner_address')?.hasError('required')"></div>
+
+              <mat-form-field class="mat-field">
+                <mat-label>Contact Person</mat-label>
+                <input  matInput
+                        formControlName="contact_person" #newPartner>
+                <mat-error *ngIf="addPartner.get('contact_person')?.hasError('required')">
+                  Contact Person is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('contact_person')?.hasError('required')"></div>
+
+              <mat-form-field class="mat-field">
+                <mat-label>Contact Number</mat-label>
+                <input  matInput
+                        formControlName="contact_number" #newPartner>
+                <mat-error *ngIf="addPartner.get('contact_number')?.hasError('required')">
+                  Contact Number is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addPartner.get('contact_number')?.hasError('required')"></div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
 
-    <div class="partner-form" [style.Display]="dis">
-      <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container">
+    </form>
+  </div>
 
-        <div class="upload-container">
-          <mat-label>Program Banner</mat-label>
-          <img [src]="url" height="500"><br>
-            <input type="file" placeholder="Upload Program Banner"
-                    formControlName="banner" (change)="onselectFile($event)">
-            <mat-error *ngIf="addPartner.get('banner')?.hasError('required')">
-              Image is <strong>required</strong>
-              </mat-error>
-          <div class="space" *ngIf="addPartner.get('banner')?.hasError('required')"></div>
-
-          <mat-label>Uploaded Files</mat-label>
-          <input type="file" placeholder="Upload Files"
-                  formControlName="uploadFiles" (change)="onselectFile($event)">
-          <mat-error *ngIf="addPartner.get('uploadFiles')?.hasError('required')">
-            File is <strong>required</strong>
-            </mat-error>
-          <div class="space" *ngIf="addPartner.get('uploadFiles')?.hasError('required')"></div>
-        </div>
-
-        <div class="info-container">
-          <mat-form-field class="mat-field">
-            <mat-label>Program Title</mat-label>
-            <input  matInput
-                    formControlName="title">
-            <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
-              Program Title is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <mat-form-field class="mat-field">
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate placeholder="Start date"
-              formControlName="start">
-              <input matEndDate placeholder="End date"
-              formControlName="end">
-            </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <mat-form-field class="mat-field">
-            <mat-label>Place</mat-label>
-            <input  matInput
-                    formControlName="place">
-            <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
-              Place is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <mat-form-field class="mat-field">
-            <mat-label>Program Details</mat-label>
-            <input  matInput
-                    formControlName="details">
-            <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
-              Program Details is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <mat-form-field class="mat-field">
-            <mat-label>Program Lead and Members</mat-label>
-            <input  matInput
-                    formControlName="leadAndMembers">
-            <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
-              Program Lead and Members is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <mat-form-field class="mat-field">
-            <mat-label>Participants</mat-label>
-            <input  matInput
-                    formControlName="participants">
-            <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
-              Participants is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-          <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
-
-          <button mat-raised-button
-                    type="submit"
-                    class="btn"
-                    [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                    [disabled]="!addPartner.valid">
-              <a [routerLink]="['../programs']">Submit</a>
-              <!-- Submit -->
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <footer>
-        <p>© Extensions Office Management Sytstem, 2023</p>
-    </footer>
+  <footer>
+      <p>© Extensions Office Management Sytstem, 2023</p>
+  </footer>
+</div>
