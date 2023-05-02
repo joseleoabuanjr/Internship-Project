@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -7,7 +7,7 @@ import jsPDF from 'jspdf';
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
-export class ReportsComponent {
+export class ReportsComponent{
 
   @ViewChild('print', {static:true}) el!: ElementRef<HTMLImageElement>
 
@@ -26,4 +26,31 @@ export class ReportsComponent {
       pdf.save('sample.pdf')
     })
   }
+
+  report: any[] = [
+    {
+      "title": "Invocation",
+      'name': 'Audio Visual Presentation'
+    },
+    {
+      "title": "National Anthem",
+      'name': 'Audio Visual Presentation'
+    },
+    {
+      "title": "BulSU Hymn",
+      'name': 'Audio Visual Presentation'
+    },
+    {
+      "title": "Opening Remarks",
+      'name': 'Ms. Lourdes M. Tiongson'
+    },
+    {
+      "title": "Recognition of Attendees",
+      'name': 'Moderator'
+    },
+    {
+      "title": "Introduction Speaker",
+      'name': 'Desserie Rose Jingco'
+    }
+  ];
 }
