@@ -20,6 +20,11 @@ import { PartnershipsComponent } from './components/partners/partnerships/partne
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ItemComponent } from './components/item/item.component';
 import { DialogComponent } from './components/accounts/approvals/dialog/dialog.component';
+import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,15 @@ import { DialogComponent } from './components/accounts/approvals/dialog/dialog.c
     MainRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+    FormsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+  ],
+  exports: [DashboardComponent],
 })
 export class MainModule { }
