@@ -1,53 +1,3 @@
-<div class="main">
-    <h1>TO-DO LIST:</h1>
-
-    <label for="addItemInput">What would you like to do today?</label>
-
-    <input
-      #newItem
-      placeholder="Add a new task"
-      (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-      class="lg-text-input"
-      id="addItemInput" />
-    
-    <button class="btn-primary" (click)="addItem(newItem.value)">Add Task</button>
-
-  <div class="btn-wrapper">
-    <button
-      class="btn btn-menu"
-      [class.active]="filter == 'All'"
-      (click)="filter = 'All'">
-      All
-    </button>
-
-    <button
-      class="btn btn-menu"
-      [class.active]="filter == 'active'"
-      (click)="filter = 'active'">
-      To Do
-    </button>
-
-    <button
-      class="btn btn-menu"
-      [class.active]="filter == 'done'"
-      (click)="filter = 'done'">
-      Done
-    </button>
-  </div>
-
-    <h2>{{items.length}} <span *ngIf="items.length === 1; else elseBlock">item</span>
-      <ng-template #elseBlock>items</ng-template></h2>
-
-    <ul>
-      <li *ngFor="let item of items">{{item.description}}</li>
-      <app-item (remove)="remove" [id]="items"></app-item>
-<!--  <app-item (remove)="remove(i)" [item]="i"></app-item> -->
-    </ul>
-    
-  </div>
-  
-
-<!--
   <div class="row text-center">
     <div class="col-md-4">
       <div class="btn-group">
@@ -139,102 +89,8 @@
     >
     </mwl-calendar-day-view>
   </div>
--->
-  <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
-  <!--
-  <br /><br /><br />
-  
-  <h3>
-    Edit events
-    <button class="btn btn-primary float-end" (click)="addEvent()">
-      Add new
-    </button>
-    <div class="clearfix"></div>
-  </h3>
-  
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Primary color</th>
-          <th>Secondary + text color</th>
-          <th>Starts at</th>
-          <th>Ends at</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr *ngFor="let event of events">
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="event.title"
-              (keyup)="refresh.next()"
-            />
-          </td>
-          <td>
-            <input
-              type="color"
-              [(ngModel)]="event.color.primary"
-              (change)="refresh.next()"
-            />
-          </td>
-          <td>
-            <input
-              type="color"
-              [(ngModel)]="event.color.secondary"
-              (change)="refresh.next()"
-            />
-            <input
-              type="color"
-              [ngModel]="event.color.secondaryText ?? '#1e90ff'"
-              (ngModelChange)="event.color.secondaryText = $event"
-              (change)="refresh.next()"
-            />
-          </td>
-          <td>
-            <input
-              class="form-control"
-              type="text"
-              mwlFlatpickr
-              [(ngModel)]="event.start"
-              (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
-              dateFormat="Y-m-dTH:i"
-              altFormat="F j, Y H:i"
-              placeholder="Not set"
-            />
-          </td>
-          <td>
-            <input
-              class="form-control"
-              type="text"
-              mwlFlatpickr
-              [(ngModel)]="event.end"
-              (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
-              dateFormat="Y-m-dTH:i"
-              altFormat="F j, Y H:i"
-              placeholder="Not set"
-            />
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteEvent(event)">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+
+<!--  
   <ng-template #modalContent let-close="close">
     <div class="modal-header">
       <h5 class="modal-title">Event action occurred</h5>
@@ -245,11 +101,11 @@
     <div class="modal-body">
       <div>
         Action:
-        <pre>{{ modalData?.action }}</pre>
+        <pre>{{ modalData.action }}</pre>
       </div>
       <div>
         Event:
-        <pre>{{ modalData?.event | json }}</pre>
+        <pre>{{ modalData.event | json }}</pre>
       </div>
     </div>
     <div class="modal-footer">
