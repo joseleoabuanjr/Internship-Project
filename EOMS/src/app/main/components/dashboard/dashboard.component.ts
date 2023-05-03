@@ -24,25 +24,14 @@ const colors: Record<string, EventColor> = {
   //  selector: 'app-dashboard',
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  //styleUrls: ['./dashboard.component.css']
-  styles: [
-    `
-      h3 {
-        margin: 0 0 10px;
-      }
-
-      pre {
-        background-color: #f5f5f5;
-        padding: 15px;
-      }
-    `,
-  ],
+  styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
 
 export class DashboardComponent {
-  /*
-  @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+
+  @ViewChild('modalContent', { static: true })
+  modalContent!: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
 
@@ -50,7 +39,7 @@ export class DashboardComponent {
 
   viewDate: Date = new Date();
 
-  modalData: {
+  modalData!: {
     action: string;
     event: CalendarEvent;
   };
@@ -185,49 +174,5 @@ export class DashboardComponent {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
-*/
 
-  //TO-DO LIST
-
-  editable = false;
-
-  @Input() item!: Item;
-  @Output() remove = new EventEmitter<Item>();
-
-  saveItem(description: string) {
-    if (!description) return;
-    this.editable = false;
-    this.item.description = description;
-  }
-
-  title = 'Extension Head To-Do List';
-
-  filter: 'All' | 'active' | 'done' = 'All';
-
-  allItems = [
-    { description: 'Flag Ceremony - 08:00 A.M.', done: true },
-    { description: 'Media Briefing - 10:00 A.M.', done: false },
-    { description: 'CICT Executives Lunch Out - 01:00 P.M.', done: true },
-    { description: 'Partnership Meeting - 03:00 P.M.', done: false },
-  ];
-
-  get items() {
-    if (this.filter === 'All') {
-      return this.allItems;
-    }
-    return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
-  }
-  
-  addItem(description: string) {
-    this.allItems.unshift({
-      description,
-      done: false
-    });
-  }
-
-}
-
-export interface Item {
-  description: string;
-  done: boolean;
 }
