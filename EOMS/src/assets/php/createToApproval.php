@@ -25,7 +25,6 @@ $database = new Operations();
 $conn = $database->dbConnection();
 $data = json_decode(file_get_contents('php://input'));
 
-
 if (!isset($data->firstname) || !isset($data->lastname) || !isset($data->email) || !isset($data->username) || !isset($data->password) || !isset($data->faculty_id)) :
     echo json_encode([
         'success' => 0,
@@ -39,6 +38,7 @@ elseif (empty(trim($data->firstname)) || empty(trim($data->lastname)) || empty(t
     ]);
     exit;
 endif;
+
 try {
     $first_name = $data->firstname;
     $last_name = $data->lastname;
@@ -47,7 +47,7 @@ try {
     $password = $data->password;
     $faculty_id = $data->faculty_id;
 
-    $query = "INSERT INTO `users`(
+    $query = "INSERT INTO `approvals`(
     username,
     password,
     first_name,

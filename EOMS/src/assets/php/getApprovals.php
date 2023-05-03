@@ -17,22 +17,22 @@ endif;
 require 'connectdb.php';
 $database = new Operations();
 $conn = $database->dbConnection();
+
 $id = null;
 
 if (isset($_GET['id'])) {
-    $account_id =  $_GET['id'];
-    // filter_var($_GET['id'], FILTER_VALIDATE_INT, [
-    //     'options' => [
-    //         'default' => 'all_user',
-    //         'min_range' => 1
-    //     ]
-    // ]);
-    
+    $account_id = filter_var($_GET['id'], FILTER_VALIDATE_INT, [
+        'options' => [
+            'default' => 'all_students',
+            'min_range' => 1
+        ]
+    ]);
 }
-try {
-    $sql = is_numeric($account_id) ? "SELECT * FROM `users` WHERE account_id ='$account_id'" : "SELECT * FROM `users`";
-    
 
+try {
+
+    $sql = is_numeric($account_id) ? "SELECT * FROM `approvals` WHERE account_id='$account_id'" : "SELECT * FROM `approvals`";
+    
     $stmt = $conn->prepare($sql);
 
     $stmt->execute();
