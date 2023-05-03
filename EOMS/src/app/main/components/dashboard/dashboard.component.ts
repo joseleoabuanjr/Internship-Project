@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, EventEmitter, Output, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
 import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -21,8 +21,7 @@ const colors: Record<string, EventColor> = {
 };
 
 @Component({
-  //  selector: 'app-dashboard',
-  selector: 'mwl-demo-component',
+  selector: 'mwl-dashboard-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
@@ -45,21 +44,6 @@ export class DashboardComponent {
   };
 
   actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      },
-    },
-    {
-      label: '<i class="fas fa-fw fa-trash-alt"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Deleted', event);
-      },
-    },
   ];
 
   refresh = new Subject<void>();
@@ -68,7 +52,7 @@ export class DashboardComponent {
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
-      title: 'A 3 day event',
+      title: 'CICT Week - 3 Day Event',
       color: { ...colors['red'] },
       actions: this.actions,
       allDay: true,
@@ -80,7 +64,7 @@ export class DashboardComponent {
     },
     {
       start: startOfDay(new Date()),
-      title: 'An event with no end date',
+      title: 'Partnership Meeting',
       color: { ...colors['yellow'] },
       actions: this.actions,
     },
