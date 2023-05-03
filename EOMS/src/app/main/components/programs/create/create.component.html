@@ -1,194 +1,182 @@
-<div class="page-container">
   <div class="page-title">
-    <div class="form-title">
-      <h1>Create a Program</h1>
-    </div>
-    <button mat-raised-button
-                  type="submit"
-                  class="aa-btn"
-                  [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                  [disabled]="!addProgram.valid"
-                  (click)="submit()">
-      Submit
-    </button>
+    <h1>Create Extension Program</h1>
   </div>
+  <div class="info-container">
+    <div class="sub-info">
+      <p class="text">Fill out the necessary details and files appropriate for the extension program.</p>
+    </div>
+    <form [formGroup]="addProgram" (ngSubmit)="submit()">
+      <section class="section-container">
+        <h3>Program Banner</h3>
+        <app-banner formControlName="banner"></app-banner>
+        <!-- {{ addProgram.value.upload_files | json }} -->
+      </section>
 
-  <div class="container" [style.Display]="dis">
-    <form [formGroup]="addProgram" (ngSubmit)="submit()" class="form-container" #newProgram>
-
-      <div class="content">
-        <div fxLayout="column wrap">
-
-          <div  fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="100%"
-                fxFlex.md="100%">
-            <div class="upload-container">
-              <mat-card class="mat-elevation-z4">
-                <mat-card-header>
-                  <mat-card-title><h2>Uploads</h2></mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                  <img [src]="url" height="500">
-                </mat-card-content>
-                <mat-card-actions>
-                  <div class="d-flex justify-content-center">
-                    <div class="btn btn-rounded">
-                        <label class="form-label text-white m-2" for="customFile2">
-                          <i class='bx bxs-file-png'></i>
-                          Upload Banner
-                          </label>
-                        <input type="file"
-                                class="form-control d-none"
-                                id="customFile2"
-                                placeholder="Upload Program Banner"
-                                formControlName="banner"
-                                (change)="onselectFile($event)"
-                                #newProgram/>
-                    </div>
-                  </div>
-                    <mat-error *ngIf="addProgram.get('banner')?.hasError('required')">
-                    Banner is <strong>required</strong>
-                    </mat-error>
-                    <div class="space" *ngIf="addProgram.get('banner')?.hasError('required')"></div>
-
-                  <br>
-
-                  <div class="d-flex justify-content-center">
-                      <div class="btn btn-rounded">
-                          <label class="form-label text-white m-2" for="customFile2">
-                            <i class='bx bxs-file-png'></i>
-                            Upload Files
-                            </label>
-                            <div class="input-group">
-                              <input type="file"
-                                      class="form-control"
-                                      id="inputGroupFile04"
-                                      aria-describedby="inputGroupFileAddon04"
-                                      aria-label="Upload"
-                                      placeholder="Upload Files"
-                                      formControlName="upload_files"
-                                      (change)="onselectFile($event)"
-                                      #newProgram>
-                            </div>
-                      </div>
-                  </div>
-                  <mat-error *ngIf="addProgram.get('upload_files')?.hasError('required')">
-                  File is <strong>required</strong>
-                  </mat-error>
-                  <div class="space" *ngIf="addProgram.get('upload_files')?.hasError('required')"></div>
-
-                  <br>
-                </mat-card-actions>
-              </mat-card>
-
-            </div>
+      <section class="section-container">
+        <h3>Upload File</h3>
+        <div class="avatar-container">
+          <div class="label-container">
+            <p>Upload MOA or other appropriate and necessary files.</p>
+              <label class="form-label text-white m-2" for="customFile2">
+                <i class='bx bxs-file-png'></i>
+                Upload Files
+                </label>
+                <div class="input-group">
+                  <input type="file"
+                          class="form-control"
+                          id="inputGroupFile04"
+                          aria-describedby="inputGroupFileAddon04"
+                          aria-label="Upload"
+                          placeholder="Upload Files"
+                          formControlName="upload_files"
+                          (change)="onselectFile($event)"
+                          #newProgram>
+                </div>
+                <mat-error *ngIf="addProgram.get('upload_files')?.hasError('required')">
+                  Program Title is <strong>required</strong>
+                </mat-error>
+                <div class="space" *ngIf="addProgram.get('upload_files')?.hasError('required')"></div>
           </div>
+        </div>
+      </section>
 
-
-          <div fxFlex="50%">
-            <div class="info-container">
-              <h2>Details</h2>
+      <section class="section-container">
+        <h3>Program Details</h3>
+        <div class="form-container">
+          <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Program Title</mat-label>
                 <input  matInput
-                        formControlName="program_title" #newProgram>
+                        formControlName="program_title">
                 <mat-error *ngIf="addProgram.get('program_title')?.hasError('required')">
                   Program Title is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
               <div class="space" *ngIf="addProgram.get('program_title')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
-                <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="Start date"
-                  formControlName="date_and_time_start" #newProgram>
-                  <input matEndDate placeholder="End date"
-                  formControlName="date_and_time_end" #newProgram>
-                </mat-date-range-input>
-                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-label>Date Start / End</mat-label>
+                  <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date"
+                    formControlName="date_and_time_start" #newProgram>
+                    <input matEndDate placeholder="End date"
+                    formControlName="date_and_time_end" #newProgram>
+                  </mat-date-range-input>
+                  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="addProgram.get('date_and_time_start')?.hasError('required')">
+                  Starting Date is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="addProgram.get('date_and_time_end')?.hasError('required')">
+                  Ending Date is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('date_and_time_start')?.hasError('required')"></div>
-              <div class="space" *ngIf="addProgram.get('date_and_time_end')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Place</mat-label>
                 <input  matInput
-                        formControlName="place" #newProgram>
+                        formControlName="place">
                 <mat-error *ngIf="addProgram.get('place')?.hasError('required')">
                   Place is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('place')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Program Details</mat-label>
                 <input  matInput
-                        formControlName="program_details" #newProgram>
+                        formControlName="program_details">
                 <mat-error *ngIf="addProgram.get('program_details')?.hasError('required')">
                   Program Details is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('program_details')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Program Lead</mat-label>
                 <input  matInput
-                        formControlName="program_lead" #newProgram>
+                        formControlName="program_lead">
                 <mat-error *ngIf="addProgram.get('program_lead')?.hasError('required')">
                   Program Lead is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('program_lead')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Program Members</mat-label>
                 <input  matInput
-                        formControlName="program_members" #newProgram>
+                        formControlName="program_members">
                 <mat-error *ngIf="addProgram.get('program_members')?.hasError('required')">
                   Program Members is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('program_members')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Participants</mat-label>
                 <input  matInput
-                        formControlName="participants" #newProgram>
+                        formControlName="participants">
                 <mat-error *ngIf="addProgram.get('participants')?.hasError('required')">
                   Participants is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('participants')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Program Flow</mat-label>
                 <input  matInput
-                        formControlName="program_flow" #newProgram>
+                        formControlName="program_flow">
                 <mat-error *ngIf="addProgram.get('program_flow')?.hasError('required')">
                   Program Flow is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('program_flow')?.hasError('required')"></div>
-
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
               <mat-form-field class="mat-field">
                 <mat-label>Additional Details</mat-label>
                 <input  matInput
-                        formControlName="additional_details" #newProgram>
+                        formControlName="additional_details">
                 <mat-error *ngIf="addProgram.get('additional_details')?.hasError('required')">
                   Additional Details is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('additional_details')?.hasError('required')"></div>
+            </div>
 
+            <div class="d-flex justify-content-end w-100 p-0">
+              <button mat-raised-button
+                      type="submit"
+                      class="aa-btn"
+                      [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                      [disabled]="!addProgram.valid"
+                      (click)="submit()">
+                Submit
+              </button>
             </div>
           </div>
-
         </div>
-      </div>
+      </section>
 
     </form>
   </div>
@@ -196,4 +184,3 @@
   <footer>
       <p>© Extensions Office Management Sytstem, 2023</p>
   </footer>
-</div>

@@ -26,6 +26,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AvatarComponent } from './components/profile/components/avatar/avatar.component';
+import { BannerComponent } from './components/programs/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AvatarComponent } from './components/profile/components/avatar/avatar.c
     ItemComponent,
     DialogComponent,
     AvatarComponent,
+    BannerComponent
   ],
 
   imports: [

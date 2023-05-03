@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { DataService } from 'src/app/core/services/data.service';
 
 export class CreateComponent implements OnInit {
   addProgram!: FormGroup;
+  id!:number;
+  imageURL!: string;
   vals = ''
   data= this.vals.split(',');
 
@@ -20,10 +23,14 @@ export class CreateComponent implements OnInit {
   @Output() childToParent = new EventEmitter<any>();
 
   constructor(private route: Router,
+              private a_route: ActivatedRoute,
               private dataService: DataService
   ) { }
 
   ngOnInit(): void {
+    const urlid = this.a_route.snapshot.paramMap.get('id');
+    this.id = parseInt(urlid!);
+
     this.addProgram = new FormGroup({
       // id: new FormControl([Validators.required]),
       date_and_time_start: new FormControl('',[Validators.required]),
@@ -57,7 +64,7 @@ export class CreateComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('Saved: ' + JSON.stringify(this.addProgram.value));
+    // console.log('Saved: ' + JSON.stringify(this.addProgram.value));
 
     this.dataService.createPrograms(this.addProgram.value).subscribe({
       next: (data)=>{
@@ -67,11 +74,6 @@ export class CreateComponent implements OnInit {
         console.log(err);
       }
     });
-    // this.programs.push(this.addProgram.value)
-    // if(this.addProgram.value.start <= this.addProgram.value.end){
-    //   this.childToParent.emit(this.addProgram.value)
-    //   this.router.navigate(['main/programs'])
-    // }
 
   }
 }

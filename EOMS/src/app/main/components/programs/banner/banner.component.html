@@ -1,0 +1,20 @@
+<div class="avatar-container">
+  <div class="image-container" *ngIf="banner; else placeholder"
+  [ngClass]="{'box-shadow-avatar': !!banner}"
+  [ngStyle]="{backgroundImage: 'url(' + banner + ')'}">
+  </div>
+
+  <ng-template #placeholder>
+    <div class="image-container avatar-placeholder">
+    </div>
+  </ng-template>
+
+  <label class="label-container" for="banner-input-file">
+    <p>Update your profile picture</p>
+    <div class="icon-wrapper">
+        <input type="file" id="banner-input-file" accept="image/*" (change)="onFileChange($event)" />
+        Upload Image
+        <mat-icon class="icon" fontIcon="edit"></mat-icon>
+    </div>
+  </label>
+</div>
