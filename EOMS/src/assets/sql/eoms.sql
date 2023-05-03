@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2023 at 04:02 PM
+-- Generation Time: May 03, 2023 at 01:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `eoms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `approvals`
+--
+
+CREATE TABLE `approvals` (
+  `account_id` int(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `faculty_id` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,21 +83,36 @@ CREATE TABLE `users` (
   `last_name` varchar(30) NOT NULL,
   `faculty_id` int(30) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `account_type` varchar(30) NOT NULL
+  `account_type` varchar(30) DEFAULT NULL,
+  `position` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`account_id`, `username`, `password`, `first_name`, `last_name`, `faculty_id`, `email`, `account_type`) VALUES
-(0, 'admin', 'admin', 'admin_fn', 'admin_ln', 0, 'admin@gmail.com', 'admin'),
-(1, 'leo', 'abuan', 'Jose Leo', 'Abuan', 12122, 'leoabuan112201@gmail.com', 'faculty'),
-(2, 'jason', 'escasinas', 'Jason', 'Escasinas', 21231, 'jason@gmail.com', 'faculty');
+INSERT INTO `users` (`account_id`, `username`, `password`, `first_name`, `last_name`, `faculty_id`, `email`, `account_type`, `position`) VALUES
+(0, 'admin', 'admin', 'admin_fn', 'admin_ln', 0, 'admin@gmail.com', 'admin', 'admin'),
+(1, 'leo', 'abuan', 'Jose Leo', 'Abuan', 12122, 'leoabuan112201@gmail.com', 'faculty', NULL),
+(2, 'jason', 'escasinas', 'Jason', 'Escasinas', 21231, 'jason@gmail.com', 'faculty', NULL),
+(29, 'ed01', 'edison', 'edison', 'tuazon', 232184, 'edison@gmail.com', 'faculty', NULL),
+(30, 'ed01', 'edison', 'edison', 'tuazon', 232184, 'edison@gmail.com', 'faculty', NULL),
+(31, 'noelc', 'noelc', 'noel', 'carpio', 374892, 'noel@gmail.com', 'faculty', NULL),
+(32, 'ed01', 'edison', 'edison', 'tuazon', 232184, 'edison@gmail.com', 'faculty', NULL),
+(33, 'ed01', 'edison', 'edison', 'tuazon', 232184, 'edison@gmail.com', 'faculty', NULL),
+(34, 'ed01', 'edison', 'edison', 'tuazon', 232184, 'edison@gmail.com', 'faculty', NULL),
+(35, 'noelc', 'noelc', 'noel', 'carpio', 374892, 'noel@gmail.com', 'faculty', NULL),
+(36, 'dsadsa', 'asdads', 'dsadsa', 'dsadsa', 0, 'das@dawsd', 'faculty', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `approvals`
+--
+ALTER TABLE `approvals`
+  ADD PRIMARY KEY (`account_id`);
 
 --
 -- Indexes for table `users`
@@ -94,10 +125,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `approvals`
+--
+ALTER TABLE `approvals`
+  MODIFY `account_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `account_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `account_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
