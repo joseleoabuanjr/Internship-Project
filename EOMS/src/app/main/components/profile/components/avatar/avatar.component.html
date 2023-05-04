@@ -1,7 +1,7 @@
 <div class="avatar-container">
-  <div class="image-container" *ngIf="file; else placeholder"
-  [ngClass]="{'box-shadow-avatar': !!file}"
-  [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
+  <div class="image-container" *ngIf="avatarUrls; else placeholder"
+  [ngClass]="{'box-shadow-avatar': !!avatarUrls}"
+  [ngStyle]="{ 'background-image': 'url(' + avatarUrls + ')', 'background-size': 'cover' }">
   </div>
 
   <ng-template #placeholder>
@@ -17,4 +17,5 @@
         <mat-icon class="icon" fontIcon="edit"></mat-icon>
     </div>
   </label>
+  <div class="fw-light ms-4 mt-5">{{ fileName }}</div>
 </div>

@@ -1,23 +1,21 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: PUT");
+header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-
- $method = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "OPTIONS") {
     die();
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] !== 'PUT') :
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') :
     http_response_code(405);
     echo json_encode([
         'success' => 0,
-        'message' => 'Bad Request detected! Only PUT method is allowed',
+        'message' => 'Bad Request!.Only POST method is allowed',
     ]);
     exit;
 endif;

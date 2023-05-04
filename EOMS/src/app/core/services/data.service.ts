@@ -25,6 +25,11 @@ export class DataService {
     return this.http.get<any>(this.baseUrl+'getUsers.php?id='+id);
   }
 
+  updateUser(user: any){
+    console.log(user);
+    return this.http.post<any>(this.baseUrl+'updateUser.php', user);
+  }
+
   userLogin(username:any, password:  any){
     return this.http.post<any>(this.baseUrl+'login.php', { username, password })
     .pipe(map(Users =>{

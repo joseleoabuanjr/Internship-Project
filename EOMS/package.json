@@ -27,6 +27,7 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.1",
     "@popperjs/core": "^2.11.7",
     "angular-calendar": "^0.31.0",
+    "angular-uploader": "^8.25.0",
     "angularx-flatpickr": "^7.3.0",
     "bootstrap": "^5.2.3",
     "date-fns": "^2.30.0",
@@ -34,6 +35,7 @@
     "jspdf": "^2.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uploader": "^3.23.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

@@ -27,6 +27,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AvatarComponent } from './components/profile/components/avatar/avatar.component';
 import { BannerComponent } from './components/programs/banner/banner.component';
+import { UploaderModule } from 'angular-uploader';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { BannerComponent } from './components/programs/banner/banner.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    UploaderModule
   ],
   exports: [DashboardComponent],
 })
