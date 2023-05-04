@@ -9,8 +9,8 @@
   <section class="section-container">
     <h3>Profile Picture</h3>
     <div class="avatar-container">
-      <div class="image-container" *ngIf="image; else placeholder"
-      [ngStyle]="{ 'background-image': 'url(' + image + ')', 'background-size': 'cover' }">
+      <div class="image-container" *ngIf="image; else placeholder">
+      <img class="logo" mat-card-image src="{{image}}">
       </div>
 
       <ng-template #placeholder>

@@ -11,9 +11,12 @@ import { DataService } from 'src/app/core/services/data.service';
   styleUrls: ['./partners.component.scss']
 })
 export class PartnersComponent implements OnInit {
-  
+
   addPartner!: FormGroup;
   grid = true;
+  filterValue!: string;
+  dataSource: any;
+  panelOpenState = false;
 
   constructor(){ /* TODO document why this constructor is empty */ }
 
@@ -54,5 +57,8 @@ show(){
   {
     this.grid = !this.grid;
   }
-
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 }

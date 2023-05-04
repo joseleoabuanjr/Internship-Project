@@ -14,36 +14,99 @@ button.aa-btn{
   font-size: 14px;
 }
 
-.header{
-  margin-top: 30px;
-  font-size: 15px;
-  margin-left: 5%;
+
+/* User Contents */
+.user-content {
+  padding-top: 16px;
+}
+.user-content > mat-card {
+  width: 200px;
+  height: 300px;
+}
+.user-card {
+  max-width: 400px;
+}
+table {
+  width: 100%;
+}
+.manage-btn{
+  width: 100%;
+  background-color: var(--cictteal);
+}
+mat-paginator{
+  margin-top: 40px;
+  background-color: var(--light) !important;
 }
 
-.actions{
+/*   accordion    */
+.section-container{
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(48, 48, 48, 0.123);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+mat-expansion-panel{
+  box-shadow: none !important;
+}
+.main-header{
+  height: 200px;
+}
+.image-container {
+  height: 130px;
+  width: 130px;
+  border-radius: 10px;
+  border: 2px rgba(153, 153, 153, 0.267) solid;
+  background-color: #f3f3f3;
+  background-position: center;
+  background-size: cover;
+}
+.image-container img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+.logo-container{
+  display: flex;
   justify-content: center;
 }
-
-.details-button{
-  width: 150px;
-  height: 20px;
-  font-size: 12px;
-  color: black;
-  padding-left: 5px;
-  padding-right: 5px;
+mat-panel-description{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
 }
+/* /User Contents */
+// .header{
+//   margin-top: 30px;
+//   font-size: 15px;
+//   margin-left: 5%;
+// }
+
+// .actions{
+//   justify-content: center;
+// }
+
+// .details-button{
+//   width: 150px;
+//   height: 20px;
+//   font-size: 12px;
+//   color: black;
+//   padding-left: 5px;
+//   padding-right: 5px;
+// }
 
 /* Toolbar */
 .tb-container{
   height: 60px;
   background: none !important;
-  border-top: 1px solid rgba(160, 160, 160, 0.452);
-  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  // border-top: 1px solid rgba(160, 160, 160, 0.452);
+  // border-bottom: 1px solid rgba(160, 160, 160, 0.452);
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 0 0 !important;
 }
-
 .organizers button mat-icon{
   font-size: 20px;
   text-align: center;
@@ -56,7 +119,7 @@ button.aa-btn{
 /* Search */
 .searchbar {
   min-width: 150px;
-  max-width: 500px;
+  max-width: 300px;
   width: 100%;
 }
 .search-field {
@@ -67,60 +130,66 @@ button.aa-btn{
   width: 100%;
   height: 100%;
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: white !important;
+}
+.mat-form-field {
+  background-color: yellow;
+}
 /* /Search */
 
-.card-container{
-  background: none !important;
-  border-top: 1px solid rgba(160, 160, 160, 0.452);
-  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .card-container{
+//   background: none !important;
+//   border-top: 1px solid rgba(160, 160, 160, 0.452);
+//   border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-.card{
-  border: 2px solid rgba(160, 160, 160, 0.452);
-  background-color: whitesmoke;
-}
+// .card{
+//   border: 2px solid rgba(160, 160, 160, 0.452);
+//   background-color: whitesmoke;
+// }
 
-.photo{
-  height: 250px;
-  width: 250px;
-}
+// .photo{
+//   height: 250px;
+//   width: 250px;
+// }
 
-.name-title{
-  height: 50px;
-  width: 250px;
-  background-color: #f6ad3d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
+// .name-title{
+//   height: 50px;
+//   width: 250px;
+//   background-color: #f6ad3d;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-weight: bold;
+// }
 
-.logo-container{
-  margin-left: 25px;
-  margin-right: 25px;
+// .logo-container{
+//   margin-left: 25px;
+//   margin-right: 25px;
 
-}
+// }
 
-.logo{
-  height: 75px;
-  width: 75px;
-}
+// .logo{
+//   height: 75px;
+//   width: 75px;
+// }
 
-.subhead{
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-  color: black;
-  margin-top: 100px;
-}
+// .subhead{
+//   display: flex;
+//   justify-content: center;
+//   font-size: 20px;
+//   color: black;
+//   margin-top: 100px;
+// }
 
-footer{
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-  color: black;
-  margin-top: 100px;
-}
+// footer{
+//   display: flex;
+//   justify-content: center;
+//   font-size: 20px;
+//   color: black;
+//   margin-top: 100px;
+// }
