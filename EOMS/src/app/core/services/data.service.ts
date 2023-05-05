@@ -42,7 +42,11 @@ export class DataService {
   }
 
   // getPrograms() {
-  //   return this.http.get<Data>(this.baseUrl+'view.php');
+  //   return this.http.get<Data>(this.baseUrl+'getPrograms.php?id='+id);
+  // }
+
+  // getSingleProgram(id: number){
+  //   return this.http.get<Data>(this.baseUrl+'getApprovals.php?id='+id);
   // }
 
   getApprovals(){

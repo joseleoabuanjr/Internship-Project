@@ -16,7 +16,8 @@ import { Programs } from "src/app/core/models/programs";
   styleUrls: ['./program-details.component.scss']
 })
 export class ProgramDetailsComponent implements OnInit {
-  programId!: number;
+  id!: number;
+  imageURL!: string;
   Date1 : Date = new Date();
   programs: any[]= []
   url="./assets/images/cict.png"

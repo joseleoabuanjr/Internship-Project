@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -11,37 +12,64 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class ProgramsComponent implements OnInit {
 
+  grid = true;
+  list = false;
+  hidden = false;
+  panelOpenState = false;
+  filterValue!: string;
   programId!: number;
   Date1 : Date = new Date();
   programs: any[]= []
-  grid = true;
-  value = "";
-  hidden = false;
-  panelOpenState = false;
-  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
-  filterValue!: string;
+  url="./assets/images/cict.png"
+  displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
+  usersData: any;
   dataSource: any;
-  //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
+  render = false;
+  obs!: Observable<any>;
+  defaultSortOption = 'name';
+  sortedData:any = [];
+   //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
 
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataService: DataService,
+    private ref: ChangeDetectorRef
+    ) { }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  addProgram(newProgram: any) {
-    this.programs.push(newProgram);
+  ngOnInit(): void {
+    this.getProgram();
   }
 
-  ngOnInit(): void {
 
-    // const id = +this.route.snapshot.paramMap.get('id');
-    // this.route.paramMap.subscribe(params => {
-    //   this.programId = +params.get('id');
+  getProgram(): void {
+    // this.dataService.getPrograms().subscribe(users =>{
+    //   this.dataSource = new MatTableDataSource(users.data);
+    //   console.log(users.data);
+    //   this.ref.detectChanges();
+    //   setTimeout(()=>{
+    //     this.dataSource.paginator = this.paginator;
+    //     this.dataSource.sort = this.sort;
+    //     this.obs = this.dataSource.connect();
+    //   });
     // });
   }
 
-  url="./assets/images/cict.png"
+  ngOnDestroy() {
+    // if (this.dataSource) {
+    //   this.dataSource.disconnect();
+    // }
+    // this.dataSource.disconnect();
+  }
+
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
@@ -51,9 +79,6 @@ export class ProgramsComponent implements OnInit {
   changeView()
   {
     this.grid = !this.grid;
-  }
-  applyFilter(event: KeyboardEvent) {
-    this.filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+    this.getProgram();
   }
 }
