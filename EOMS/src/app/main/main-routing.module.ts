@@ -14,6 +14,7 @@ import { AddComponent } from './components/partners/add/add.component';
 import { GenerateComponent } from './components/reports/generate/generate.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PartnershipsComponent } from './components/partners/partnerships/partnerships/partnerships.component';
+import { ProgramDetailsComponent } from './components/programs/program-details/program-details.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,8 @@ const routes: Routes = [
       { path: 'accounts/approvals', component: ApprovalsComponent},
       { path: 'partners', component: PartnersComponent },
       { path: 'programs', component: ProgramsComponent },
+      { path: 'program-details/:id', component: ProgramDetailsComponent},
+      { path: 'programs/program-details/:id', component: ProgramDetailsComponent},
       { path: 'programs/create', component: CreateComponent},
       { path: 'reports', component: ReportsComponent },
       { path: 'userslist', component: UserlistComponent},

@@ -24,11 +24,12 @@ export class ProgramsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
   usersData: any;
   dataSource: any;
+   //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
   render = false;
   obs!: Observable<any>;
   defaultSortOption = 'name';
   sortedData:any = [];
-   //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
+
 
 
   constructor(

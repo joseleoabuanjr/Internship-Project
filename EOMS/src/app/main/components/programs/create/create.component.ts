@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
     this.id = parseInt(urlid!);
 
     this.addProgram = new FormGroup({
-      // id: new FormControl([Validators.required]),
+      id: new FormControl([Validators.required]),
       date_and_time_start: new FormControl('',[Validators.required]),
       date_and_time_end: new FormControl('',[Validators.required]),
       program_title: new FormControl('',[Validators.required]),
@@ -44,7 +44,7 @@ export class CreateComponent implements OnInit {
       program_members: new FormControl('',[Validators.required]),
       participants: new FormControl('',[Validators.required]),
       program_flow: new FormControl('',[Validators.required]),
-      additional_details: new FormControl('',[Validators.required]),
+      additional_details: new FormControl('',[Validators.required])
     });
   }
   url="./assets/images/cict.png"
@@ -74,7 +74,6 @@ export class CreateComponent implements OnInit {
         console.log(err);
       }
     });
-
   }
 }
 
