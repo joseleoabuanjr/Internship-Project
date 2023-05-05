@@ -16,19 +16,19 @@
         <span class="text">Extension Programs</span>
       </a>
     </li>
-    <li routerLinkActive="active">
+    <li routerLinkActive="active" *ngIf="isAdmin">
       <a [routerLink]="['partners']">
         <i class='bx bxs-group' ></i>
         <span class="text">Partners</span>
       </a>
     </li>
-    <li routerLinkActive="active">
+    <li routerLinkActive="active" *ngIf="isAdmin">
       <a [routerLink]="['reports']">
         <i class='bx bxs-file'></i>
         <span class="text">E-Program Reports</span>
       </a>
     </li>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}" *ngIf="isAdmin">
       <a [routerLink]="['accounts']">
         <i class='bx bxs-key'></i>
         <span class="text">Accounts</span>
@@ -36,8 +36,8 @@
     </li>
   </ul>
   <ul class="side-menu">
-    <li routerLinkActive="active">
-      <a [routerLink]="['profile']">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+      <a [routerLink]="['profile',useToken]" >
         <i class='bx bxs-cog' ></i>
         <span class="text">Settings</span>
       </a>
@@ -68,8 +68,8 @@
       <i class='bx bxs-bell' ></i>
       <span class="num">8</span>
     </a> -->
-    <a [routerLink]="['profile']" class="profile">
-      <img src="../../../../assets/images/Picture1.jpg">
+    <a [routerLink]="['profile']" class="profile" >
+      <img src="../../../../assets/images/cict.png">
     </a>
   </nav>
   <!-- NAVBAR -->

@@ -69,7 +69,6 @@ signup(email : string, password : string) {
 
   //Email Verification
   sendEmailForVarification(user : any) {
-    console.log(user);
     user.sendEmailVerification().then((res : any) => {
       this.route.navigate(['/verify-email']);
     }, (err : any) => {
