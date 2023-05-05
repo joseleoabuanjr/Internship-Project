@@ -1,59 +1,71 @@
-  <div class="page-title">
-      <h1>Extension Programs</h1>
-      <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
-      <!-- <button class="aa-btn" mat-flat-button matBadge="7" matBadgePosition="after" matBadgeSize="small" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">Accounts Approval</button> -->
+<div class="page-title">
+  <h1>Extension Programs</h1>
+  <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small"><a
+      [routerLink]="['../programs/create']">Create Extension Program</a></button>
+  <!-- <button class="aa-btn" mat-flat-button matBadge="7" matBadgePosition="after" matBadgeSize="small" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">Accounts Approval</button> -->
 
-    <!-- <div class="container">
+  <!-- <div class="container">
       <button id="create-button" mat-raised-button color="primary"><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
     </div> -->
-  </div>
+</div>
 
-  <div class="header">
-    <p>Current and Upcoming Extension Programs</p>
+<div class="header">
+  <p>Current and Upcoming Extension Programs</p>
+</div>
+<mat-toolbar class="tb-container">
+  <span class="spacer"></span>
+  <div class="organizers" *ngIf="grid">
+    <button mat-icon-button (click)="changeView()"><mat-icon>apps</mat-icon></button>
   </div>
-  <mat-toolbar class="tb-container">
-    <span class="spacer"></span>
-    <div class="organizers" *ngIf="grid">
-      <button mat-icon-button (click)="changeView()"><mat-icon>apps</mat-icon></button>
-    </div>
-    <div class="organizers" *ngIf="!grid">
-      <button mat-icon-button (click)="changeView()"><mat-icon>format_list_bulleted</mat-icon></button>
-    </div>
-    <form class="searchbar">
-      <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
-        <mat-label>Search</mat-label>
-        <input type="tel" matInput (keyup)="applyFilter($event)">
-        <mat-icon matSuffix class="search-icon">search</mat-icon>
-      </mat-form-field>
-    </form>
-  </mat-toolbar>
-  <!-- Grd View -->
-  <div class="user-content" *ngIf="grid">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div
-        fxFlex="25%"
-        fxFlex.xs="100%"
-        fxFlex.sm="33%"
-
-      >
-        <mat-card class="user-card mat-elevation-z4">
-          <mat-card-header>
-            <div mat-card-avatar class="user-header-image"></div>
-            <!-- <mat-card-title> {{ programs.title }} </mat-card-title>
-            <mat-card-subtitle> {{ programs.place }} </mat-card-subtitle> -->
-          </mat-card-header>
-          <img mat-card-image src="../../../../assets/images/cict.png">
-          <mat-card-content>
-          </mat-card-content>
-          <mat-card-actions>
-            <button class="aa-btn" id="ex-details-button" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['main/programs/:id']">Details</a></button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+  <div class="organizers" *ngIf="!grid">
+    <button mat-icon-button (click)="changeView()"><mat-icon>format_list_bulleted</mat-icon></button>
+  </div>
+  <form class="searchbar">
+    <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
+      <mat-label>Search</mat-label>
+      <input type="tel" matInput (keyup)="applyFilter($event)">
+      <mat-icon matSuffix class="search-icon">search</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-toolbar>
+<!-- Grd View -->
+<section class="section-container">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <mat-accordion class="main-panel">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header class="main-header">
+            <mat-panel-title class="logo-container">
+              <div class="image-container">
+                <img class="logo" mat-card-image
+                  src="../../../../assets/images/cict.png" alt="Bulacan LGU Logo">
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <h4>Bulacan Local Government Unit</h4>
+              <p>The local government unit (LGU) of Bulacan is responsible for the governance and administration of the
+                province. It is headed by a governor who is elected by the people for a term of three years. The LGU is
+                composed of various departments and offices that oversee different aspects of governance such as
+                finance, health, education, tourism, and public works.</p>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul>
+            <thead>Details:</thead><br>
+            <li>Address: 10 MacArthur Hwy, Malolos, Bulacan
+            <li>Contact Person: Atty. Jayric L. Amil, Office of the Governor - Personal Staff
+            <li>Contacts:<br><mat-icon class="icon"> phone</mat-icon>+63(44) 791-8148/8149/8150/8151
+            <li><mat-icon class="icon"> location_on</mat-icon><a
+                href="https://www.google.com/maps/dir//Bulacan+Provincial+Capitol,+10+MacArthur+Hwy,+Malolos,+Bulacan/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x339653db1eca7be7:0x165a33d0af8e7af2?sa=X&ved=2ahUKEwj23Nrn0N3-AhWCNt4KHWjzDmUQ48ADegQIBRAM">Get
+                Directions</a>
+            <li><mat-icon class="icon">desktop_mac</mat-icon><a href="https://bulacan.gov.ph/">Visit Website</a></li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
-  <!-- /Grid View -->
+</section>
+<!-- /Grid View -->
 
-  <footer>
-      <p>© Extensions Office Management Sytstem, 2023</p>
-  </footer>
+<footer>
+  <p>© Extensions Office Management Sytstem, 2023</p>
+</footer>
