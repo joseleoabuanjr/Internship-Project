@@ -37,8 +37,8 @@ export class DataService {
     }));
   }
 
-  createPrograms(program: Programs){
-    return this.http.post<Programs[]>(this.baseUrl+'programs.php', program);
+  createPrograms(program: any){
+    return this.http.post<any>(this.baseUrl+'programs.php', program);
   }
 
   // getPrograms() {

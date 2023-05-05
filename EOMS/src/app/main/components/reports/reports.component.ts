@@ -10,6 +10,8 @@ import jsPDF from 'jspdf';
 export class ReportsComponent{
 
   @ViewChild('print', {static:true}) el!: ElementRef<HTMLImageElement>
+  filterValue!: string;
+  dataSource: any;
 
   makePdf(){
     html2canvas(this.el.nativeElement).then((canvas) => {
@@ -53,4 +55,9 @@ export class ReportsComponent{
       'name': 'Desserie Rose Jingco'
     }
   ];
+  
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 }

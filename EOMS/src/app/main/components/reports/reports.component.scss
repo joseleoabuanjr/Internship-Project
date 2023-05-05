@@ -1,4 +1,3 @@
-
 .page-title{
   display: flex;
   justify-content: space-between;
@@ -9,148 +8,193 @@
   background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #f9f9f9);
   border-radius: 20px 20px 0px 0px;
 }
-
+.sub-info{
+  padding-left: 30px;
+  padding-top: 20px;
+}
 button.aa-btn{
   height: 40px;
   font-size: 14px;
 }
-
-
-
-
-
-
-.form-title{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    font-size: 30px;
-  }
-  .container{
-    display: flex;
-    justify-content: center;
-    margin-top: 150px;
-  }
-  .export{
-    position: absolute;
-    margin-left: 80%;
-    margin-top: 150px;
-  }
-  .header{
-    margin-top: 300px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-  }
-.report{
-    position: absolute;
-    margin-left: 25%;
-    font-size: 12px;
-  }
-  .dropdown{
-    position: absolute;
-    font-size: 12px;
-    color: black;
-    margin-top: 15px;
-    margin-left: 400px;
-  }
-.dropdown2{
-    position: absolute;
-    font-size: 12px;
-    color: black;
-    margin-top: 15px;
-    margin-left: 800px;
-  }
-  .searchbar{
-    position: absolute;
-    width: 300px;
-    margin-top: 15px;
-    margin-left: 75%;
-    font-size: 12px;
-  }
-  .searchfield{
-    width: 100%;
-  }
-  .search{
-    position: absolute;
-    margin-left: 75%;
-    font-size: 12px;
-  }
-/* img{
-    position: absolute;
-    margin-top: 80px;
-    margin-left: 600px;
-    height: 200px;
-    width: 200px;
-} */
-.name{
-    position: absolute;
-    margin-left: 800px;
-    margin-top: 120px;
-    padding-left: 25px;
-    padding-right: 5px;
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
+.section-container{
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(48, 48, 48, 0.123);
+  border-radius: 10px;
+  margin-top: 30px;
 }
-.date{
-    position: absolute;
-    margin-left: 800px;
-    margin-top: 150px;
-    padding-left: 25px;
-    padding-right: 5px;
-    font-size: 10px;
-    color: black;
-    font-weight: bold;
+
+/* User Contents */
+.user-content {
+  padding-top: 16px;
 }
-.details-button{
-    position: absolute;
-    margin-left: 800px;
-    margin-top: 200px;
-    width: 150px;
-    height: 20px;
-    font-size: 12px;
-    color: black;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-.heade, .foote{
-  height: 200px;
+.user-content > mat-card {
+  width: 200px;
+  height: 300px;
+}
+.user-card {
+  max-width: 400px;
+}
+table {
   width: 100%;
-  margin-left: 0px;
 }
-.foote{
-   margin-top: 240px;
+.manage-btn{
+  width: 100%;
+  background-color: var(--cictteal);
 }
-th{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #130202;
-}
-td{
-  border: 1px solid #0f0101;
-  padding: 10px;
-  text-align: left;
-  font-size: 12px;
-}
-.print{
-  height: 1200px;
-  width: 1000px;
-}
-table{
-  height: 500px;
-  width: 400px;
-  margin-bottom: 200px;
-  margin-left: 50px;
+mat-paginator{
+  margin-top: 40px;
+  background-color: var(--light) !important;
 }
 
+/*   accordion    */
+.section-container{
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(48, 48, 48, 0.123);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+mat-expansion-panel{
+  box-shadow: none !important;
+}
+.main-header{
+  height: 200px;
+}
+.image-container {
+  height: 130px;
+  width: 130px;
+  border-radius: 10px;
+  border: 2px rgba(153, 153, 153, 0.267) solid;
+  background-color: #f3f3f3;
+  background-position: center;
+  background-size: cover;
+}
+.image-container img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+.logo-container{
+  display: flex;
+  justify-content: center;
+}
+mat-panel-description{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
+}
 
+/* Toolbar */
+.tb-container{
+  height: 60px;
+  background: none !important;
+  // border-top: 1px solid rgba(160, 160, 160, 0.452);
+  // border-bottom: 1px solid rgba(160, 160, 160, 0.452);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 !important;
+}
+.organizers button mat-icon{
+  font-size: 20px;
+  text-align: center;
+}
+/* /Toolbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Search */
+.searchbar {
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+}
+.search-field {
+  width: 100%;
+  height: 60px;
+}
+.search-icon{
+  width: 100%;
+  height: 100%;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: white !important;
+}
+.mat-form-field {
+  background-color: yellow;
+}
+.icon{
+  margin-right: 10px;
+  padding: 0px !important;
+}
 footer{
   display: flex;
   justify-content: center;
   font-size: 20px;
   color: black;
   margin-top: 100px;
+}
+/* Toolbar */
+.tb-container{
+  height: 60px;
+  background: none !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.organizers button mat-icon{
+  font-size: 20px;
+  text-align: center;
+}
+/* /Toolbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Search */
+.searchbar {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.search-field {
+  width: 100%;
+  height: 60px;
+}
+.search-icon{
+  width: 100%;
+  height: 100%;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: white !important;
+}
+.mat-form-field {
+  background-color: yellow;
+}
+/* /Search */
+
+/* User Contents */
+.user-content {
+  padding-top: 16px;
+}
+.user-content > mat-card {
+  width: 200px;
+}
+.user-card {
+  max-width: 400px;
+}
+.user-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+table {
+  width: 100%;
+}
+.report{
+  margin-top: 5%;
+  display:flex;
+  justify-content: center;
 }

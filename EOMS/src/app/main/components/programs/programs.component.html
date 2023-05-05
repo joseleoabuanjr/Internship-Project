@@ -3,17 +3,23 @@
   <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
 </div>
 
-<mat-toolbar class="tb-container">
-  <p>Current and Upcoming Extension Programs</p>
-  <span class="spacer"></span>
-  <form class="searchbar">
-    <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
-      <mat-label>Search</mat-label>
-      <input type="tel" matInput (keyup)="applyFilter($event)">
-      <mat-icon matSuffix class="search-icon">search</mat-icon>
-    </mat-form-field>
-  </form>
-</mat-toolbar>
+<div class="info-container">
+  <mat-toolbar class="tb-container">
+  <div class="sub-info">
+    <p class="text">Current and Upcoming Extension Programs</p>
+  </div>
+    <span class="spacer"></span>
+    <form class="searchbar">
+      <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
+        <mat-label>Search</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)">
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-toolbar>
+  </div>
+
+
 
   <!-- Grid View -->
   <div class="user-content" *ngIf="grid">

@@ -20,17 +20,18 @@ $conn = $database->dbConnection();
 $id = null;
 
 if (isset($_GET['id'])) {
-    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT, [
-        'options' => [
-            'default' => 'all_program',
-            'min_range' => 1
-        ]
-    ]);
+  $id =  $_GET['id'];
+    // $id = filter_var($_GET['id'], FILTER_VALIDATE_INT, [
+    //     'options' => [
+    //         'default' => 'all_program',
+    //         'min_range' => 1
+    //     ]
+    // ]);
 }
 
 try {
 
-    $sql = is_numeric($id) ? "SELECT * FROM `students` WHERE id='$id'" : "SELECT * FROM `programs`";
+  $sql = is_numeric($id) ? "SELECT * FROM `programs` WHERE id ='$id'" : "SELECT * FROM `programs`";
 
 
     $stmt = $conn->prepare($sql);
