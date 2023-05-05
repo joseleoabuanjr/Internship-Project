@@ -8,9 +8,20 @@
   background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #f9f9f9);
   border-radius: 20px 20px 0px 0px;
 }
+.sub-info{
+  padding-left: 30px;
+  padding-top: 20px;
+}
 button.aa-btn{
   height: 40px;
   font-size: 14px;
+}
+.section-container{
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(48, 48, 48, 0.123);
+  border-radius: 10px;
+  margin-top: 30px;
 }
 
 /* User Contents */
@@ -130,8 +141,6 @@ footer{
 .tb-container{
   height: 60px;
   background: none !important;
-  border-top: 1px solid rgba(160, 160, 160, 0.452);
-  border-bottom: 1px solid rgba(160, 160, 160, 0.452);
   display: flex;
   justify-content: flex-start;
   align-items: center;
