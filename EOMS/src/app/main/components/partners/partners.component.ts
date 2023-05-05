@@ -31,7 +31,6 @@ export class PartnersComponent implements OnInit {
 partners: any[]= []
 
 submit(): void {
-  console.log('Saved: ' + JSON.stringify(this.addPartner.value));
 
   this.partners.push(this.addPartner.value)
 

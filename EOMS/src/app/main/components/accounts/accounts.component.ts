@@ -41,7 +41,6 @@ export class AccountsComponent implements OnInit, OnDestroy{
   getdata(): void {
     this.dataService.getUsers().subscribe(users =>{
       this.dataSource = new MatTableDataSource(users.data);
-      console.log(users.data);
       this.ref.detectChanges();
       setTimeout(()=>{
         this.dataSource.paginator = this.paginator;
