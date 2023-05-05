@@ -1,196 +1,113 @@
 <div class="page-title">
   <h1>Program Details</h1>
+  <!-- <button class="aa-btn" mat-flat-button matBadge="7" matBadgePosition="after" matBadgeSize="small" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">Accounts Approval</button> -->
 </div>
-<div class="d-flex justify-content-end w-100 p-0">
-  <button mat-raised-button
-          type="submit"
-          class="aa-btn"
-          [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-          (click)="edit()"
-          >
-    Edit
-  </button>
-</div>
-<div class="info-container">
-  <div class="sub-info">
-    <p class="text">Fill out the necessary details and files appropriate for the extension program.</p>
+<mat-toolbar class="tb-container">
+  <div class="dropdown">
+    <button mat-button [matMenuTriggerFor]="faculty">Sort By<span class="material-icons">arrow_drop_down</span></button>
+        <mat-menu #faculty="matMenu">
+          <button mat-menu-item>Default</button>
+          <button mat-menu-item>Male Faculty</button>
+          <button mat-menu-item>Female Faculty</button>
+          <button mat-menu-item>Position</button>
+          <button mat-menu-item>Specialization</button>
+        </mat-menu>
   </div>
-  <form [formGroup]="addProgram" (ngSubmit)="submit()">
-    <section class="section-container">
-      <h3>Program Banner</h3>
-      <app-banner formControlName="banner"></app-banner>
-      <!-- {{ addProgram.value.upload_files | json }} -->
-    </section>
-
-    <section class="section-container">
-      <h3>Upload File</h3>
-      <div class="avatar-container">
-        <div class="label-container">
-          <p>Upload MOA or other appropriate and necessary files.</p>
-            <label class="form-label text-white m-2" for="customFile2">
-              <i class='bx bxs-file-png'></i>
-              Upload Files
-              </label>
-              <div class="input-group">
-                <input type="file"
-                        class="form-control"
-                        id="inputGroupFile04"
-                        aria-describedby="inputGroupFileAddon04"
-                        aria-label="Upload"
-                        placeholder="Upload Files"
-                        formControlName="upload_files"
-                        (change)="onselectFile($event)"
-                        #newProgram>
-              </div>
-              <mat-error *ngIf="addProgram.get('upload_files')?.hasError('required')">
-                Program Title is <strong>required</strong>
-              </mat-error>
-              <div class="space" *ngIf="addProgram.get('upload_files')?.hasError('required')"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-container">
-      <h3>Program Details</h3>
-      <div class="form-container">
-        <div fxLayout="row wrap" fxLayoutGap="16px grid">
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Program Title</mat-label>
-              <input  matInput
-                      formControlName="program_title">
-              <mat-error *ngIf="addProgram.get('program_title')?.hasError('required')">
-                Program Title is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <div class="space" *ngIf="addProgram.get('program_title')?.hasError('required')"></div>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Date Start / End</mat-label>
-                <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="Start date"
-                  formControlName="date_and_time_start" #newProgram>
-                  <input matEndDate placeholder="End date"
-                  formControlName="date_and_time_end" #newProgram>
-                </mat-date-range-input>
-                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-              <mat-error *ngIf="addProgram.get('date_and_time_start')?.hasError('required')">
-                Starting Date is <strong>required</strong>
-              </mat-error>
-              <mat-error *ngIf="addProgram.get('date_and_time_end')?.hasError('required')">
-                Ending Date is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Place</mat-label>
-              <input  matInput
-                      formControlName="place">
-              <mat-error *ngIf="addProgram.get('place')?.hasError('required')">
-                Place is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Program Details</mat-label>
-              <input  matInput
-                      formControlName="program_details">
-              <mat-error *ngIf="addProgram.get('program_details')?.hasError('required')">
-                Program Details is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Program Lead</mat-label>
-              <input  matInput
-                      formControlName="program_lead">
-              <mat-error *ngIf="addProgram.get('program_lead')?.hasError('required')">
-                Program Lead is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Program Members</mat-label>
-              <input  matInput
-                      formControlName="program_members">
-              <mat-error *ngIf="addProgram.get('program_members')?.hasError('required')">
-                Program Members is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Participants</mat-label>
-              <input  matInput
-                      formControlName="participants">
-              <mat-error *ngIf="addProgram.get('participants')?.hasError('required')">
-                Participants is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Program Flow</mat-label>
-              <input  matInput
-                      formControlName="program_flow">
-              <mat-error *ngIf="addProgram.get('program_flow')?.hasError('required')">
-                Program Flow is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div fxFlex="50%"
-                fxFlex.xs="100%"
-                fxFlex.sm="75%">
-            <mat-form-field class="mat-field">
-              <mat-label>Additional Details</mat-label>
-              <input  matInput
-                      formControlName="additional_details">
-              <mat-error *ngIf="addProgram.get('additional_details')?.hasError('required')">
-                Additional Details is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="d-flex justify-content-end w-100 p-0">
-            <button mat-raised-button
-                    type="submit"
-                    class="aa-btn"
-                    [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                    [disabled]="!addProgram.valid"
-                    (click)="submit()">
-              Update Details
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
+  <span class="spacer"></span>
+  <div class="organizers" *ngIf="grid">
+    <button mat-icon-button (click)="changeView()"><mat-icon>apps</mat-icon></button>
+  </div>
+  <div class="organizers" *ngIf="!grid">
+    <button mat-icon-button (click)="changeView()"><mat-icon>format_list_bulleted</mat-icon></button>
+  </div>
+  <form class="searchbar">
+    <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
+      <mat-label>Search</mat-label>
+      <input type="tel" matInput>
+      <mat-icon matSuffix class="search-icon">search</mat-icon>
+    </mat-form-field>
   </form>
+</mat-toolbar>
+<!-- Grd View -->
+<div class="user-content" *ngIf="grid">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div
+      fxFlex="25%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let product of Product"
+    >
+      <mat-card class="user-card mat-elevation-z4">
+        <mat-card-header>
+          <div mat-card-avatar class="user-header-image"></div>
+          <mat-card-title> {{ product.productName }} </mat-card-title>
+          <mat-card-subtitle> {{ product.id }} </mat-card-subtitle>
+          <mat-card-subtitle> {{ product.productCode }} </mat-card-subtitle>
+          <mat-card-subtitle> {{ product.releaseDate }} </mat-card-subtitle>
+          <mat-card-subtitle> {{ product.description }} </mat-card-subtitle>
+          <mat-card-subtitle> {{ product.price }} </mat-card-subtitle>
+          <mat-card-subtitle> {{ product.tags }} </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../../../assets/images/cict.png">
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Manage</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
+<!-- /Grid View -->
+
+<!-- List View -->
+<div class="mat-elevation-z8" *ngIf="!grid">
+  <table mat-table >
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="account_id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let product"> {{product.productName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="faculty_id">
+      <th mat-header-cell *matHeaderCellDef> Product Code </th>
+      <td mat-cell *matCellDef="let product"> {{product.productCode }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="faculty_id">
+      <th mat-header-cell *matHeaderCellDef> Product Code </th>
+      <td mat-cell *matCellDef="let product"> {{product.releaseDate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="faculty_id">
+      <th mat-header-cell *matHeaderCellDef> Product Code </th>
+      <td mat-cell *matCellDef="let product"> {{product.description }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="faculty_id">
+      <th mat-header-cell *matHeaderCellDef> Product Code </th>
+      <td mat-cell *matCellDef="let product"> {{product.price }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[1,2]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+<!-- /List View -->
 
 <footer>
-    <p>© Extensions Office Management Sytstem, 2023</p>
+  <p>© Extensions Office Management Sytstem, 2023</p>
 </footer>
