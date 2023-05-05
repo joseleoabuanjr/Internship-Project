@@ -25,7 +25,7 @@ export class ProgramDetailsComponent implements OnInit {
   grid = true;
   hidden = false;
   panelOpenState = false;
-  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
+  displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
 
   product!: Programs;
   errorMessage: any;
@@ -42,35 +42,40 @@ export class ProgramDetailsComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
-              private dataService: DataService) {
+              private dataService: DataService) { }
 
+  ngOnInit(): void {
+    this.displayProgramForm = this.fb.group({
+      id: [[Validators.required]],
+      date_and_time_start: ['', [Validators.required]],
+      date_and_time_end: ['', [Validators.required]],
+      program_title: ['', [Validators.required]],
+      place: ['', [Validators.required]],
+      banner: ['', [Validators.required]],
+      upload_files: ['', [Validators.required]],
+      program_details: ['', [Validators.required]],
+      program_lead: ['', [Validators.required]],
+      program_members: ['', [Validators.required]],
+      participants: ['', [Validators.required]],
+      program_flow: ['', [Validators.required]],
+      additional_details: ['', [Validators.required]],
+    });
 
-              }
-              ngOnInit(): void {
-                this.displayProgramForm = this.fb.group({
-                  productName: ['', [Validators.required,
-                                     Validators.minLength(3),
-                                     Validators.maxLength(50)]],
-                  productCode: ['', Validators.required],
-                  tags: this.fb.array([]),
-                  description: ''
-                });
+    // Read the product Id from the route parameter
 
-                // Read the product Id from the route parameter
-
-                // this.sub = this.route.paramMap.subscribe(
-                //   params => {
-                //     const id = +params.get('id');
-                //     this.createProgram(id);
-                //   }
-                // );
-              }
+    // this.sub = this.route.paramMap.subscribe(
+    //   params => {
+    //     const id = +params.get('id');
+    //     this.createProgram(id);
+    //   }
+    // );
+  }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(FormControlName, {read: ElementRef}) formInputElements!: ElementRef[];
 
-    addProgram(newProgram: any) {
+  addProgram(newProgram: any) {
     this.programs.push(newProgram);
   }
 
@@ -81,6 +86,23 @@ export class ProgramDetailsComponent implements OnInit {
   changeView()
   {
     this.grid = !this.grid;
+  }
+
+  edit(): void {
+    //imagine
+  }
+
+  submit(): void {
+    // console.log('Saved: ' + JSON.stringify(this.addProgram.value));
+
+    this.dataService.createPrograms(this.addProgram.value).subscribe({
+      next: (data)=>{
+        this.route.navigate(['main/programs']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   // createPrograms(id: number): void {
