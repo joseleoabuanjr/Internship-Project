@@ -28,6 +28,11 @@ export class ProgramsComponent implements OnInit {
   obs!: Observable<any>;
   defaultSortOption = 'name';
   sortedData:any = [];
+
+  isAdmin = false;
+  status = false;
+  isActive: boolean = true;
+  useToken!: number;
    //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
 
 
@@ -35,7 +40,7 @@ export class ProgramsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private dataService: DataService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
     ) { }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,6 +48,16 @@ export class ProgramsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProgram();
+    const token = this.dataService.getToken();
+    this.useToken = Number(token);
+    this.dataService.getSingleUser(this.useToken).subscribe(user => {
+      if(user.data.account_type == "faculty"){
+        this.isAdmin = false;
+      }
+      else{
+        this.isAdmin = true;
+      }
+    })
   }
 
 

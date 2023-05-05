@@ -56,7 +56,7 @@ export class CreateComponent implements OnInit {
       participants: new FormControl('',[Validators.required]),
       program_flow: new FormControl('',[Validators.required]),
       additional_details: new FormControl('',[Validators.required]),
-      program_partners: new FormControl('',[Validators.required])
+      partners: new FormControl('',[Validators.required])
     });
   }
   url="./assets/images/cict.png"

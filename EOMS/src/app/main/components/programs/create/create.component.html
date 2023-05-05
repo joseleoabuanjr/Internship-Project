@@ -109,12 +109,12 @@
               <mat-form-field class="mat-field">
                 <mat-label>Program Partners</mat-label>
                 <input  matInput
-                        formControlName="program_partners">
-                <mat-error *ngIf="addProgram.get('program_partners')?.hasError('required')">
+                        formControlName="partners">
+                <mat-error *ngIf="addProgram.get('partners')?.hasError('required')">
                   Program Partners is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <div class="space" *ngIf="addProgram.get('program_partners')?.hasError('required')"></div>
+              <div class="space" *ngIf="addProgram.get('partners')?.hasError('required')"></div>
             </div>
             <div fxFlex="50%"
                   fxFlex.xs="100%"

@@ -26,13 +26,13 @@ $conn = $database->dbConnection();
 $data = json_decode(file_get_contents('php://input'));
 
 
-if (!isset($data->program_title) || !isset($data->date_and_time_start) || !isset($data->date_and_time_end) || !isset($data->place) || !isset($data->program_details) || !isset($data->program_lead) || !isset($data->program_members) || !isset($data->participants) || !isset($data->program_flow) || !isset($data->additional_details) || !isset($data->program_partners)) :
+if (!isset($data->program_title) || !isset($data->date_and_time_start) || !isset($data->date_and_time_end) || !isset($data->place) || !isset($data->program_details) || !isset($data->program_lead) || !isset($data->program_members) || !isset($data->participants) || !isset($data->program_flow) || !isset($data->additional_details) || !isset($data->partners)) :
     echo json_encode([
         'success' => 0,
         'message' => 'Please enter compulsory fileds |  Program Title, Date and Time: Start to End, Place, Program Details, Program Lead, Program Members, Participants, Program Flow, Additional Details, and Partners',
     ]);
     exit;
-elseif (empty(trim($data->program_title)) || empty(trim($data->date_and_time_start)) || empty(trim($data->date_and_time_end)) || empty(trim($data->place)) || empty(trim($data->program_details)) || empty(trim($data->program_lead)) || empty(trim($data->program_members)) || empty(trim($data->participants)) || empty(trim($data->program_flow)) || empty(trim($data->additional_details)) || empty(trim($data->program_partners))) :
+elseif (empty(trim($data->program_title)) || empty(trim($data->date_and_time_start)) || empty(trim($data->date_and_time_end)) || empty(trim($data->place)) || empty(trim($data->program_details)) || empty(trim($data->program_lead)) || empty(trim($data->program_members)) || empty(trim($data->participants)) || empty(trim($data->program_flow)) || empty(trim($data->additional_details)) || empty(trim($data->partners))) :
     echo json_encode([
         'success' => 0,
         'message' => 'Field cannot be empty. Please fill all the fields.',
@@ -50,7 +50,7 @@ try {
     $participants = $data->participants;
     $program_flow = $data->program_flow;
     $additional_details = $data->additional_details;
-    $program_partners = $data->program_partners;
+    $partners = $data->partners;
 
     $query = "INSERT INTO `programs`(
     date_and_time_end,
@@ -63,7 +63,7 @@ try {
     participants,
     program_flow,
     additional_details,
-    program_partners
+    partners
     )
     VALUES(
     :date_and_time_end,
@@ -76,7 +76,7 @@ try {
     :participants,
     :program_flow,
     :additional_details,
-    :program_partners
+    :partners
     )";
 
     $stmt = $conn->prepare($query);
@@ -91,7 +91,7 @@ try {
     $stmt->bindValue(':participants', $participants, PDO::PARAM_STR);
     $stmt->bindValue(':program_flow', $program_flow, PDO::PARAM_STR);
     $stmt->bindValue(':additional_details', $additional_details, PDO::PARAM_STR);
-    $stmt->bindValue(':program_partners', $program_partners, PDO::PARAM_STR);
+    $stmt->bindValue(':partners', $partners, PDO::PARAM_STR);
 
     print_r($data);
     if ($stmt->execute()) {
