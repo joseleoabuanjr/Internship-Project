@@ -3,80 +3,54 @@
   <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" (click)="makePdf()" mat-raised-button>Generate Report</button>
 </div>
 
+<div class="info-container">
+  <mat-toolbar class="tb-container">
+  <div class="sub-info">
+    <p class="text">Current and Previous Extension Program Records</p>
+  </div>
+    <span class="spacer"></span>
+    <form class="searchbar">
+      <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
+        <mat-label>Search</mat-label>
+        <input type="text" matInput placeholder="Ex: Accenture ATA" matInput (keyup)="applyFilter($event)">
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-toolbar>
+  </div>
 
-<div class="form-title">
+<div class="report">
   <div class="print" #print>
-      <div class="heade">
-        <img src="assets\images\header.png" alt="no image">
-      </div>
-      <p>Program Reports</p>
+
+    <div class="report-header">
+      <img src="assets\images\header.png" alt="Header">
+    </div>
+
+    <p>CICT Extension Program Report</p>
+
   <table>
+
     <thead>
       <tr>
         <th>Program Flow</th>
-        <th></th>
       </tr>
     </thead>
+    
     <tbody>
       <tr *ngFor="let obj of report">
         <td>{{obj.title}}</td>
         <td>{{obj.name}}</td>
       </tr>
     </tbody>
+
   </table>
 
-  <div class="foote">
-    <img src="assets\images\footer.png" alt="no image">
+  <div class="report-footer">
+    <img src="assets\images\footer.png" alt="Footer">
+  </div>
+  
   </div>
 </div>
-</div>
-
-<div class="container">
-  <button (click)="makePdf()" mat-raised-button color="primary"><a [routerLink]="['../generate']">Generate Report</a></button>
-  <!--<button onclick="window.print()">Print this page</button>-->
-</div>
-
-<div class="header">
-  <p>Extension Partners Status List</p>
-</div>
-
-
-
-<p class="report">Report List</p>
-<div class="dropdown">
-    <button mat-button [matMenuTriggerFor]="statuslist">Extension Partners Status List<span class="material-icons">arrow_drop_down</span></button>
-      <mat-menu #statuslist="matMenu">
-        <button mat-menu-item>Accomplished</button>
-        <button mat-menu-item>Ongoing</button>
-        <button mat-menu-item>Not Started</button>
-        <button mat-menu-item>Cancelled</button>
-      </mat-menu>
-</div>
-
-<div class="dropdown2">
-    <button mat-button [matMenuTriggerFor]="filter">Filter Reports<span class="material-icons">arrow_drop_down</span></button>
-      <mat-menu #filter="matMenu">
-        <button mat-menu-item>By Date</button>
-        <button mat-menu-item>By Progress</button>
-      </mat-menu>
-</div>
-
-<p class="search">Search</p>
-<form class="searchbar">
-  <mat-form-field class="searchfield">
-    <mat-label>Extension Program Titles</mat-label>
-    <mat-icon matSuffix>search</mat-icon>
-    <input type="text" matInput placeholder="Ex: Accenture ATA">
-  </mat-form-field>
-</form>
-
-<img mat-card-image src="assets\images\cict.png" alt="CICT Logo">
-<mat-card-header>
-  <mat-card-title class="name">ACCENTURE</mat-card-title>
-  <mat-card-subtitle class="date">2023-03-26</mat-card-subtitle>
-    <button class="details-button"mat-button>See Details</button>
-</mat-card-header>
-
 
 <footer>
   <p>© Extensions Office Management Sytstem, 2023</p>
