@@ -5,7 +5,7 @@ import jsPDF from 'jspdf';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.css']
+  styleUrls: ['./reports.component.scss']
 })
 export class ReportsComponent{
 
