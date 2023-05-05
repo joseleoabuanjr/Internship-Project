@@ -1,59 +1,59 @@
-  <div class="page-title">
-      <h1>Extension Programs</h1>
-      <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
-      <!-- <button class="aa-btn" mat-flat-button matBadge="7" matBadgePosition="after" matBadgeSize="small" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">Accounts Approval</button> -->
+<div class="page-title">
+  <h1>Extension Programs</h1>
+  <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
+</div>
 
-    <!-- <div class="container">
-      <button id="create-button" mat-raised-button color="primary"><a [routerLink]="['../programs/create']">Create Extension Program</a></button>
-    </div> -->
-  </div>
+<mat-toolbar class="tb-container">
+  <p>Current and Upcoming Extension Programs</p>
+  <span class="spacer"></span>
+  <form class="searchbar">
+    <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
+      <mat-label>Search</mat-label>
+      <input type="tel" matInput (keyup)="applyFilter($event)">
+      <mat-icon matSuffix class="search-icon">search</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-toolbar>
 
-  <div class="header">
-    <p>Current and Upcoming Extension Programs</p>
-  </div>
-  <mat-toolbar class="tb-container">
-    <span class="spacer"></span>
-    <div class="organizers" *ngIf="grid">
-      <button mat-icon-button (click)="changeView()"><mat-icon>apps</mat-icon></button>
-    </div>
-    <div class="organizers" *ngIf="!grid">
-      <button mat-icon-button (click)="changeView()"><mat-icon>format_list_bulleted</mat-icon></button>
-    </div>
-    <form class="searchbar">
-      <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
-        <mat-label>Search</mat-label>
-        <input type="tel" matInput (keyup)="applyFilter($event)">
-        <mat-icon matSuffix class="search-icon">search</mat-icon>
-      </mat-form-field>
-    </form>
-  </mat-toolbar>
-  <!-- Grd View -->
+  <!-- Grid View -->
   <div class="user-content" *ngIf="grid">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div
-        fxFlex="25%"
-        fxFlex.xs="100%"
-        fxFlex.sm="33%"
-
-      >
-        <mat-card class="user-card mat-elevation-z4">
-          <mat-card-header>
-            <div mat-card-avatar class="user-header-image"></div>
-            <!-- <mat-card-title> {{ programs.title }} </mat-card-title>
-            <mat-card-subtitle> {{ programs.place }} </mat-card-subtitle> -->
-          </mat-card-header>
-          <img mat-card-image src="../../../../assets/images/cict.png">
-          <mat-card-content>
-          </mat-card-content>
-          <mat-card-actions>
-            <button class="aa-btn" id="ex-details-button" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['main/programs/:id']">Details</a></button>
-          </mat-card-actions>
-        </mat-card>
+    <section class="section-container">
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div
+          fxFlex="100%"
+          fxFlex.xs="100%"
+          fxFlex.sm="100%"
+        >
+        <mat-accordion class="main-panel">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header class="main-header">
+              <mat-panel-title class="logo-container">
+                <div class="image-container">
+                  <img class="logo" mat-card-image src="https://scontent.fcrk3-2.fna.fbcdn.net/v/t1.6435-9/123600581_116713376904230_3398607174827786462_n.png?_nc_cat=101&ccb=1-7&_nc_sid=cdbe9c&_nc_eui2=AeF1hy8p-qUvEjg7e2RFtXKZFiBy5MsS6mEWIHLkyxLqYQ9wRc02mTItCNzj_Lfz9qpBpEOs0ghojbYjMBf5vis4&_nc_ohc=tRBpxXjSs1UAX-8INNX&_nc_oc=AQn77BIVBPe8GfuXweHUdoxhyrD4Dsi2GaUnD9D9NJHgSHyrRPwkYV1a-4i5jK5hCuA&_nc_ht=scontent.fcrk3-2.fna&oh=00_AfBXEdiGIkgOtLV_j_hpitMfLb47zTOr4OJs-xG2INGz_A&oe=647C4554" alt="Sambalaran Camp Project">
+                </div>
+              </mat-panel-title>
+              <mat-panel-description>
+                <h4>Sambalaran Online Camp Project IV</h4>
+                <p>"Bayanihan para sa Ligtas na Lipunan" (Bahay, Bayani at Bayanihan) Come and join us as we offer series of webinars to enrich your professional development and career growth. We are encouraging everyone to join and participate in this valuable series of webinars and trainings during the SAMBALARAN Online Camp Project IV. 
+                    Embrace the Firefox spirit, and let your flame ignite, Firefox. You are a Firefox. Empower. Ignite.#EmpoweredByICT</p>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ul>
+              <thead>Details:</thead><br>
+              <li>Start Date: November 9, 2020
+              <li>End Date: November 13, 2020
+              <li>Place: Virtual Platform
+              <li>Program Head: Name
+              <li>Program Members: Name 1, Name 2, Name 3
+              <li>Program Flow: *Insert Flow (IMAGE?)
+              </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
-    </div>
+      </div>
+    </section>
   </div>
-  <!-- /Grid View -->
 
-  <footer>
-      <p>© Extensions Office Management Sytstem, 2023</p>
-  </footer>
+<footer>
+  <p>© Extensions Office Management Sytstem, 2023</p>
+</footer>

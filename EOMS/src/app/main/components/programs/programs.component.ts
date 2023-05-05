@@ -21,7 +21,7 @@ export class ProgramsComponent implements OnInit {
   displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
   filterValue!: string;
   dataSource: any;
-   //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
+  //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
 
 
   constructor(private router: Router, private route: ActivatedRoute) { }
@@ -52,7 +52,6 @@ export class ProgramsComponent implements OnInit {
   {
     this.grid = !this.grid;
   }
-
   applyFilter(event: KeyboardEvent) {
     this.filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
