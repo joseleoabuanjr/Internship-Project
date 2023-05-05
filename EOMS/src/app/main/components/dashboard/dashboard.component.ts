@@ -29,6 +29,9 @@ const colors: Record<string, EventColor> = {
 
 export class DashboardComponent {
 
+  filterValue!: string;
+  dataSource: any;
+
   @ViewChild('modalContent', { static: true })
   modalContent!: TemplateRef<any>;
 
@@ -158,5 +161,8 @@ export class DashboardComponent {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
-
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 }
