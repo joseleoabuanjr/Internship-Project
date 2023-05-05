@@ -49,6 +49,10 @@ export class DataService {
   //   return this.http.get<Data>(this.baseUrl+'getApprovals.php?id='+id);
   // }
 
+  getPartners(){
+    return this.http.get<any>(this.baseUrl+'getPartners.php?');
+  }
+
   getApprovals(){
     return this.http.get<Data>(this.baseUrl+'getApprovals.php?');
   }
