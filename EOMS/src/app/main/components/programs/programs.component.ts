@@ -19,6 +19,8 @@ export class ProgramsComponent implements OnInit {
   hidden = false;
   panelOpenState = false;
   displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
+  filterValue!: string;
+  dataSource: any;
    //dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
 
 
@@ -49,5 +51,10 @@ export class ProgramsComponent implements OnInit {
   changeView()
   {
     this.grid = !this.grid;
+  }
+
+  applyFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 }

@@ -12,16 +12,6 @@
     <p>Current and Upcoming Extension Programs</p>
   </div>
   <mat-toolbar class="tb-container">
-    <div class="dropdown">
-      <button mat-button [matMenuTriggerFor]="faculty">Sort By<span class="material-icons">arrow_drop_down</span></button>
-          <mat-menu #faculty="matMenu">
-            <button mat-menu-item>Default</button>
-            <button mat-menu-item>Male Faculty</button>
-            <button mat-menu-item>Female Faculty</button>
-            <button mat-menu-item>Position</button>
-            <button mat-menu-item>Specialization</button>
-          </mat-menu>
-    </div>
     <span class="spacer"></span>
     <div class="organizers" *ngIf="grid">
       <button mat-icon-button (click)="changeView()"><mat-icon>apps</mat-icon></button>
@@ -32,7 +22,7 @@
     <form class="searchbar">
       <mat-form-field class="search-field" id="searchbar" subscriptSizing="dynamic">
         <mat-label>Search</mat-label>
-        <input type="tel" matInput>
+        <input type="tel" matInput (keyup)="applyFilter($event)">
         <mat-icon matSuffix class="search-icon">search</mat-icon>
       </mat-form-field>
     </form>

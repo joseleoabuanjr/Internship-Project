@@ -31,6 +31,7 @@ export class AuthService {
         // console.log(User);
         if(User.success === 1){
           if(User.data.username === username && User.data.password === password){
+
             this.route.navigate(['main/dashboard']);
           }
         }
