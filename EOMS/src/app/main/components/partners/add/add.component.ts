@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { DataService } from 'src/app/core/services/data.service';
 
 export class AddComponent implements OnInit {
   addPartner!: FormGroup;
+  id!:number;
+  imageURL!: string;
   vals = ''
   data= this.vals.split(',');
 
@@ -18,14 +21,17 @@ export class AddComponent implements OnInit {
 
   @Output() childToParent = new EventEmitter<any>();
 
-  constructor(private route: Router, private dataService: DataService) { }
+  constructor(private route: Router, private a_route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit(): void {
+    const urlid = this.a_route.snapshot.paramMap.get('id');
+    this.id = parseInt(urlid!);
+
     this.addPartner = new FormGroup({
       // id: new FormControl([Validators.required]),
       partnership_start_date: new FormControl('',[Validators.required]),
       partnership_end_date: new FormControl('',[Validators.required]),
-      banner: new FormControl('',[Validators.required]),
+      logo: new FormControl('',[Validators.required]),
       upload_files: new FormControl('',[Validators.required]),
       partner_name: new FormControl('',[Validators.required]),
       partner_address: new FormControl('',[Validators.required]),
@@ -35,10 +41,10 @@ export class AddComponent implements OnInit {
   }
   url="./assets/images/cict.png"
 
-  onselectFile(banner: any){
-    if(banner.target.files){
+  onselectFile(logo: any){
+    if(logo.target.files){
       let reader = new FileReader();
-      reader.readAsDataURL(banner.target.files[0]);
+      reader.readAsDataURL(logo.target.files[0]);
       reader.onload=(event:any)=>{
         this.url=event.target.result;
       }
@@ -59,13 +65,7 @@ export class AddComponent implements OnInit {
       error: (err: any) => {
         console.log(err);
       }
-    });
-    // this.partners.push(this.addPartner.value)
-    // if(this.addPartner.value.start <= this.addPartner.value.end){
-    //   this.childToParent.emit(this.addPartner.value)
-    //   this.router.navigate(['main/partners'])
-    // }
-
+    })
   }
 }
 

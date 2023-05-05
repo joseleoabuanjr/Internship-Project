@@ -1,106 +1,67 @@
-<div class="page-container">
-  <div class="page-title">
-    <div class="form-title">
-      <h1>Create a Program</h1>
-    </div>
-    <button mat-raised-button
-                  type="submit"
-                  class="aa-btn"
-                  [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                  [disabled]="!addPartner.valid"
-                  (click)="submit()">
-      Submit
-    </button>
+<div class="page-title">
+  <h1>Add Extension Partner</h1>
+</div>
+<div class="info-container">
+  <div class="sub-info">
+    <p class="text">Fill out the form with the necessary details and upload the appropriate files for the extension partner to be added</p>
   </div>
+  <form [formGroup]="addPartner" (ngSubmit)="submit()">
+    <section class="section-container">
+      <h3>Partner Logo</h3>
+      <app-banner formControlName="logo"></app-banner>
+      <!-- {{ addPartner.value.upload_files | json }} -->
+    </section>
 
-  <div class="container" [style.Display]="dis">
-    <form [formGroup]="addPartner" (ngSubmit)="submit()" class="form-container" #newPartner>
+    <section class="section-container">
+      <h3>Upload File</h3>
+      <div class="avatar-container">
+        <div class="label-container">
+          <p>Upload MOA or other appropriate and necessary files.</p>
+            <label class="form-label text-white m-2" for="customFile2">
+              <i class='bx bxs-file-png'></i>
+              Upload Files
+              </label>
+              <div class="input-group">
+                <input type="file"
+                        class="form-control"
+                        id="inputGroupFile04"
+                        aria-describedby="inputGroupFileAddon04"
+                        aria-label="Upload"
+                        placeholder="Upload Files"
+                        formControlName="upload_files"
+                        (change)="onselectFile($event)"
+                        #newPartner>
+              </div>
+              <mat-error *ngIf="addPartner.get('upload_files')?.hasError('required')">
+                Partner Title is <strong>required</strong>
+              </mat-error>
+              <div class="space" *ngIf="addPartner.get('upload_files')?.hasError('required')"></div>
+        </div>
+      </div>
+    </section>
 
-      <div class="content">
-        <div fxLayout="column wrap">
-
-          <div  fxFlex="50%"
+    <section class="section-container">
+      <h3>Partner Details</h3>
+      <div class="form-container">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+          <div fxFlex="50%"
                 fxFlex.xs="100%"
-                fxFlex.sm="100%"
-                fxFlex.md="100%">
-            <div class="upload-container">
-              <mat-card class="mat-elevation-z4">
-                <mat-card-header>
-                  <mat-card-title><h2>Uploads</h2></mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                  <img [src]="url" height="500">
-                </mat-card-content>
-                <mat-card-actions>
-                  <div class="d-flex justify-content-center">
-                    <div class="btn btn-rounded">
-                        <label class="form-label text-white m-2" for="customFile2">
-                          <i class='bx bxs-file-png'></i>
-                          Upload Banner
-                          </label>
-                        <input type="file"
-                                class="form-control d-none"
-                                id="customFile2"
-                                placeholder="Upload Program Banner"
-                                formControlName="banner"
-                                (change)="onselectFile($event)"
-                                #newPartner/>
-                    </div>
-                  </div>
-                    <mat-error *ngIf="addPartner.get('banner')?.hasError('required')">
-                    Banner is <strong>required</strong>
-                    </mat-error>
-                    <div class="space" *ngIf="addPartner.get('banner')?.hasError('required')"></div>
-
-                  <br>
-
-                  <div class="d-flex justify-content-center">
-                      <div class="btn btn-rounded">
-                          <label class="form-label text-white m-2" for="customFile2">
-                            <i class='bx bxs-file-png'></i>
-                            Upload Memorandum of Agreement (MOA)
-                            </label>
-                            <div class="input-group">
-                              <input type="file"
-                                      class="form-control"
-                                      id="inputGroupFile04"
-                                      aria-describedby="inputGroupFileAddon04"
-                                      aria-label="Upload"
-                                      placeholder="Upload Files"
-                                      formControlName="upload_files"
-                                      (change)="onselectFile($event)"
-                                      #newPartner>
-                            </div>
-                      </div>
-                  </div>
-                  <mat-error *ngIf="addPartner.get('upload_files')?.hasError('required')">
-                  File is <strong>required</strong>
-                  </mat-error>
-                  <div class="space" *ngIf="addPartner.get('upload_files')?.hasError('required')"></div>
-
-                  <br>
-                </mat-card-actions>
-              </mat-card>
-
-            </div>
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Partner Name</mat-label>
+              <input  matInput
+                      formControlName="partner_name">
+              <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
+                Partner Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
           </div>
-
-
-          <div fxFlex="50%">
-            <div class="info-container">
-              <h2>Details</h2>
-              <mat-form-field class="mat-field">
-                <mat-label>Partner Name</mat-label>
-                <input  matInput
-                        formControlName="partner_name" #newPartner>
-                <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
-                  Partner Name is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
-
-              <mat-form-field class="mat-field">
-                <mat-label>Enter Partnership Date Validity</mat-label>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Date Start / End</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
                   <input matStartDate placeholder="Start date"
                   formControlName="partnership_start_date" #newPartner>
@@ -110,60 +71,68 @@
                 <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('partnership_start_date')?.hasError('required')"></div>
-              <div class="space" *ngIf="addPartner.get('partnership_end_date')?.hasError('required')"></div>
-
-              <mat-form-field class="mat-field">
-                <mat-label>Partner Name</mat-label>
-                <input  matInput
-                        formControlName="partner_name" #newPartner>
-                <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
-                  Partner Name is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
-
-              <mat-form-field class="mat-field">
-                <mat-label>Partner Address</mat-label>
-                <input  matInput
-                        formControlName="partner_address" #newPartner>
-                <mat-error *ngIf="addPartner.get('partner_address')?.hasError('required')">
-                  Partner Address is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('partner_address')?.hasError('required')"></div>
-
-              <mat-form-field class="mat-field">
-                <mat-label>Contact Person</mat-label>
-                <input  matInput
-                        formControlName="contact_person" #newPartner>
-                <mat-error *ngIf="addPartner.get('contact_person')?.hasError('required')">
-                  Contact Person is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('contact_person')?.hasError('required')"></div>
-
-              <mat-form-field class="mat-field">
-                <mat-label>Contact Number</mat-label>
-                <input  matInput
-                        formControlName="contact_number" #newPartner>
-                <mat-error *ngIf="addPartner.get('contact_number')?.hasError('required')">
-                  Contact Number is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-              <div class="space" *ngIf="addPartner.get('contact_number')?.hasError('required')"></div>
-
-            </div>
+              <mat-error *ngIf="addPartner.get('partnership_start_date')?.hasError('required')">
+                Starting Date is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="addPartner.get('partnership_end_date')?.hasError('required')">
+                Ending Date is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Partner Address</mat-label>
+              <input  matInput
+                      formControlName="partner_address">
+              <mat-error *ngIf="addPartner.get('place')?.hasError('required')">
+                Partner Address <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Contact Person</mat-label>
+              <input  matInput
+                      formControlName="contact_person">
+              <mat-error *ngIf="addPartner.get('contact_person')?.hasError('required')">
+                Contact Person is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Contact Number</mat-label>
+              <input  matInput
+                      formControlName="contact_number">
+              <mat-error *ngIf="addPartner.get('contact_number')?.hasError('required')">
+                Contact Number is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
           </div>
 
+          <div class="d-flex justify-content-end w-100 p-0">
+            <button mat-raised-button
+                    type="submit"
+                    class="aa-btn"
+                    [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                    [disabled]="!addPartner.valid"
+                    (click)="submit()">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
+    </section>
 
-    </form>
-  </div>
-
-  <footer>
-      <p>© Extensions Office Management Sytstem, 2023</p>
-  </footer>
+  </form>
 </div>
+
+<footer>
+    <p>© Extensions Office Management Sytstem, 2023</p>
+</footer>
