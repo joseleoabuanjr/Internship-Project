@@ -107,6 +107,19 @@
                   fxFlex.xs="100%"
                   fxFlex.sm="75%">
               <mat-form-field class="mat-field">
+                <mat-label>Program Partners</mat-label>
+                <input  matInput
+                        formControlName="program_partners">
+                <mat-error *ngIf="addProgram.get('program_partners')?.hasError('required')">
+                  Program Partners is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="space" *ngIf="addProgram.get('program_partners')?.hasError('required')"></div>
+            </div>
+            <div fxFlex="50%"
+                  fxFlex.xs="100%"
+                  fxFlex.sm="75%">
+              <mat-form-field class="mat-field">
                 <mat-label>Program Lead</mat-label>
                 <input  matInput
                         formControlName="program_lead">
@@ -164,19 +177,20 @@
               </mat-form-field>
             </div>
 
-            <div class="d-flex justify-content-end w-100 p-0">
-              <button mat-raised-button
-                      type="submit"
-                      class="aa-btn"
-                      [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                      [disabled]="!addProgram.valid"
-                      (click)="submit()">
-                Submit
-              </button>
-            </div>
           </div>
         </div>
       </section>
+
+      <div class="d-flex justify-content-end w-100 p-0">
+        <button mat-raised-button
+                type="submit"
+                class="aa-btn"
+                [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+                [disabled]="!addProgram.valid"
+                (click)="submit()">
+          Submit
+        </button>
+      </div>
 
     </form>
   </div>
