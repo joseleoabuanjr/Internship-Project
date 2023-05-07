@@ -14,13 +14,14 @@ import { UploadWidgetConfig, UploadWidgetResult, Uploader } from 'uploader';
 export class CreateComponent implements OnInit {
   addProgram!: FormGroup;
   id!:number;
-  imageURL!: string;
+  imageURL = '';
   vals = ''
   data= this.vals.split(',');
 
-  Date1 : Date = new Date();
   programs: any[]= []
   uploadedFileUrl!: string;
+
+  url="./assets/images/cict.png"
 
   @Output() childToParent = new EventEmitter<any>();
 
@@ -30,7 +31,7 @@ export class CreateComponent implements OnInit {
               private dataService: DataService
   ) { }
 
-  uploader = Uploader({ apiKey:"free" });
+    uploader = Uploader({ apiKey:"free" });
     options: UploadWidgetConfig = {
       multi: true,
     };
@@ -44,22 +45,21 @@ export class CreateComponent implements OnInit {
     // this.id = parseInt(urlid!);
 
     this.addProgram = new FormGroup({
-      date_and_time_start: new FormControl('',[Validators.required]),
-      date_and_time_end: new FormControl('',[Validators.required]),
-      program_title: new FormControl('',[Validators.required]),
-      place: new FormControl('',[Validators.required]),
       banner: new FormControl('',[Validators.required]),
       upload_files: new FormControl('',[Validators.required]),
+      program_title: new FormControl('',[Validators.required]),
+      date_time_start: new FormControl('',[Validators.required]),
+      date_time_end: new FormControl('',[Validators.required]),
+      place: new FormControl('',[Validators.required]),
       program_details: new FormControl('',[Validators.required]),
+      partners: new FormControl('',[Validators.required]),
       program_lead: new FormControl('',[Validators.required]),
       program_members: new FormControl('',[Validators.required]),
       participants: new FormControl('',[Validators.required]),
       program_flow: new FormControl('',[Validators.required]),
-      additional_details: new FormControl('',[Validators.required]),
-      partners: new FormControl('',[Validators.required])
+      additional_details: new FormControl('',[Validators.required])
     });
   }
-  url="./assets/images/cict.png"
 
   onselectFile(banner: any){
     if(banner.target.files){
@@ -70,9 +70,27 @@ export class CreateComponent implements OnInit {
       }
     }
   }
+
+  imageSrc:any = '';
+  status:boolean = false
+  onFileChange(event:any) {
+    this.status = false
+    const file = event.target.files[0];
+
+    this.status = event.target.files.length>0?true:false
+    if(this.status==true){
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+        this.imageURL = this.imageSrc.replace(/(\r\n|\n|\r)/gm, "")
+      }
+    }
+  }
+
   dis: any
   show(){
-    this.dis ="inline"
+    this.dis = "inline"
   }
 
   submit(): void {

@@ -1,7 +1,7 @@
 <div class="avatar-container">
   <div class="image-container" *ngIf="banner; else placeholder"
   [ngClass]="{'box-shadow-avatar': !!banner}"
-  [ngStyle]="{backgroundImage: 'url(' + banner + ')'}">
+  [ngStyle]="{'background-image': 'url(' + banner + ')', 'background-size': 'cover' }">
   </div>
 
   <ng-template #placeholder>

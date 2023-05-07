@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { Users } from '../models/users';
@@ -12,6 +12,11 @@ export class DataService {
   createPartners: any;
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data'
+    })
+  };
 
   createUser(user: any){
     return this.http.post<any>(this.baseUrl+'createToApproval.php', user);
@@ -37,8 +42,8 @@ export class DataService {
     }));
   }
 
-  createPrograms(program: any){
-    return this.http.post<any>(this.baseUrl+'programs.php', program);
+  createPrograms(programs: any){
+    return this.http.post<any>(this.baseUrl+'programs.php',  programs, this.httpOptions);
   }
 
   // getPrograms() {

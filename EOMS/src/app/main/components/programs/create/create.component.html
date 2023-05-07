@@ -64,17 +64,17 @@
                 <mat-label>Date Start / End</mat-label>
                   <mat-date-range-input [rangePicker]="picker">
                     <input matStartDate placeholder="Start date"
-                    formControlName="date_and_time_start" #newProgram>
+                    formControlName="date_time_start" #newProgram>
                     <input matEndDate placeholder="End date"
-                    formControlName="date_and_time_end" #newProgram>
+                    formControlName="date_time_end" #newProgram>
                   </mat-date-range-input>
                   <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-date-range-picker #picker></mat-date-range-picker>
-                <mat-error *ngIf="addProgram.get('date_and_time_start')?.hasError('required')">
+                <mat-error *ngIf="addProgram.get('date_time_start')?.hasError('required')">
                   Starting Date is <strong>required</strong>
                 </mat-error>
-                <mat-error *ngIf="addProgram.get('date_and_time_end')?.hasError('required')">
+                <mat-error *ngIf="addProgram.get('date_time_end')?.hasError('required')">
                   Ending Date is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
