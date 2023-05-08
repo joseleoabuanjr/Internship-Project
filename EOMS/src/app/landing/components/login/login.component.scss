@@ -4,7 +4,6 @@
   text-align: center;
   margin-right: 10%;
 }
-
 .form-title{
   padding: 1.25rem;
 }
@@ -33,11 +32,13 @@ form{
   width: 70%;
   margin-left: 9.5%;
 }
-mat-error{
+.mat-error{
   font-size: 0.75rem !important;
   color: #D26466 !important;
 }
-
+.invalid{
+  margin: 0rem 0rem 0.313rem 9.5%;
+}
 @media (max-width: 992px) or (orientation: portrait) {
   form{
     margin-top: 10%;

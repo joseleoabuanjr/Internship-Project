@@ -3,6 +3,10 @@
     <h1 class="titles">Log In</h1>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
+      <mat-error class="invalid" [hidden]="!loginForm.valid">
+        <strong>Warning: </strong>Invalid username or password
+      </mat-error>
+
       <mat-form-field class="mat-field">
         <mat-label>Username or Email</mat-label>
         <input  matInput
@@ -33,6 +37,7 @@
               [disabled]="!loginForm.valid">
         Login
       </button>
+
     </form>
 
     <div class="d-flex justify-content-center w-100 mt-2">
