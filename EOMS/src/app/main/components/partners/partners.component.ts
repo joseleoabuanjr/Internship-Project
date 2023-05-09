@@ -17,24 +17,28 @@ export class PartnersComponent implements OnInit {
   filterValue!: string;
   dataSource: any;
   panelOpenState = false;
+  partnerItems: any;
 
-  constructor(){ /* TODO document why this constructor is empty */ }
+  constructor( private dataService: DataService){ this.partnerItems = []; }
 
   ngOnInit(): void {
+    this.dataService.getPartners().subscribe(data => {
+      console.log(data);
+      this.partnerItems = data.data;
+    });
+
     this.addPartner = new FormGroup({
       name: new FormControl('',[Validators.required]),
       position: new FormControl('',[Validators.required]),
       logo: new FormControl('',[Validators.required])
-
     });
 }
 partners: any[]= []
 
 submit(): void {
-
   this.partners.push(this.addPartner.value)
-
 }
+
 url="./assets/images/cict.png"
 
 onselectFile(logo: any){

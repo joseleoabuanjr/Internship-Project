@@ -67,7 +67,6 @@ export class ProgramDetailsComponent implements OnInit {
         console.log(err);
       }
     });
-
   }
 
   imageSrc:any = '';
