@@ -24,6 +24,7 @@ export class ApprovalsComponent {
   approvaldata: any;
   hasData!: boolean;
   btn!: string;
+  itemsList: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -32,7 +33,9 @@ export class ApprovalsComponent {
     private dataService: DataService,
     private ref: ChangeDetectorRef,
     public dialog: MatDialog
-  ) { }
+  ) {
+    this.itemsList = [];
+  }
 
   ngOnInit(): void {
     this.dataService.getApprovals().subscribe(users => {
@@ -80,24 +83,12 @@ export class ApprovalsComponent {
     dialogRef.afterClosed().subscribe((result) => {
       //check if successful
       if(result == true){
-        this.dataService.getSingleApproval(elementdata.account_id).subscribe(data =>{
-
+        this.dataService.getSingleApproval(elementdata.account_id)
+        .subscribe(data =>{
           //check if successful
           if(data.success == 1){
-
-            //get value of data array
-            for(const user of data.data){
-              const first_name = user.first_name;
-              const last_name = user.last_name;
-              const email = user.email;
-              const username = user.username;
-              const password = user.password;
-              const faculty_id = user.faculty_id;
-
-              //create new json object and pass the values
-              this.approvaldata = {first_name, last_name,email, username, password, faculty_id}
-            }
-            this.dataService.createToUsers(this.approvaldata).subscribe(users =>{
+            this.itemsList = data.data;
+            this.dataService.createToUsers(this.itemsList).subscribe(users =>{
               if(users.success == 1){
                 this.dataService.deleteApproval(elementdata.account_id).subscribe(users =>{
                   if(users.success == 1){
