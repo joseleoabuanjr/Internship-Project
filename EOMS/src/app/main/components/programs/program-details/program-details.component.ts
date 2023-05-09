@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from "@angular/forms";
 import { DataService } from "src/app/core/services/data.service";
-import { UploadWidgetConfig, UploadWidgetResult, Uploader } from "uploader";
 
 @Component({
   selector: 'app-program-details',
@@ -31,15 +30,6 @@ export class ProgramDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private dataService: DataService
   ) { }
-
-  uploader = Uploader({ apiKey:"free" });
-  options: UploadWidgetConfig = {
-    multi: true,
-  };
-  onComplete = (files: UploadWidgetResult[]) => {
-    this.uploadedFileUrl = files[0]?.fileUrl;
-    console.log(files[0]);
-  };
 
   ngOnInit(): void {
     const urlid = this.route.snapshot.paramMap.get('id');

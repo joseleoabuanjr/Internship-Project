@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
-import { UploadWidgetConfig, UploadWidgetResult, Uploader } from 'uploader';
 
 function validUser(c:AbstractControl): { [key: string]:boolean } | null {
   if (!(c.value.length >= 3)){
@@ -39,15 +37,6 @@ export class ProfileComponent implements OnInit {
       private dataService: DataService,
       private route: ActivatedRoute
     ) {  }
-
-    uploader = Uploader({ apiKey:"free" });
-    options: UploadWidgetConfig = {
-      multi: true,
-    };
-    onComplete = (files: UploadWidgetResult[]) => {
-      this.uploadedFileUrl = files[0]?.fileUrl;
-      console.log(files[0]);
-    };
 
   ngOnInit(): void {
     const urlid = this.route.snapshot.paramMap.get('id');
