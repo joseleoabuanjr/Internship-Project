@@ -1,6 +1,7 @@
 <div class="page-title">
   <h1>Extension Program Reports</h1>
   <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" (click)="makePdf()" mat-raised-button>Generate Report</button>
+  <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" onclick=print()>Print Report</button>
 </div>
 
 <div class="info-container">
@@ -19,7 +20,7 @@
   </mat-toolbar>
   </div>
 
-<div class="report">
+<div id="printarea" class="report">
   <div class="print" #print>
 
     <div class="report-header">

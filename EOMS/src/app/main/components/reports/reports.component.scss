@@ -198,3 +198,7 @@ table {
   display:flex;
   justify-content: center;
 }
+@media print {
+  body *, #main * { display:none; }
+  #main, #main #printarea, #main #printarea * { display:block; }
+}
