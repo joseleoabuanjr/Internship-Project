@@ -5,7 +5,7 @@
   <div class="sub-info">
     <p class="text">Fill out the form with the necessary details and upload the appropriate files for the extension program to be created</p>
   </div>
-  <form [formGroup]="displayProgramForm" enctype="multipart/form-data" (ngSubmit)="submitU()">
+  <form [formGroup]="displayPartnersForm" enctype="multipart/form-data" (ngSubmit)="submitU()">
     <section class="section-container">
       <h3>Program Banner</h3>
       <app-banner formControlName="banner"></app-banner>
@@ -29,11 +29,11 @@
               <mat-label>Program Title</mat-label>
               <input  matInput
                       formControlName="program_title">
-              <mat-error *ngIf="displayProgramForm.get('program_title')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('program_title')?.hasError('required')">
                 Program Title is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="space" *ngIf="displayProgramForm.get('program_title')?.hasError('required')"></div>
+            <div class="space" *ngIf="displayPartnersForm.get('program_title')?.hasError('required')"></div>
           </div>
           <div fxFlex="50%"
                 fxFlex.xs="100%"
@@ -49,10 +49,10 @@
                 <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
-                <mat-error *ngIf="displayProgramForm.get('date_time_start')?.hasError('required')">
+                <mat-error *ngIf="displayPartnersForm.get('date_time_start')?.hasError('required')">
                   Starting Date is <strong>required</strong>
                 </mat-error>
-                <mat-error *ngIf="displayProgramForm.get('date_time_end')?.hasError('required')">
+                <mat-error *ngIf="displayPartnersForm.get('date_time_end')?.hasError('required')">
                   Ending Date is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
@@ -64,7 +64,7 @@
               <mat-label>Place</mat-label>
               <input  matInput
                       formControlName="place">
-              <mat-error *ngIf="displayProgramForm.get('place')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('place')?.hasError('required')">
                 Place is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -76,7 +76,7 @@
               <mat-label>Program Details</mat-label>
               <input  matInput
                       formControlName="program_details">
-              <mat-error *ngIf="displayProgramForm.get('program_details')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('program_details')?.hasError('required')">
                 Program Details is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -88,11 +88,11 @@
               <mat-label>Program Partners</mat-label>
               <input  matInput
                       formControlName="partners">
-              <mat-error *ngIf="displayProgramForm.get('partners')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('partners')?.hasError('required')">
                 Program Partners is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="space" *ngIf="displayProgramForm.get('partners')?.hasError('required')"></div>
+            <div class="space" *ngIf="displayPartnersForm.get('partners')?.hasError('required')"></div>
           </div>
           <div fxFlex="50%"
                 fxFlex.xs="100%"
@@ -101,7 +101,7 @@
               <mat-label>Program Lead</mat-label>
               <input  matInput
                       formControlName="program_lead">
-              <mat-error *ngIf="displayProgramForm.get('program_lead')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('program_lead')?.hasError('required')">
                 Program Lead is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -113,7 +113,7 @@
               <mat-label>Program Members</mat-label>
               <input  matInput
                       formControlName="program_members">
-              <mat-error *ngIf="displayProgramForm.get('program_members')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('program_members')?.hasError('required')">
                 Program Members is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -125,7 +125,7 @@
               <mat-label>Participants</mat-label>
               <input  matInput
                       formControlName="participants">
-              <mat-error *ngIf="displayProgramForm.get('participants')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('participants')?.hasError('required')">
                 Participants is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -137,7 +137,7 @@
               <mat-label>Program Flow</mat-label>
               <input  matInput
                       formControlName="program_flow">
-              <mat-error *ngIf="displayProgramForm.get('program_flow')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('program_flow')?.hasError('required')">
                 Program Flow is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -149,7 +149,7 @@
               <mat-label>Additional Details</mat-label>
               <input  matInput
                       formControlName="additional_details">
-              <mat-error *ngIf="displayProgramForm.get('additional_details')?.hasError('required')">
+              <mat-error *ngIf="displayPartnersForm.get('additional_details')?.hasError('required')">
                 Additional Details is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -164,8 +164,8 @@
       <button mat-raised-button
               type="submit"
               class="aa-btn"
-              [title]="displayProgramForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-              [disabled]="!displayProgramForm.valid">
+              [title]="displayPartnersForm.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!displayPartnersForm.valid">
         Update
       </button>
     </div>

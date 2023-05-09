@@ -1,0 +1,107 @@
+@use '@angular/material' as mat;
+
+.page-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  font-family: var(--poppins);
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #f6ad3d, #f8b44c, #faba5a, #f8ca84, #fae0ba, #faf1e7, #f9f9f9);
+  border-radius: 20px 20px 0px 0px;
+}
+.sub-info{
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.section-container{
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(48, 48, 48, 0.123);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.avatar-container {
+  padding: 30px;
+  display: flex;
+}
+.label-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+}
+.image-container {
+  height: 130px;
+  width: 130px;
+  border-radius: 10px;
+  border: 2px rgb(153, 153, 153) solid;
+  background-color: #f3f3f3;
+  background-position: center;
+  background-size: cover;
+}
+.icon-wrapper {
+  color: white;
+  height:  40px;
+  width: 100%;
+  padding: .35rem;
+  border-radius: 10px;
+  background-color:var(--cictgrey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  cursor: pointer;
+
+  &:hover {
+      transition: all .25s;
+      background-color: var(--cictteal);
+  }
+
+  .icon {
+      color: white;
+  }
+
+  label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  input[type='file'] {
+      display: none;
+  }
+}
+.form-container {
+  padding: 20px;
+}
+.mat-field {
+  margin: 0 10px;
+  width: 100%;
+  font-style: 'Avenir Regular', 'Montserrat', sans-serif !important;
+  font-size: 0.9rem !important;
+}
+.eye-icon{
+  margin-right: 10px;
+  padding: 0px !important;
+}
+.input-group{
+  border-radius: 10px 10px 10px 10px;
+  @include mat.elevation-transition();
+  @include mat.elevation(1, #363535, 0.8);
+
+  &:active {
+    @include mat.elevation(8);
+  }
+
+}
+.btn{
+  width: 100px;
+  background-color: var(--teal);
+}

@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 // import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 // import { UploadWidgetConfig, UploadWidgetResult, Uploader } from 'uploader';
@@ -20,22 +20,22 @@ import { DataService } from 'src/app/core/services/data.service';
 
 export class CreateComponent implements OnInit {
   addProgram!: FormGroup;
-  id!:number;
-  imageURL = '';
   vals = ''
   data= this.vals.split(',');
 
-  programs: any[]= []
-  displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
-  uploadedFileUrl!: string;
+  // id!:number;
+  // imageURL = '';
+  // programs: any[]= []
+  // displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
+  // uploadedFileUrl!: string;
 
-  url="./assets/images/cict.png"
+  // url="./assets/images/cict.png"
 
-  @Output() childToParent = new EventEmitter<any>();
+  // @Output() childToParent = new EventEmitter<any>();
 
 
   constructor(private route: Router,
-              private a_route: ActivatedRoute,
+              // private a_route: ActivatedRoute,
               private dataService: DataService
   ) { }
 
@@ -140,7 +140,7 @@ export class CreateComponent implements OnInit {
 
     this.dataService.createPrograms(this.addProgram.value).subscribe({
       next: (data)=>{
-        this.route.navigate(['main/programs']);
+        this.route.navigate(['../programs']);
       },
       error: (err) => {
         console.log(err);

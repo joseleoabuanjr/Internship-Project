@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -12,56 +12,68 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class PartnersComponent implements OnInit {
 
-  addPartner!: FormGroup;
   grid = true;
+  hidden = false;
   filterValue!: string;
   dataSource: any;
   panelOpenState = false;
   partnerItems: any;
+  obs!: Observable<any>;
+  url="./assets/images/cict.png"
 
-  constructor( private dataService: DataService){ this.partnerItems = []; }
+  isAdmin = false;
+  status = false;
+  isActive: boolean = true;
+  useToken!: number;
+
+  constructor(
+    private dataService: DataService,
+    private ref: ChangeDetectorRef
+    ) {  }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.dataService.getPartners().subscribe(data => {
-      console.log(data);
-      this.partnerItems = data.data;
+    this.getPartner();
+    const token = this.dataService.getToken();
+    this.useToken = Number(token);
+    this.dataService.getSingleUser(this.useToken).subscribe(user => {
+      if(user.data.account_type == "faculty"){
+        this.isAdmin = false;
+      }
+      else{
+        this.isAdmin = true;
+      }
+    })
+}
+
+getPartner(): void {
+  this.dataService.getPartners().subscribe(partners =>{
+    this.dataSource = new MatTableDataSource(partners.data);
+    console.log(partners.data);
+    this.ref.detectChanges();
+    setTimeout(()=>{
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.obs = this.dataSource.connect();
     });
-
-    this.addPartner = new FormGroup({
-      name: new FormControl('',[Validators.required]),
-      position: new FormControl('',[Validators.required]),
-      logo: new FormControl('',[Validators.required])
-    });
-}
-partners: any[]= []
-
-submit(): void {
-  this.partners.push(this.addPartner.value)
+  });
 }
 
-url="./assets/images/cict.png"
-
-onselectFile(logo: any){
-  if(logo.target.files){
-    let reader = new FileReader();
-    reader.readAsDataURL(logo.target.files[0]);
-    reader.onload=(event:any)=>{
-      this.url=event.target.result;
-    }
-  }
+applyFilter(event: KeyboardEvent) {
+  this.filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = this.filterValue.trim().toLowerCase();
 }
 
-dis: any
-show(){
-  this.dis ="inline"
+toggleBadgeVisibility() {
+  this.hidden = !this.hidden;
 }
-  //Sidebar toggle show hide function
-  changeView()
-  {
-    this.grid = !this.grid;
-  }
-  applyFilter(event: KeyboardEvent) {
-    this.filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = this.filterValue.trim().toLowerCase();
-  }
+
+//Sidebar toggle show hide function
+changeView()
+{
+  this.grid = !this.grid;
+  this.getPartner();
+}
 }

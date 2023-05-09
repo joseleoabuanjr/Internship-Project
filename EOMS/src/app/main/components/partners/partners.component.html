@@ -1,6 +1,6 @@
   <div class="page-title">
     <h1>Extension Partners</h1>
-    <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../add']">Add Extension Partners +</a></button>
+    <button class="aa-btn" mat-raised-button matBadgePosition="after" matBadgeSize="small" ><a [routerLink]="['../partners/add']">Add Extension Partners +</a></button>
   </div>
   <mat-toolbar class="tb-container">
     <div class="sub-info">
@@ -24,29 +24,42 @@
           fxFlex="100%"
           fxFlex.xs="100%"
           fxFlex.sm="100%"
+          *ngFor="let partners of obs | async, let i = index"
         >
         <mat-accordion class="main-panel">
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header class="main-header">
+              <p>{{ i+1 }}</p>
               <mat-panel-title class="logo-container">
                 <div class="image-container">
+                  <!-- <img class="logo" mat-card-image [src]="'data:image/png;base64,' + partners.image"> -->
                   <img class="logo" mat-card-image src="data:image/png;base64,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" alt="Accenture Logo">
                 </div>
               </mat-panel-title>
               <mat-panel-description>
-                <h4>Accenture Philippines</h4>
-                <p>Accenture is a leading global professional services company that helps the world's leading businesses, governments and other organizations build their digital core, optimize their operations, accelerate revenue growth and enhance citizen services—creating tangible value at speed and scale.</p>
+                <h4>{{ partners.name }}</h4>
+                <p>{{ partners.description }}</p>
+                <!-- <p>Accenture is a leading global professional services company that helps the world's leading businesses, governments and other organizations build their digital core, optimize their operations, accelerate revenue growth and enhance citizen services—creating tangible value at speed and scale.</p> -->
               </mat-panel-description>
             </mat-expansion-panel-header>
             <ul>
               <thead>Details:</thead><br>
-              <li>Address: MSE Building, Ayala Ave, Makati, 1200 Metro Manila
-              <li>Contact Person: Lito Tayag, Country Managing Director
-              <li>Contacts:<br><mat-icon class="icon"> phone</mat-icon>+639175805888 | +63285805888
-              <li><mat-icon class="icon"> location_on</mat-icon><a href="https://www.bing.com/maps?rtp=%7Epos.14.622555_121.0528666_Quezon+City+-+General+Roxas+Avenue+and+General+Aguinaldo+Avenue&cp=14.622572%7E121.052896&lvl=14.5">Get Directions</a>
-              <li><mat-icon class="icon">desktop_mac</mat-icon><a href="https://www.accenture.com/ph-en/about/company/philippines">Visit Website</a></li>
+              <li>Address: {{ partners.start_date }}
+              <li>Address: {{ partners.end_date }}
+              <li>Address: {{ partners.address }}
+              <li>Contact Person: {{ partners.contact_p }}
+              <li>Contacts:<br><mat-icon class="icon"> phone</mat-icon>{{ partners.contact_num }}
+              <li><mat-icon class="icon"> location_on</mat-icon><a href="{{ partners.location }}">Get Directions</a>
+              <li><mat-icon class="icon">desktop_mac</mat-icon><a href="{{ partners.website }}">Visit Website</a></li>
               </ul>
           </mat-expansion-panel>
+          <button
+                mat-button
+                class="manage-btn"
+                [routerLink]="['partner-details', partners.id]"
+            >
+            Manage
+            </button>
         </mat-accordion>
       </div>
       </div>
@@ -74,7 +87,7 @@
               <ul>
                 <thead>Details:</thead><br>
                 <li>Address: 10 MacArthur Hwy, Malolos, Bulacan
-                <li>Contact Person: Atty. Jayric L. Amil, Office of the Governor - Personal Staff 
+                <li>Contact Person: Atty. Jayric L. Amil, Office of the Governor - Personal Staff
                 <li>Contacts:<br><mat-icon class="icon"> phone</mat-icon>+63(44) 791-8148/8149/8150/8151
                 <li><mat-icon class="icon"> location_on</mat-icon><a href="https://www.google.com/maps/dir//Bulacan+Provincial+Capitol,+10+MacArthur+Hwy,+Malolos,+Bulacan/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x339653db1eca7be7:0x165a33d0af8e7af2?sa=X&ved=2ahUKEwj23Nrn0N3-AhWCNt4KHWjzDmUQ48ADegQIBRAM">Get Directions</a>
                 <li><mat-icon class="icon">desktop_mac</mat-icon><a href="https://bulacan.gov.ph/">Visit Website</a></li>
@@ -119,7 +132,7 @@
         </div>
       </div>
     </section>
-    <section class="section-container">
+    <!-- <section class="section-container">
       <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <div
             fxFlex="100%"
@@ -151,7 +164,7 @@
           </mat-accordion>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 <footer>
   <p>© Extensions Office Management Sytstem, 2023</p>

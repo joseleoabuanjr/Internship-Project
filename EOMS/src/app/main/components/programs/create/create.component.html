@@ -182,14 +182,15 @@
         </div>
       </section>
 
+      <br>
+      
       <div class="d-flex justify-content-end w-100 p-0">
         <button mat-raised-button
                 type="submit"
                 class="aa-btn"
                 [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                [disabled]="!addProgram.valid"
-                (click)="submit()">
-                <!-- <a [routerLink]="['main/programs']" routerLinkActive="router-link-active"></a> -->
+                [disabled]="!addProgram.valid">
+                <!-- <a [routerLink]="['../programs']" routerLinkActive="router-link-active"></a> -->
           Submit
         </button>
       </div>

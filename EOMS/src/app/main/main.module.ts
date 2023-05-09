@@ -28,6 +28,7 @@ import { AvatarComponent } from './components/profile/components/avatar/avatar.c
 import { BannerComponent } from './components/programs/banner/banner.component';
 import { UploadFilesComponent } from './components/programs/upload-files/upload-files.component';
 import { ProgramDetailsComponent } from './components/programs/program-details/program-details.component';
+import { PartnerDetailsComponent } from './components/partners/partner-details/partner-details.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProgramDetailsComponent } from './components/programs/program-details/p
     NavbarComponent,
     ProgramsComponent,
     PartnersComponent,
+    PartnerDetailsComponent,
     AccountsComponent,
     ReportsComponent,
     UserlistComponent,

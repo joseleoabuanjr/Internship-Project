@@ -29,37 +29,59 @@
           fxFlex="100%"
           fxFlex.xs="100%"
           fxFlex.sm="100%"
+          *ngFor="let programs of obs | async, let i = index"
         >
         <mat-accordion class="main-panel">
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header class="main-header">
+              <p>{{ i+1 }}</p>
               <mat-panel-title class="logo-container">
                 <div class="image-container">
+                  <!-- {{ programs.banner }} -->
+                  <!-- <img class="logo" mat-card-image [src]="'data:image/png;base64,' + programs.banner"> -->
                   <img class="logo" mat-card-image src="https://scontent.fcrk3-2.fna.fbcdn.net/v/t1.6435-9/123600581_116713376904230_3398607174827786462_n.png?_nc_cat=101&ccb=1-7&_nc_sid=cdbe9c&_nc_eui2=AeF1hy8p-qUvEjg7e2RFtXKZFiBy5MsS6mEWIHLkyxLqYQ9wRc02mTItCNzj_Lfz9qpBpEOs0ghojbYjMBf5vis4&_nc_ohc=tRBpxXjSs1UAX-8INNX&_nc_oc=AQn77BIVBPe8GfuXweHUdoxhyrD4Dsi2GaUnD9D9NJHgSHyrRPwkYV1a-4i5jK5hCuA&_nc_ht=scontent.fcrk3-2.fna&oh=00_AfBXEdiGIkgOtLV_j_hpitMfLb47zTOr4OJs-xG2INGz_A&oe=647C4554" alt="Sambalaran Camp Project">
                 </div>
               </mat-panel-title>
               <mat-panel-description>
-                <h4>Sambalaran Online Camp Project IV</h4>
-                <p>"Bayanihan para sa Ligtas na Lipunan" (Bahay, Bayani at Bayanihan) Come and join us as we offer series of webinars to enrich your professional development and career growth. We are encouraging everyone to join and participate in this valuable series of webinars and trainings during the SAMBALARAN Online Camp Project IV.
-                    Embrace the Firefox spirit, and let your flame ignite, Firefox. You are a Firefox. Empower. Ignite.#EmpoweredByICT</p>
+                <h4>{{ programs.program_title }}</h4>
+                <p>{{ programs.partners }}</p>
               </mat-panel-description>
             </mat-expansion-panel-header>
             <ul>
-              <thead>Details:</thead><br>
-              <li>Start Date: November 9, 2020
-              <li>End Date: November 13, 2020
-              <li>Place: Virtual Platform
-              <li>Program Head: Name
-              <li>Program Members: Name 1, Name 2, Name 3
-              <li>Program Flow: *Insert Flow (IMAGE?)
-              </ul>
+              <thead>Information about this Extension Program</thead><br>
+              <li>Start Date: {{ programs.date_time_start }}
+              <li>End Date: {{ programs.date_time_end }}
+              <li>Place: {{ programs.place }}
+              <li>Program Details: {{ programs.program_details }}
+              <li>Program Lead: {{ programs.program_lead }}
+              <li>Program Members: {{ programs.program_members }}
+              <li>Program Flow: {{ programs.program_flow }}
+              <li>Additional Details: {{ programs.additional_details }}
+            </ul>
+
+            <!-- <button
+                mat-button
+                class="manage-btn"
+                [routerLink]="['program-details', programs.id]"
+            >
+            Manage
+            </button> -->
           </mat-expansion-panel>
+          <button
+                mat-button
+                class="manage-btn"
+                [routerLink]="['program-details', programs.id]"
+            >
+            Manage
+            </button>
         </mat-accordion>
       </div>
       </div>
     </section>
+    <mat-paginator [pageSize]="20" [pageSizeOptions]="[10, 20, 30, 50, 100]" >
+    </mat-paginator>
 
-    <section class="section-container">
+    <!-- <section class="section-container">
       <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <div
           fxFlex="100%"
@@ -94,7 +116,7 @@
       </div>
       </div>
     </section>
-  </div>
+  </div> -->
 
 <footer>
   <p>© Extensions Office Management Sytstem, 2023</p>

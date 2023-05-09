@@ -9,7 +9,7 @@ import { Programs } from '../models/programs';
   providedIn: 'root'
 })
 export class DataService {
-  createPartners: any;
+  // createPartners: any;
   constructor( private http: HttpClient) { }
   baseUrl: string = 'http://localhost/backend/';
   httpOptions = {
@@ -51,11 +51,27 @@ export class DataService {
   }
 
   getSingleProgram(id: number){
-    return this.http.get<any>(this.baseUrl+'getApprovals.php?id='+id);
+    return this.http.get<any>(this.baseUrl+'getPrograms.php?id='+id);
+  }
+
+  updateProgram(programs: any){
+    return this.http.post<any>(this.baseUrl+'updateProgram.php', programs, this.httpOptions);
+  }
+
+  createPartners(partners: any){
+    return this.http.post<any>(this.baseUrl+'partners.php',  partners, this.httpOptions);
   }
 
   getPartners(){
-    return this.http.get<any>(this.baseUrl+'getPartners.php?');
+    return this.http.get<Data>(this.baseUrl+'getPartners.php?');
+  }
+
+  getSinglePartner(id: number){
+    return this.http.get<any>(this.baseUrl+'getPartners.php?id='+id);
+  }
+
+  updatePartners(partners: any){
+    return this.http.post<any>(this.baseUrl+'updatePartners.php', partners, this.httpOptions);
   }
 
   getApprovals(){

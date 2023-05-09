@@ -8,13 +8,14 @@
   <form [formGroup]="addPartner" (ngSubmit)="submit()">
     <section class="section-container">
       <h3>Partner Logo</h3>
-      <app-banner formControlName="logo"></app-banner>
+      <app-banner formControlName="image"></app-banner>
       <!-- {{ addPartner.value.upload_files | json }} -->
     </section>
 
     <section class="section-container">
       <h3>Upload File</h3>
-      <div class="avatar-container">
+      <app-upload-files formControlName="upload_files"></app-upload-files>
+      <!-- <div class="avatar-container">
         <div class="label-container">
           <p>Upload MOA or other appropriate and necessary files.</p>
             <label class="form-label text-white m-2" for="customFile2">
@@ -37,7 +38,7 @@
               </mat-error>
               <div class="space" *ngIf="addPartner.get('upload_files')?.hasError('required')"></div>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <section class="section-container">
@@ -50,12 +51,12 @@
             <mat-form-field class="mat-field">
               <mat-label>Partner Name</mat-label>
               <input  matInput
-                      formControlName="partner_name">
-              <mat-error *ngIf="addPartner.get('partner_name')?.hasError('required')">
+                      formControlName="name">
+              <mat-error *ngIf="addPartner.get('name')?.hasError('required')">
                 Partner Name is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="space" *ngIf="addPartner.get('partner_name')?.hasError('required')"></div>
+            <div class="space" *ngIf="addPartner.get('name')?.hasError('required')"></div>
           </div>
           <div fxFlex="50%"
                 fxFlex.xs="100%"
@@ -64,17 +65,17 @@
               <mat-label>Date Start / End</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
                   <input matStartDate placeholder="Start date"
-                  formControlName="partnership_start_date" #newPartner>
+                  formControlName="start_date" #newPartner>
                   <input matEndDate placeholder="End date"
-                  formControlName="partnership_end_date" #newPartner>
+                  formControlName="end_date" #newPartner>
                 </mat-date-range-input>
                 <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
-              <mat-error *ngIf="addPartner.get('partnership_start_date')?.hasError('required')">
+              <mat-error *ngIf="addPartner.get('start_date')?.hasError('required')">
                 Starting Date is <strong>required</strong>
               </mat-error>
-              <mat-error *ngIf="addPartner.get('partnership_end_date')?.hasError('required')">
+              <mat-error *ngIf="addPartner.get('end_date')?.hasError('required')">
                 Ending Date is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -85,7 +86,7 @@
             <mat-form-field class="mat-field">
               <mat-label>Partner Address</mat-label>
               <input  matInput
-                      formControlName="partner_address">
+                      formControlName="address">
               <mat-error *ngIf="addPartner.get('place')?.hasError('required')">
                 Partner Address <strong>required</strong>
               </mat-error>
@@ -97,8 +98,8 @@
             <mat-form-field class="mat-field">
               <mat-label>Contact Person</mat-label>
               <input  matInput
-                      formControlName="contact_person">
-              <mat-error *ngIf="addPartner.get('contact_person')?.hasError('required')">
+                      formControlName="contact_p">
+              <mat-error *ngIf="addPartner.get('contact_p')?.hasError('required')">
                 Contact Person is <strong>required</strong>
               </mat-error>
             </mat-form-field>
@@ -109,26 +110,52 @@
             <mat-form-field class="mat-field">
               <mat-label>Contact Number</mat-label>
               <input  matInput
-                      formControlName="contact_number">
-              <mat-error *ngIf="addPartner.get('contact_number')?.hasError('required')">
+                      formControlName="contact_num">
+              <mat-error *ngIf="addPartner.get('contact_num')?.hasError('required')">
                 Contact Number is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>
-
-          <div class="d-flex justify-content-end w-100 p-0">
-            <button mat-raised-button
-                    type="submit"
-                    class="aa-btn"
-                    [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
-                    [disabled]="!addPartner.valid"
-                    (click)="submit()">
-              Submit
-            </button>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Location</mat-label>
+              <input  matInput
+                      formControlName="location">
+              <mat-error *ngIf="addPartner.get('location')?.hasError('required')">
+                Location is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
           </div>
+          <div fxFlex="50%"
+                fxFlex.xs="100%"
+                fxFlex.sm="75%">
+            <mat-form-field class="mat-field">
+              <mat-label>Website</mat-label>
+              <input  matInput
+                      formControlName="website">
+              <mat-error *ngIf="addPartner.get('website')?.hasError('required')">
+                Website is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <br>
+
+    <div class="d-flex justify-content-end w-100 p-0">
+      <button mat-raised-button
+              type="submit"
+              class="aa-btn"
+              [title]="addPartner.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
+              [disabled]="!addPartner.valid">
+        Submit
+      </button>
+    </div>
 
   </form>
 </div>

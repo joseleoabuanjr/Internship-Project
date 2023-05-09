@@ -5,22 +5,22 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { DataService } from "src/app/core/services/data.service";
 
 @Component({
-  selector: 'app-program-details',
-  templateUrl: './program-details.component.html',
-  styleUrls: ['./program-details.component.scss']
+  selector: 'app-partner-details',
+  templateUrl: './partner-details.component.html',
+  styleUrls: ['./partner-details.component.scss']
 })
-export class ProgramDetailsComponent implements OnInit {
+export class PartnerDetailsComponent implements OnInit {
   id!: number;
   imageURL!: string;
   Date1 : Date = new Date();
-  programs: any[]= []
+  partners: any[]= []
   url="./assets/images/cict.png"
   value = "";
   grid = true;
   hidden = false;
   panelOpenState = false;
 
-  displayProgramForm!: FormGroup;
+  displayPartnersForm!: FormGroup;
   programdata: any;
   uploadedFileUrl!: any;
   image = '';
@@ -34,7 +34,7 @@ export class ProgramDetailsComponent implements OnInit {
     const urlid = this.route.snapshot.paramMap.get('id');
     this.id = parseInt(urlid!);
 
-    this.displayProgramForm  = new FormGroup({
+    this.displayPartnersForm  = new FormGroup({
       banner: new FormControl('',[Validators.required]),
       upload_files: new FormControl('',[Validators.required]),
       date_time_start: new FormControl('',[Validators.required]),
@@ -50,17 +50,17 @@ export class ProgramDetailsComponent implements OnInit {
       additional_details: new FormControl('',[Validators.required]),
     });
 
-    this.dataService.getSingleProgram(this.id).subscribe( programs =>{
-      this.displayProgramForm.patchValue(programs.data);
+    this.dataService.getSinglePartner(this.id).subscribe( partners =>{
+      this.displayPartnersForm.patchValue(partners.data);
     })
   }
 
   submitU(): void {
-    this.displayProgramForm.value.id = this.id;
-    this.dataService.updateProgram(this.displayProgramForm.value).subscribe({
+    this.displayPartnersForm.value.id = this.id;
+    this.dataService.updatePartners(this.displayPartnersForm.value).subscribe({
       next: (data)=>{
         console.log(data);
-        this.router.navigate(['main/programs']);
+        this.router.navigate(['main/partners']);
       },
       error: (err) => {
         console.log(err);
