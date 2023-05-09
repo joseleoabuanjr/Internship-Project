@@ -1,14 +1,21 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, tap } from 'rxjs';
+// import { map, tap } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
-import { UploadWidgetConfig, UploadWidgetResult, Uploader } from 'uploader';
+// import { UploadWidgetConfig, UploadWidgetResult, Uploader } from 'uploader';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  styleUrls: ['./create.component.scss'],
+  // providers: [
+  //   {
+  //     provide: NG_VALUE_ACCESSOR,
+  //     multi: true,
+  //     useExisting: CreateComponent
+  //   }
+  // ]
 })
 
 export class CreateComponent implements OnInit {
@@ -19,6 +26,7 @@ export class CreateComponent implements OnInit {
   data= this.vals.split(',');
 
   programs: any[]= []
+  displayedColumns: string[] = ['id', 'program_title', 'date_and_time_start', 'date_and_time_end', 'place'];
   uploadedFileUrl!: string;
 
   url="./assets/images/cict.png"
@@ -31,14 +39,14 @@ export class CreateComponent implements OnInit {
               private dataService: DataService
   ) { }
 
-    uploader = Uploader({ apiKey:"free" });
-    options: UploadWidgetConfig = {
-      multi: true,
-    };
-    onComplete = (files: UploadWidgetResult[]) => {
-      this.uploadedFileUrl = files[0]?.fileUrl;
-      console.log(files[0]);
-    };
+    // uploader = Uploader({ apiKey:"free" });
+    // options: UploadWidgetConfig = {
+    //   multi: true,
+    // };
+    // onComplete = (files: UploadWidgetResult[]) => {
+    //   this.uploadedFileUrl = files[0]?.fileUrl;
+    //   console.log(files[0]);
+    // };
 
   ngOnInit(): void {
     // const urlid = this.a_route.snapshot.paramMap.get('id');
@@ -61,37 +69,71 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  onselectFile(banner: any){
-    if(banner.target.files){
-      let reader = new FileReader();
-      reader.readAsDataURL(banner.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
-      }
-    }
-  }
+  // onselectFile(banner: any){
+  //   if(banner.target.files){
+  //     let reader = new FileReader();
+  //     reader.readAsDataURL(banner.target.files[0]);
+  //     reader.onload=(event:any)=>{
+  //       this.url=event.target.result;
+  //     }
+  //   }
+  // }
 
-  imageSrc:any = '';
-  status:boolean = false
-  onFileChange(event:any) {
-    this.status = false
-    const file = event.target.files[0];
+  // writeValue(_file: string): void {
+  //   this.imageURL = _file;
+  // }
+  // registerOnChange(fn: any): void {
+  //   this.onChange = fn;
+  // }
+  // registerOnTouched(fn: any): void {
+  //   this.onTouched = fn;
+  // }
+  // setDisabledState?(isDisabled: boolean): void {
+  //   this.disabled = isDisabled;
+  // }
 
-    this.status = event.target.files.length>0?true:false
-    if(this.status==true){
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.imageSrc = reader.result;
-        this.imageURL = this.imageSrc.replace(/(\r\n|\n|\r)/gm, "")
-      }
-    }
-  }
+  // onChange = (fileUrl: string) => {};
 
-  dis: any
-  show(){
-    this.dis = "inline"
-  }
+  // onTouched = () => {};
+
+  // disabled: boolean = false;
+
+  // imageSrc:any = '';
+  // status:boolean = false
+
+  // onFileChange(event:any) {
+  //   const files = event.target.files as FileList;
+  //   if (files.length > 0) {
+  //     const _file = URL.createObjectURL(files[0]);
+  //     this.imageURL = _file;
+  //     this.resetInput();
+  //     this.onChange(this.imageURL);
+  //   }
+    // this.status = false
+    // const file = event.target.files[0];
+
+    // this.status = event.target.files.length>0?true:false
+    // if(this.status==true){
+    //   const reader = new FileReader();
+    //   reader.readAsDataURL(file);
+    //   reader.onload = () => {
+    //     this.imageSrc = reader.result;
+    //     this.imageURL = this.imageSrc.replace(/(\r\n|\n|\r)/gm, "")
+    //   }
+    // }
+  // }
+
+  // resetInput(){
+  //   const input = document.getElementById('banner-input-file') as HTMLInputElement;
+  //   if(input){
+  //     input.value = "";
+  //   }
+  // }
+
+  // dis: any
+  // show(){
+  //   this.dis = "inline"
+  // }
 
   submit(): void {
     // console.log('Saved: ' + JSON.stringify(this.addProgram.value));

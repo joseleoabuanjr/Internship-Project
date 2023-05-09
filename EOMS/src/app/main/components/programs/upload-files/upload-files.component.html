@@ -1,0 +1,17 @@
+<div class="avatar-container">
+  <ng-template #placeholder>
+    <div class="image-container avatar-placeholder">
+    </div>
+  </ng-template>
+
+  <label class="label-container" for="upload-files-input-file">
+    <p>Upload MOA or other appropriate and necessary files.</p>
+    <div class="input-group">
+        <input type="file" id="upload-files-input-file" accept="file/*" class="form-control"
+        id="inputGroupFile04"
+        aria-describedby="inputGroupFileAddon04"
+        aria-label="Upload"
+        placeholder="Upload Files" (change)="onFileChange($event)" />
+    </div>
+  </label>
+</div>

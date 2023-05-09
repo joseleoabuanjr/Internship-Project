@@ -1,14 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-
-import { CreateComponent } from "../create/create.component";
 import { MatTableDataSource } from "@angular/material/table";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { FormArray, FormBuilder, FormControlName, FormGroup, Validators } from "@angular/forms";
-import { Subscription } from "rxjs";
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from "@angular/forms";
 import { DataService } from "src/app/core/services/data.service";
-import { Programs } from "src/app/core/models/programs";
+import { UploadWidgetConfig, UploadWidgetResult, Uploader } from "uploader";
 
 @Component({
   selector: 'app-program-details',
@@ -25,91 +20,80 @@ export class ProgramDetailsComponent implements OnInit {
   grid = true;
   hidden = false;
   panelOpenState = false;
-  displayedColumns: string[] = ['account_id', 'username', 'faculty_id'];
 
-  product!: Programs;
-  errorMessage: any;
   displayProgramForm!: FormGroup;
-  private sub!: Subscription;
-  pageTitle: string | undefined;
-  dataSource: MatTableDataSource<Programs> = new MatTableDataSource<Programs>();
+  programdata: any;
+  uploadedFileUrl!: any;
+  image = '';
 
-  get tags(): FormArray {
-    return this.displayProgramForm.get('tags') as FormArray;
-  }
-
-  // constructor(private router: Router, private route: ActivatedRoute) { }
   constructor(private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
-              private dataService: DataService) {
+              private dataService: DataService
+  ) { }
 
+  uploader = Uploader({ apiKey:"free" });
+  options: UploadWidgetConfig = {
+    multi: true,
+  };
+  onComplete = (files: UploadWidgetResult[]) => {
+    this.uploadedFileUrl = files[0]?.fileUrl;
+    console.log(files[0]);
+  };
 
-              }
-              ngOnInit(): void {
-                this.displayProgramForm = this.fb.group({
-                  productName: ['', [Validators.required,
-                                     Validators.minLength(3),
-                                     Validators.maxLength(50)]],
-                  productCode: ['', Validators.required],
-                  tags: this.fb.array([]),
-                  description: ''
-                });
+  ngOnInit(): void {
+    const urlid = this.route.snapshot.paramMap.get('id');
+    this.id = parseInt(urlid!);
 
-                // Read the product Id from the route parameter
+    this.displayProgramForm  = new FormGroup({
+      banner: new FormControl('',[Validators.required]),
+      upload_files: new FormControl('',[Validators.required]),
+      date_time_start: new FormControl('',[Validators.required]),
+      date_time_end: new FormControl('',[Validators.required]),
+      program_title: new FormControl('',[Validators.required]),
+      place: new FormControl('',[Validators.required]),
+      program_details: new FormControl('',[Validators.required]),
+      partners: new FormControl('',[Validators.required]),
+      program_lead: new FormControl('',[Validators.required]),
+      program_members: new FormControl('',[Validators.required]),
+      participants: new FormControl('',[Validators.required]),
+      program_flow: new FormControl('',[Validators.required]),
+      additional_details: new FormControl('',[Validators.required]),
+    });
 
-                // this.sub = this.route.paramMap.subscribe(
-                //   params => {
-                //     const id = +params.get('id');
-                //     this.createProgram(id);
-                //   }
-                // );
-              }
+    this.dataService.getSingleProgram(this.id).subscribe( program =>{
+      this.displayProgramForm.patchValue(program.data);
+    })
+    }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(FormControlName, {read: ElementRef}) formInputElements!: ElementRef[];
+  submitU(): void {
+    this.displayProgramForm.value.id = this.id;
+    this.dataService.getSingleProgram(this.displayProgramForm.value).subscribe({
+      next: (data)=>{
+        console.log(data);
+        this.router.navigate(['main/programs']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
 
-    addProgram(newProgram: any) {
-    this.programs.push(newProgram);
   }
 
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
+  imageSrc:any = '';
+  status:boolean = false
+  onFileChange(event:any) {
+    this.status = false
+    const file = event.target.files[0];
+
+    this.status = event.target.files.length>0?true:false
+    if(this.status==true){
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+        this.image = this.imageSrc.replace(/(\r\n|\n|\r)/gm, "")
+      }
+    }
   }
-
-  changeView()
-  {
-    this.grid = !this.grid;
-  }
-
-  // createPrograms(id: number): void {
-  //   this.dataService.createProgram(id)
-  //       .subscribe({
-  //           next: (program: Programs) => this.displayProduct(program),
-  //           error: err => this.errorMessage = err
-  //       });
-  // }
-
-  // displayPrograms(program: Programs): void {
-  //   if (this.displayProgramForm) {
-  //     this.displayProgramForm.reset();
-  //   }
-  //   this.product = product;
-
-  //   if (this.product.id === 0) {
-  //     this.pageTitle = 'Add Product';
-  //   } else {
-  //     this.pageTitle = `Edit Product: ${this.product.productName}`;
-  //   }
-
-  //   // Update the data on the form
-  //   this.displayProgramForm.patchValue({
-  //     productName: this.product.productName,
-  //     productCode: this.product.productCode,
-  //     starRating: this.product.starRating,
-  //     description: this.product.description
-  //   });
-  //   this.displayProgramForm.setControl('tags', this.fb.array(this.product.tags || []));
-  // }
 }

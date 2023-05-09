@@ -1,0 +1,32 @@
+@use '@angular/material' as mat;
+
+.avatar-container {
+  padding: 30px;
+  display: flex;
+}
+.label-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+}
+.image-container {
+  height: 130px;
+  width: 130px;
+  border-radius: 10px;
+  border: 2px rgb(153, 153, 153) solid;
+  background-color: #f3f3f3;
+  background-position: center;
+  background-size: cover;
+}
+.input-group{
+  border-radius: 10px 10px 10px 10px;
+  @include mat.elevation-transition();
+  @include mat.elevation(1, #363535, 0.8);
+
+  &:active {
+    @include mat.elevation(8);
+  }
+
+}

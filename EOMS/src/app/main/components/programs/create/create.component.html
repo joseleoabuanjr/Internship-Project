@@ -14,7 +14,8 @@
 
       <section class="section-container">
         <h3>Upload File</h3>
-        <div class="avatar-container">
+        <app-upload-files formControlName="upload_files"></app-upload-files>
+        <!-- <div class="avatar-container">
           <div class="label-container">
             <p>Upload MOA or other appropriate and necessary files.</p>
               <label class="form-label text-white m-2" for="customFile2">
@@ -37,7 +38,7 @@
                 </mat-error>
                 <div class="space" *ngIf="addProgram.get('upload_files')?.hasError('required')"></div>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <section class="section-container">
@@ -188,6 +189,7 @@
                 [title]="addProgram.valid ? 'Save your Entered Data' : 'Disabled until your data is Valid'"
                 [disabled]="!addProgram.valid"
                 (click)="submit()">
+                <!-- <a [routerLink]="['main/programs']" routerLinkActive="router-link-active"></a> -->
           Submit
         </button>
       </div>

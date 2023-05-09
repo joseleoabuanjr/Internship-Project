@@ -74,12 +74,12 @@ export class ProgramsComponent implements OnInit {
     // });
   }
 
-  ngOnDestroy() {
-    // if (this.dataSource) {
-    //   this.dataSource.disconnect();
-    // }
-    // this.dataSource.disconnect();
-  }
+  // ngOnDestroy() {
+  //   if (this.dataSource) {
+  //     this.dataSource.disconnect();
+  //   }
+  //   this.dataSource.disconnect();
+  // }
 
   applyFilter(event: KeyboardEvent) {
     this.filterValue = (event.target as HTMLInputElement).value;

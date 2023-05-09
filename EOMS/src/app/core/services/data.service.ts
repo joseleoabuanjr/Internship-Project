@@ -46,13 +46,13 @@ export class DataService {
     return this.http.post<any>(this.baseUrl+'programs.php',  programs, this.httpOptions);
   }
 
-  // getPrograms() {
-  //   return this.http.get<Data>(this.baseUrl+'getPrograms.php?id='+id);
-  // }
+  getPrograms() {
+    return this.http.get<Data>(this.baseUrl+'getPrograms.php?id=');
+  }
 
-  // getSingleProgram(id: number){
-  //   return this.http.get<Data>(this.baseUrl+'getApprovals.php?id='+id);
-  // }
+  getSingleProgram(id: number){
+    return this.http.get<any>(this.baseUrl+'getApprovals.php?id='+id);
+  }
 
   getPartners(){
     return this.http.get<any>(this.baseUrl+'getPartners.php?');

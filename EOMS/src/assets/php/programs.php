@@ -26,13 +26,13 @@ $conn = $database->dbConnection();
 $data = json_decode(file_get_contents('php://input'));
 
 
-if (!isset($data->program_title) || !isset($data->date_time_start) || !isset($data->date_time_end) || !isset($data->place) || !isset($data->program_details) || !isset($data->program_lead) || !isset($data->program_members) || !isset($data->participants) || !isset($data->program_flow) || !isset($data->additional_details) || !isset($data->partners) || !isset($data->banner)) :
+if (!isset($data->program_title) || !isset($data->date_time_start) || !isset($data->date_time_end) || !isset($data->place) || !isset($data->program_details) || !isset($data->program_lead) || !isset($data->program_members) || !isset($data->participants) || !isset($data->program_flow) || !isset($data->additional_details) || !isset($data->partners) || !isset($data->banner) || !isset($data->upload_files)) :
     echo json_encode([
         'success' => 0,
         'message' => 'Please enter compulsory fileds |  Program Title, Date and Time: Start to End, Place, Program Details, Program Lead, Program Members, Participants, Program Flow, Additional Details, and Partners',
     ]);
     exit;
-elseif (empty(trim($data->program_title)) || empty(trim($data->date_time_start)) || empty(trim($data->date_time_end)) || empty(trim($data->place)) || empty(trim($data->program_details)) || empty(trim($data->program_lead)) || empty(trim($data->program_members)) || empty(trim($data->participants)) || empty(trim($data->program_flow)) || empty(trim($data->additional_details)) || empty(trim($data->partners)) || empty(trim($data->banner))) :
+elseif (empty(trim($data->program_title)) || empty(trim($data->date_time_start)) || empty(trim($data->date_time_end)) || empty(trim($data->place)) || empty(trim($data->program_details)) || empty(trim($data->program_lead)) || empty(trim($data->program_members)) || empty(trim($data->participants)) || empty(trim($data->program_flow)) || empty(trim($data->additional_details)) || empty(trim($data->partners)) || empty(trim($data->banner)) || empty(trim($data->upload_files))) :
     echo json_encode([
         'success' => 0,
         'message' => 'Field cannot be empty. Please fill all the fields.',
@@ -52,6 +52,7 @@ try {
     $additional_details = $data->additional_details;
     $partners = $data->partners;
     $banner = $data->banner;
+    $upload_files = $data->upload_files;
 
     $query = "INSERT INTO `programs`(
     program_title,
@@ -65,7 +66,8 @@ try {
     program_flow,
     additional_details,
     partners,
-    banner
+    banner,
+    upload_files
     )
     VALUES(
     :program_title,
@@ -79,7 +81,8 @@ try {
     :program_flow,
     :additional_details,
     :partners,
-    :banner
+    :banner,
+    :upload_files
     )";
 
     $stmt = $conn->prepare($query);
@@ -96,6 +99,7 @@ try {
     $stmt->bindValue(':additional_details', $additional_details, PDO::PARAM_STR);
     $stmt->bindValue(':partners', $partners, PDO::PARAM_STR);
     $stmt->bindValue(':banner', $banner, PDO::PARAM_STR);
+    $stmt->bindValue(':upload_files', $upload_files, PDO::PARAM_STR);
 
 
     if ($stmt->execute()) {

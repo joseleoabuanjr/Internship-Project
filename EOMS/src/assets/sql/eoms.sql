@@ -62,11 +62,13 @@ CREATE TABLE `programs` (
   `place` text NOT NULL,
   `program_details` text NOT NULL,
   `program_lead` text NOT NULL,
-  `program_members` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`program_members`)),
-  `participants` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`participants`)),
-  `program_flow` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`program_flow`)),
-  `additional_details` int(11) NOT NULL,
-  `partners` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`partners`))
+  `program_members` text NOT NULL,
+  `participants` text NOT NULL,
+  `program_flow` text NOT NULL,
+  `additional_details` text NOT NULL,
+  `partners` text NOT NULL
+  `banner` longblob NOT NULL
+  `upload_files` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -121,6 +123,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`account_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `programs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -136,6 +144,13 @@ ALTER TABLE `approvals`
 ALTER TABLE `users`
   MODIFY `account_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
+
+--
+-- AUTO_INCREMENT for table `programs`
+--
+ALTER TABLE `programs`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
