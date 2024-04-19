@@ -2,7 +2,7 @@
 CICT - Extension Office Management System
 
 Angular
-MySQL (PHP, Laravel)
+MySQL (PHP)
 
 BACKGROUND:
 *TRACKING OF EXTENSION SERVICES FOR FACULTY.
