@@ -1,7 +1,7 @@
 # Internship-Project
 CICT - Extension Office Management System
 
-Find "Internship-sample" folder to look the actual project!
+**Find "Internship-sample" folder to look the actual project!**
 
 Angular
 MySQL (PHP)
